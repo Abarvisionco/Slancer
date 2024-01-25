@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}
+احراز هویت
+{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <div style="text-align: center">
+        <br><br>
+    <span><h1 style="padding: 20px;background-color: #d39e00" >شما قبلا ثبت نام کرده اید</h1><br>
+    <a href="{% url 'logout' %}" class="btn theme-btn" type="submit">خروج<i class="la la-arrow-left icon ml-1"></i></a>
+        </span>
+
+    </div>
+{% else %}<br><br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 mx-auto">
+                        <div class="card card-item">
+                            <div class="card-body">
+                                <h3 class="card-title text-center fs-24 lh-35 pb-4">
+                                    احراز هویت
+                                </h3>
+                            <div class="btn-box">
+
+                                    {% if messages %}
+                                        <div class="alert alert-danger alert-dismissible" role="alert">
+                                            <div id="form_errors">
+                                                {% for message in messages %}
+                                                    <strong>{{ message }}</strong><br>
+                                                {% endfor %}
+
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+
+                                            </div>
+                                    {% endif %}
+                                    </div>
+                                <div class="section-block"></div>
+                                <form method="post" class="pt-4">
+                                    {% csrf_token %}
+                                    <div class="input-box">
+                                        <label class="label-text">موبایل</label>
+                                        <div class="form-group">
+                                            <input type="number" name="mobile" readonly value="{{ mobile }}"  class="form-control form--control">
+                                            <span class="la la-phone input-icon"></span>
+                                        </div>
+                                    </div>
+                                    <div class="input-box">
+                                        <label class="label-text">کد تایید</label>
+                                        <div class="form-group">
+                                            <input type="number" name="otp" placeholder="کد ارسال شده به شماره موبایل خود را وارد کنید." class="form-control form--control">
+                                            <span class="la la-mobile input-icon"></span>
+                                        </div>
+                                    </div>
+                                    <div class="input-box">
+                                        <label class="label-text">نام</label>
+                                        <div class="form-group">
+                                            <input type="text" name="first_name" value="{{ first_name }}" placeholder="نام خود را وارد کنید." class="form-control form--control">
+                                            <span class="la la-user input-icon"></span>
+                                        </div>
+                                    </div>
+                                    <div class="input-box">
+                                        <label class="label-text">نام خانوادگی</label>
+                                        <div class="form-group">
+                                            <input type="text" value="{{ last_name }}" name="last_name" placeholder="نام خانوادگی خود را وارد کنید." class="form-control form--control">
+                                            <span class="la la-user input-icon"></span>
+                                        </div>
+                                    </div>
+
+                                    <br>
+
+                                    <div class="btn-box">
+
+                                    {% if form.errors %}
+                                        <div class="alert alert-danger alert-dismissible" role="alert">
+                                            <div id="form_errors">
+                                                {% for key, value in form.errors.items %}
+                                                    <strong>{{ value }}</strong>
+                                                {% endfor %}
+                                            </div>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                    {% endif %}
+                                    </div>
+                                        <button class="btn theme-btn" type="submit">ورود | ثبت نام<i class="la la-arrow-left icon ml-1"></i></button>
+
+                                    <!-- end btn-box -->
+                                </form>
+                            </div>
+                            <!-- end card-body -->
+                        </div>
+                        <!-- end card -->
+                    </div>
+                    <!-- end col-lg-7 -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+{% endif %}
+{% endblock content %}
