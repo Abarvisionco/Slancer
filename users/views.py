@@ -106,6 +106,15 @@ class Profile(UpdateView, DetailView):
     template_name = 'registration/profile.html'
     form_class = ProfileForm
     success_url = reverse_lazy("profile")
+    success_message = "اطلاعات پروفایل شما با موفقیت بروز رسانی شد."
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        success_message = self.get_success_message(form.cleaned_data)
+        if success_message:
+            messages.success(self.request, success_message)
+        return response
 
+    def get_success_message(self, cleaned_data):
+        return self.success_message % cleaned_data
     def get_object(self):
         return User.objects.get(pk=self.request.user.pk)

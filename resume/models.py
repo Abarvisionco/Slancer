@@ -72,7 +72,7 @@ class School(models.Model):
     national_code = models.ManyToManyField(NationalCode, verbose_name="کد ملی")
     activity_date = models.IntegerField(verbose_name="سال شروع فعالیت",blank=True,null=True)
     phone_number = models.DecimalField(max_digits=20, decimal_places=2,verbose_name="شماره تفن",blank=True,null=True)
-    admin = models.ForeignKey(User, verbose_name="مدیریت", on_delete=models.SET_NULL, null=True, blank=True)
+    admin = models.ForeignKey(User, verbose_name="مدیریت", on_delete=models.SET_NULL, null=True, blank=True, default=User.is_authenticated)
     active = models.CharField(default='b',verbose_name="وضعیت تاییدیه",choices=Active,max_length=2)
     def __str__(self):
         return self.name
@@ -91,7 +91,9 @@ class Resume(models.Model):
     update_date = models.DateTimeField(auto_now=True, verbose_name="تاریخ بروز رسانی")
     linkedin = models.URLField(verbose_name="آدرس لینکدین", max_length=500, blank=True, null=True)
     address = models.TextField(verbose_name="آدرس محل سکونت", blank=True, null=True)
-    birth_day = models.DateField(verbose_name="تاریخ تولد", blank=True, null=True)
+    birth_day = models.IntegerField(verbose_name="روز تولد", blank=True, null=True)
+    birth_mount = models.IntegerField(verbose_name="ماه تولد", blank=True, null=True)
+    birth_year = models.IntegerField(verbose_name="سال تولد", blank=True, null=True)
     phone_number = models.DecimalField(max_digits=20,decimal_places=2,verbose_name="شماره تلفن")
     email = models.EmailField(verbose_name="ایمیل")
     resume_file = models.FileField(verbose_name="فایل رزومه شخصی",upload_to="resume_files/%Y/%m/")
