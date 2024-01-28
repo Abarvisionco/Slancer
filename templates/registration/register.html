@@ -1,81 +1,143 @@
-{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
 
-{% block title %}
-ورود | ثبت نام
-{% endblock %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Gurdeep singh osahan">
+    <meta name="author" content="Gurdeep singh osahan">
+    <title>مایور | ورود</title>
 
-{% block content %}
-    {% if user.is_authenticated %}
-    <div style="text-align: center">
-        <br><br>
-    <span><h1 style="padding: 20px;background-color: #d39e00" >شما قبلا ثبت نام کرده اید</h1><br>
-    <a href="{% url 'logout' %}" class="btn theme-btn" type="submit">خروج<i class="la la-arrow-left icon ml-1"></i></a>
-        </span>
+    <link rel="icon" type="image/png" href="images/fav.svg">
 
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'vendor/fontawesome/css/font-awesome.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'vendor/icons/css/materialdesignicons.min.css' %}" media="all" rel="stylesheet"
+          type="text/css">
+
+    <link href="{% static 'vendor/slick-master/slick/slick.css' %}" rel="stylesheet" type="text/css">
+
+    <link href="{% static 'vendor/lightgallery-master/dist/css/lightgallery.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'vendor/select2/css/select2-bootstrap.css' %}"/>
+    <link href="{% static 'vendor/select2/css/select2.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+{% if user.is_authenticated %}
+    <div class="align-center text-center">
+    <br><br>
+    <span><h1>شما قبلا ثبت نام کرده اید</h1><br></span>
+    <div class="content">
+        <div class=""><a href="{% url 'logout' %}" class="btn btn-success btn-lg btn-gradient shadow-sm" type="submit">خروج<i
+                class="la la-arrow-left icon ml-1"></i></a>
+        </div>
     </div>
-{% else %}<br><br>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7 mx-auto">
-                        <div class="card card-item">
-                            <div class="card-body">
-                                <h3 class="card-title text-center fs-24 lh-35 pb-4">
-                                    یک حساب کاربری ایجاد کنید و <br>
-                                    شروع به یادگیری کنید!
-                                </h3>
-                                <div class="section-block"></div>
-                                <form method="post" class="pt-4">
-                                    {% csrf_token %}
-                                    <div class="input-box">
-                                        <label class="label-text">شماره موبایل</label>
-                                        <div class="form-group">
-                                            <input type="number" name="mobile" placeholder="شماره موبایل خود را وارد کنید" class="form-control form--control">
-                                            <span class="la la-mobile input-icon"></span>
-                                        </div>
-                                    </div>
-                                    <br>
+    <br>
 
-                                    <div class="btn-box">
-                                    {% if messages %}
-                                        <div class="alert alert-danger alert-dismissible" role="alert">
-                                            <div id="form_errors">
-                                                {% for message in messages %}
-                                                    <strong>{{ message }}</strong><br>
-                                                {% endfor %}
 
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-
-                                            </div>
-                                    {% endif %}
-                                    {% if form.errors %}
-                                        <div class="alert alert-danger alert-dismissible" role="alert">
-                                            <div id="form_errors">
-                                                {% for key, value in form.errors.items %}
-                                                    <strong>{{ value }}</strong>
-                                                {% endfor %}
-
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                    {% endif %}
-                                    </div>
-                                        <button class="btn theme-btn" type="submit">ورود | ثبت نام<i class="la la-arrow-left icon ml-1"></i></button>
-
-                                    <!-- end btn-box -->
-                                </form>
-                            </div>
-                            <!-- end card-body -->
-                        </div>
-                        <!-- end card -->
+{% else %}
+    <div class="bg-white">
+    <div class="container">
+        <div class="row justify-content-center align-items-center d-flex vh-100">
+            <div class="col-lg-4 mx-auto">
+                <div class="osahan-login py-4">
+                    <div class="text-center mb-4">
+                        <a href="{% url 'home' %}"><img src="{% static 'images/fav.svg' %}" alt=""></a>
+                        <h5 class="font-weight-bold mt-3">خوش آمدید</h5>
+                        <p class="text-muted" dir="rtl">
+                            فرصت بعدی خود را از دست ندهید وارد شوید تا از دنیای حرفه ای خود مطلع شوید.</p>
                     </div>
-                    <!-- end col-lg-7 -->
+                    <form action="." method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <p class="mb-1 text-right">شماره تلفن همراه</p>
+                            <div class="position-relative icon-form-control">
+                                <i class="mdi mdi-phone position-absolute"></i>
+                                <input type="number" name="mobile" class="form-control">
+                            </div>
+                        </div>
+
+
+                        <button class="btn btn-success btn-block text-uppercase" type="submit"> احراز هویت</button>
+                        {#<div class="text-center mt-3 border-bottom pb-3">#}
+                        {#<p class="small text-muted">Or login with</p>#}
+                        {#<div class="row">#}
+                        {#<div class="col-6">#}
+                        {#<button type="button" class="btn btn-outline-instagram btn-block"><i class="mdi mdi-instagram"></i> Instagram</button>#}
+                        {#</div>#}
+                        {#<div class="col-6">#}
+                        {#<button type="button" class="btn btn-outline-facebook btn-block"><i class="mdi mdi-facebook"></i> Facebook</button>#}
+                        {#</div>#}
+                        {#</div>#}
+                        {#</div>#}
+
+                    </form>
+                    <br><br>
+                    {% if messages %}
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <div id="form_errors">
+                                {% for message in messages %}
+                                    <strong>{{ message }}</strong><br>
+                                {% endfor %}
+
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                        </div>
+                    {% endif %}
+                    {% if form.errors %}
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                        <div id="form_errors">
+                            {% for key, value in form.errors.items %}
+                                <strong>{{ value }}</strong>
+                            {% endfor %}
+
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    {% endif %}
+                    </div>
                 </div>
-                <!-- end row -->
+
             </div>
-            <!-- end container -->
+        </div>
+    </div>
+
 {% endif %}
-{% endblock content %}
+<script data-cfasync="false"
+        src="{% static 'cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js' %}"></script>
+<script src="{% static 'vendor/jquery/jquery.min.js' %}" type="de3c4eee4ba20d751aec58fe-text/javascript"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"
+        type="de3c4eee4ba20d751aec58fe-text/javascript"></script>
+
+
+<script src="{% static 'js/jqBootstrapValidation.js' %}" type="de3c4eee4ba20d751aec58fe-text/javascript"></script>
+<script src="{% static 'js/contact_me.js' %}" type="de3c4eee4ba20d751aec58fe-text/javascript"></script>
+
+<script src="{% static 'vendor/slick-master/slick/slick.js' %}" type="de3c4eee4ba20d751aec58fe-text/javascript"
+        charset="utf-8"></script>
+
+<script src="{% static 'vendor/lightgallery-master/dist/js/lightgallery-all.min.js' %}"
+        type="de3c4eee4ba20d751aec58fe-text/javascript"></script>
+
+<script src="{% static 'vendor/select2/js/select2.min.js' %}" type="de3c4eee4ba20d751aec58fe-text/javascript"></script>
+
+<script src="{% static 'js/custom.js' %}" type="de3c4eee4ba20d751aec58fe-text/javascript"></script>
+<script src="{% static 'ajax.cloudflare.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js' %}"
+        data-cf-settings="de3c4eee4ba20d751aec58fe-|49" defer=""></script>
+<script defer src="{% static 'static.cloudflareinsights.com/beacon.min.js' %}"
+        data-cf-beacon='{"rayId":"6597c8f8eacf05cc","version":"2021.5.2","r":1,"token":"dd471ab1978346bbb991feaa79e6ce5c","si":10}'></script>
+</body>
+
+<!-- Mirrored from askbootstrap.com/preview/miver/index3.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Jun 2021 09:13:46 GMT -->
+
+</html>

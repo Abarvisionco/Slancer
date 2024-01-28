@@ -8,9 +8,9 @@ from users import models
 '''
 
 class UserAdmin(admin.ModelAdmin):
-    list_filter = ['is_superuser','is_admin']
+    list_filter = ['is_superuser']
     search_fields = ['mobile','first_name',"last_name"]
-    list_display = ['mobile','first_name','last_name','is_superuser','is_admin']
+    list_display = ['mobile','first_name','last_name','is_superuser']
 
 
 
