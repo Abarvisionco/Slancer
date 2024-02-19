@@ -43,23 +43,7 @@ class Field(models.Model):
     class Meta:
         verbose_name = "رشته"
         verbose_name_plural = "رشته ها"
-class NationalCode(models.Model):
-    national_code = models.IntegerField(verbose_name="کد ملی", unique=True)
-    fullname = models.CharField(max_length=200,verbose_name="نام و نام خانوادگی")
-    gender = models.CharField(choices=Gender, max_length=20, verbose_name="جنسیت",default='male')
-    field = models.ForeignKey(Field, verbose_name="رشته", on_delete=models.CASCADE)
-    def __str__(self):
-        return f"{self.fullname} - {self.national_code}"
-    class Meta:
-        verbose_name = "کد ملی"
-        verbose_name_plural = "کد های ملی"
 
-Active = (
-    ('a',"تایید شده"),
-    ('b',"در انتظار تایید"),
-    ('c',"تایید نشده"),
-    ('d',"اجازه فعالیت دارد اما تایید نشده")
-)
 
 class School(models.Model):
     name = models.CharField(max_length=200,verbose_name="نام هنرستان")
@@ -68,12 +52,8 @@ class School(models.Model):
     email = models.EmailField(verbose_name="ایمیل", max_length=500,blank=True,null=True)
     link = models.URLField(verbose_name="آدرس اینترنتی وبسایت", max_length=1000,blank=True,null=True)
     address = models.TextField(verbose_name="آدرس")
-    is_active = models.BooleanField(default=False,verbose_name="وضعیت فعالیت")
-    national_code = models.ManyToManyField(NationalCode, verbose_name="کد ملی")
     activity_date = models.IntegerField(verbose_name="سال شروع فعالیت",blank=True,null=True)
     phone_number = models.DecimalField(max_digits=20, decimal_places=2,verbose_name="شماره تفن",blank=True,null=True)
-    admin = models.ForeignKey(User, verbose_name="مدیریت", on_delete=models.SET_NULL, null=True, blank=True, default=User.is_authenticated)
-    active = models.CharField(default='b',verbose_name="وضعیت تاییدیه",choices=Active,max_length=2)
     def __str__(self):
         return self.name
     class Meta:
@@ -96,12 +76,12 @@ class Resume(models.Model):
     birth_year = models.IntegerField(verbose_name="سال تولد", blank=True, null=True)
     phone_number = models.DecimalField(max_digits=20,decimal_places=2,verbose_name="شماره تلفن")
     email = models.EmailField(verbose_name="ایمیل")
-    resume_file = models.FileField(verbose_name="فایل رزومه شخصی",upload_to="resume_files/%Y/%m/")
+    resume_file = models.FileField(verbose_name="فایل رزومه شخصی",upload_to="resume_files/%Y/%m/", blank=True, null=True)
     create_time = models.DateTimeField(verbose_name="تاریخ ایجاد",auto_now_add=True,null=True)
     active = models.BooleanField(default=True,verbose_name="وضعیت نمایش رزومه به دیگران")
 
     def __str__(self):
-        return self.id
+        return self.user.mobile
     class Meta:
         verbose_name = "رزومه"
         verbose_name_plural = "رزومه ها"

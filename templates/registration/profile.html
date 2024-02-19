@@ -6,17 +6,50 @@
 
 {% block content %}
     <div class="py-5">
-        <div class="container">
+        <div class="container" dir="rtl">
+            {% if messages %}
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <div id="form_errors">
+                        {% for message in messages %}
+                            <span class="text-right">{{ message }}</span><br>
+                        {% endfor %}
+
+                        <button type="button" class="close" data-dismiss="alert"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                </div>
+            {% endif %}
+            {% if form.errors %}
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                <div id="form_errors">
+                    {% for key, value in form.errors.items %}
+                        <span>{{ value }}</span>
+                    {% endfor %}
+
+                    <button type="button" class="close" data-dismiss="alert"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endif %}
             <div class="row">
+
                 <aside class="col col-md-4">
                     <div class="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
 
                         <div class="p-3 border-bottom" dir="rtl">
                             <h6 class="font-weight-bold text-dark">رزومه دارید؟</h6>
-                            <p class="mb-0 text-muted">در صورتی که هنرجوی هنرستان هستید، اگر مدرسه شما در مایور هست وارد شوید.</p>
+                            <p class="mb-0 text-muted">
+                                اگر رزومه دارید آن را بروز رسانی کنیدَ، در غیر این صورت رزومه خود را ایجاد کنید.
+                            </p>
                         </div>
                         <div class="p-3">
-                            <button type="button" class="btn btn-outline-success pl-4 pr-4">رزومه خود را بسازید</button>
+                            <form action="{% url 'profile_views' %}" method="get">
+                            <button type="submit" class="btn btn-outline-success pl-4 pr-4">رزومه خود را بسازید</button>
+                                </form>
                         </div>
                     </div>
 
@@ -24,11 +57,25 @@
                     <div class="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
 
                         <div class="p-3 border-bottom" dir="rtl">
-                            <h6 class="font-weight-bold text-dark">مدیر هنرستانید؟</h6>
-                            <p class="mb-0 text-muted">در صورتی که مدیر یک هنرستان هستید میتوانید هنرستان را در مایور ثبت کنید تا هنرجویان خود را با بازار کار آشنا کنید.</p>
+                            <h6 class="font-weight-bold text-dark">مدرسه خود را جستجو کنید.</h6>
+                            <p class="mb-0 text-muted">
+                                همه مدارس عضو در مایور را میتوانید پیدا کنید و مدرسه خود را پیدا کنید.
+                            </p>
                         </div>
                         <div class="p-3">
-                            <button type="button" class="btn btn-outline-success pl-4 pr-4">مدرسه خود را وارد کنید</button>
+                            <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search"
+                                  dir="ltr">
+                                <div class="input-group">
+                                    <input type="text" class="form-control bg-white small" dir="rtl"
+                                           placeholder="جستجوی مدرسه..."
+                                           aria-label="Search" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-success" type="button">
+                                            <i class="fa fa-search fa-sm"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
 
@@ -37,7 +84,8 @@
                     <div class="shadow-sm rounded bg-white mb-3">
                         <div class="box-title border-bottom p-3">
                             <h6 class="m-0 text-right">اطلاعات اولیه</h6>
-                            <p class="mb-0 mt-0 small text-right">اطلاعات اولیه خود را ویرایش کنید.
+                            <p class="mb-0 mt-0 small text-right">این اطلاعات صرفا جهت شناسایی شمااست و قابل نمایش برای
+                                دیگران نیست.
                             </p>
                         </div>
                         <div class="box-body p-3">
@@ -89,32 +137,7 @@
                                         <div class="mb-3 text-right">
                                             <button type="submit" class="btn btn-success">ویرایش اطلاعات</button>
                                         </div>
-                                        {% if messages %}
-                        <div class="alert alert-danger alert-dismissible" role="alert">
-                            <div id="form_errors">
-                                {% for message in messages %}
-                                    <strong>{{ message }}</strong><br>
-                                {% endfor %}
 
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-
-                        </div>
-                    {% endif %}
-                    {% if form.errors %}
-                        <div class="alert alert-danger alert-dismissible" role="alert">
-                        <div id="form_errors">
-                            {% for key, value in form.errors.items %}
-                                <strong>{{ value }}</strong>
-                            {% endfor %}
-
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    {% endif %}
                                     </div>
 
 
@@ -127,7 +150,7 @@
 
                 </main>
             </div>
+            </div>
         </div>
-    </div>
 
 {% endblock %}

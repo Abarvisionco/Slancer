@@ -1,15 +1,16 @@
 import requests
 from django.contrib.auth import logout, login
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.views.generic import UpdateView, DetailView
-
+from django.contrib.auth.decorators import login_required
 from users.forms import ProfileForm
 from users.models import User
 from users import forms, helper
 from django.contrib import messages
-
+from resume import models
 
 # For Logout Users
 def logout_view(request):
@@ -97,11 +98,22 @@ def verify(request):
         'first_name': first_name,
         'last_name': last_name,
     }
+
     return render(request, 'registration/verify.html', context)
+
+@login_required
+def profile_views(request):
+    user = request.user
+    if models.Resume.objects.filter(user=user):
+        return HttpResponseRedirect(reverse_lazy('resume_home'))
+    else:
+        return HttpResponseRedirect(reverse_lazy('resume_create'))
+
+
 
 
 # Detail Profile
-class Profile(UpdateView, DetailView):
+class Profile(LoginRequiredMixin ,UpdateView, DetailView):
     model = User
     template_name = 'registration/profile.html'
     form_class = ProfileForm

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Gurdeep singh osahan">
     <meta name="author" content="Gurdeep singh osahan">
-    <title>مایور</title>
+    <title>{% block title %}{% endblock %}</title>
 
     <link rel="icon" type="image/png" href="images/fav.svg">
 
@@ -282,7 +282,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
-                        صفحات
+                        دیگر صفحات
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
                         <a class="dropdown-item" href="product.html">Product List</a>
@@ -291,7 +291,7 @@
                         <a class="dropdown-item" href="profile.html">Profile</a>
                         <a class="dropdown-item" href="company-profile.html">Company Profile</a>
                         <a class="dropdown-item" href="alerts.html">Alerts</a>
-                        <a class="dropdown-item" href="messages.html">Messages</a>
+{#                        <a class="dropdown-item" href="{% url 'school_home' %}">ثبت هنرستان</a>#}
                     </div>
                 </li>
                 <li class="nav-item dropdown">

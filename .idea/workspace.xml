@@ -4,13 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ef24459-1e04-4fc7-baf6-2d42644fbc3e" name="Changes" comment="update `README.md` file">
-      <change afterPath="$PROJECT_DIR$/resume/migrations/0009_resume_birth_mount_resume_birth_year_and_more.py" afterDir="false" />
+    <list default="true" id="3ef24459-1e04-4fc7-baf6-2d42644fbc3e" name="Changes" comment="create profile page">
+      <change afterPath="$PROJECT_DIR$/resume/migrations/0010_remove_city_state_remove_district_city_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resume/migrations/0011_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/resume/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/resume/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Karamooz/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Karamooz/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Karamooz/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Karamooz/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/registration/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,10 +36,14 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -45,13 +67,14 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;Django Server.Karamooz.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Projects/Karamooz/static&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/hprot_restructure&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -116,7 +139,25 @@
       <updated>1706164450712</updated>
       <workItem from="1706164489430" duration="10703000" />
       <workItem from="1706294854467" duration="83000" />
-      <workItem from="1706441429163" duration="16578000" />
+      <workItem from="1706441429163" duration="20269000" />
+      <workItem from="1706509070971" duration="2373000" />
+      <workItem from="1706520210650" duration="130000" />
+      <workItem from="1706543994852" duration="5809000" />
+      <workItem from="1706596507171" duration="55000" />
+      <workItem from="1706618815658" duration="2109000" />
+      <workItem from="1706628033175" duration="9202000" />
+      <workItem from="1706766899517" duration="408000" />
+      <workItem from="1706784970005" duration="1637000" />
+      <workItem from="1706888699550" duration="1901000" />
+      <workItem from="1707032449005" duration="801000" />
+      <workItem from="1707046877719" duration="279000" />
+      <workItem from="1707210023051" duration="443000" />
+      <workItem from="1707225640686" duration="35000" />
+      <workItem from="1707299708412" duration="17000" />
+      <workItem from="1707636966693" duration="1326000" />
+      <workItem from="1707644904512" duration="2124000" />
+      <workItem from="1707722310594" duration="47000" />
+      <workItem from="1708348198486" duration="1799000" />
     </task>
     <task id="LOCAL-00001" summary="make models and user mobile authentication">
       <option name="closed" value="true" />
@@ -166,7 +207,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706455509692</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="create profile page">
+      <option name="closed" value="true" />
+      <created>1706462675323</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1706462675323</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +238,7 @@
     <MESSAGE value="make `user login` &amp; `user verify`" />
     <MESSAGE value="Create `README.md` file" />
     <MESSAGE value="update `README.md` file" />
-    <option name="LAST_COMMIT_MESSAGE" value="update `README.md` file" />
+    <MESSAGE value="create profile page" />
+    <option name="LAST_COMMIT_MESSAGE" value="create profile page" />
   </component>
 </project>
