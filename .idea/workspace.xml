@@ -5,31 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ef24459-1e04-4fc7-baf6-2d42644fbc3e" name="Changes" comment="create profile page">
-      <change afterPath="$PROJECT_DIR$/resume/migrations/0010_remove_city_state_remove_district_city_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resume/migrations/0011_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/resume/create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/resume/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/context_processor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resume/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/pwa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/user/resume.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/serviceworker.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Karamooz/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Karamooz/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Karamooz/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Karamooz/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/resume/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/resume/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +32,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -64,33 +54,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Django Server.Karamooz.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/hprot_restructure&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Django Server.Karamooz.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "django.template.preview.state": "SHOW_EDITOR",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/Projects/Karamooz",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\Karamooz" />
       <recent name="D:\Projects\Karamooz\static" />
       <recent name="D:\Projects\Karamooz\users" />
       <recent name="D:\Projects\Karamooz\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\Karamooz\static\images" />
       <recent name="D:\Projects\Karamooz\static\images\user" />
       <recent name="D:\Projects\Karamooz" />
     </key>
@@ -158,6 +150,11 @@
       <workItem from="1707644904512" duration="2124000" />
       <workItem from="1707722310594" duration="47000" />
       <workItem from="1708348198486" duration="1799000" />
+      <workItem from="1708366232684" duration="845000" />
+      <workItem from="1708430340714" duration="27000" />
+      <workItem from="1708436337421" duration="1830000" />
+      <workItem from="1708513222104" duration="118000" />
+      <workItem from="1708868950531" duration="7046000" />
     </task>
     <task id="LOCAL-00001" summary="make models and user mobile authentication">
       <option name="closed" value="true" />

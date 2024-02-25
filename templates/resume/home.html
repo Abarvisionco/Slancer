@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    رزومه شما
+{% endblock %}
+
+{% block content %}
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="bg-white rounded shadow-sm py-3 sidebar-fix">
+                        <div class="dropdown-menu-show">
+                            <a class="dropdown-item py-2 active" href="{% url 'resume_home' %}">اطلاعات اولیه رزومه</a>
+                            <a class="dropdown-item py-2" href="edit-security.html">Edit Security</a>
+                            <a class="dropdown-item py-2" href="edit-notifications.html">Edit Notification</a>
+                            <a class="dropdown-item py-2" href="edit-billing.html">Edit Billing</a>
+                            <a class="dropdown-item py-2" href="edit-payment.html">Edit Payment</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9" dir="rtl">
+                    <div class="bg-white rounded shadow-sm sidebar-page-right">
+                        <div>
+                            <div class="p-3 border-bottom text-right">
+                                <h6 class="mb-0">رزومه خودتان را ویرایش کنید
+                                </h6>
+                            </div>
+                            <div class="p-3 border-bottom">
+                                <form>
+                                    <div class="row d-flex align-items-center form-group">
+                                        <div class="col-md-4">
+                                            <p class="text-muted font-weight-bold mb-0 right">نام و نام خانوادگی</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" name="name" readonly
+                                                   class="form-control font-weight-bold text-muted"
+                                                   value="{{ fullname }}">
+                                        </div>
+                                    </div>
+                                    <div class="row d-flex align-items-center form-group">
+                                        <div class="col-md-4">
+                                            <p class="text-muted font-weight-bold mb-0">ایمیل</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="email" name="email"
+                                                   class="form-control font-weight-bold text-muted" readonly
+                                                   value="{{ email }}">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="p-3">
+                                <form>
+                                    <div class="row form-group">
+                                        <div class="col-md-4">
+                                            <p class="text-muted font-weight-bold mb-0">ACCOUNT DEACTIVATION</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p class="text-muted">What happens when you deactivate your account?</p>
+                                            <dl class="text-muted">
+                                                <li>Your profile and Gigs won't be shown on Miver anymore. <span
+                                                        data-toggle="tooltip" data-placement="top"
+                                                        title="People who will try to view your profile or Gigs will get an 'Unavailable Page' message."><i
+                                                        class="fa fa-question-circle" aria-hidden="true"></i></span>
+                                                </li>
+                                                <li>Active orders will be cancelled. <span data-toggle="tooltip"
+                                                                                           data-placement="top"
+                                                                                           title="Not including delivered orders."><i
+                                                        class="fa fa-question-circle" aria-hidden="true"></i></span>
+                                                </li>
+                                                <li>You won't be able to re-activate your Gigs.</li>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                    <div class="row d-flex align-items-center form-group">
+                                        <div class="col-md-4">
+                                            <p class="text-muted font-weight-bold mb-0">I'm leaving because...</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="form-control">
+                                                <option>Choose a reason</option>
+                                                <optgroup label="Account" issues="">
+                                                    <option>Unsubscribe from Miver emails</option>
+                                                    <option>I want to change my username</option>
+                                                    <option>I have another Miver account</option>
+                                                    <option>Other</option>
+                                                </optgroup>
+                                                <optgroup label="Buying" issues="">
+                                                    <option>I can't find what I need on Miver</option>
+                                                    <option>Miver is complicated or hard to use</option>
+                                                    <option>Negative experience with seller/s</option>
+                                                    <option>I'm unhappy with Miver's policies</option>
+                                                    <option>Other</option>
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-md-4">
+                                            <p class="text-muted font-weight-bold mb-0">Tell us more (optional)</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="7"
+                                                      placeholder="Help us become better..."></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <button class="btn btn-success">Deactivate Account</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,15 +1,16 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-
+{% load pwa %}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Gurdeep singh osahan">
-    <meta name="author" content="Gurdeep singh osahan">
+    <meta name="author" content="Dokey | Mahdi Ghasemi">
     <title>{% block title %}{% endblock %}</title>
+    {% progressive_web_app_meta %}
 
-    <link rel="icon" type="image/png" href="images/fav.svg">
+    <link rel="icon" type="image/png" href="{% static 'images/fav.svg' %}">
 
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
@@ -212,7 +213,16 @@
             {#                    </div>#}
             {#                </li>#}
             {% if user.is_authenticated %}
-                <li class="nav-item dropdown no-arrow no-caret dropdown-user">
+                <li class="nav-item dropdown no-arrow no-caret dropdown-user mr-3" title="تنظیمات رزومه">
+                    <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage"
+                       href="{% url 'profile_views' %}"
+                       aria-expanded="false"><img class="img-fluid w-50"
+                                                  src="{% static 'images/user/resume.png' %}"></a>
+
+                </li>
+            {% endif %}
+            {% if user.is_authenticated %}
+                <li class="nav-item dropdown no-arrow no-caret dropdown-user" title="اطلاعات کاربری">
                     <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage"
                        href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false"><img class="img-fluid w-50" src="{% static 'images/user/p.png' %}"></a>
@@ -257,6 +267,7 @@
                     </div>
                 </li>
             {% endif %}
+
         </ul>
     </div>
 </nav>
@@ -291,7 +302,7 @@
                         <a class="dropdown-item" href="profile.html">Profile</a>
                         <a class="dropdown-item" href="company-profile.html">Company Profile</a>
                         <a class="dropdown-item" href="alerts.html">Alerts</a>
-{#                        <a class="dropdown-item" href="{% url 'school_home' %}">ثبت هنرستان</a>#}
+                        {#                        <a class="dropdown-item" href="{% url 'school_home' %}">ثبت هنرستان</a>#}
                     </div>
                 </li>
                 <li class="nav-item dropdown">

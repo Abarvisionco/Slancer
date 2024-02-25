@@ -13,10 +13,12 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 
 from django.urls import reverse_lazy
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')
+# PWA_SERVICE_WORKER_PATH = [BASE_DIR / 'static/js/serviceworker.js']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -45,6 +47,7 @@ INSTALLED_APPS = [
     'school.apps.SchoolConfig',
     # required lib
     'django_quill',
+    'pwa',
 ]
 
 MIDDLEWARE = [
@@ -143,3 +146,35 @@ AUTHENTICATION_BACKENDS = [
 
 LOGIN_URL = reverse_lazy('login')
 LOGIN_REDIRECT_URL = reverse_lazy('profile')
+
+# pwa settings
+
+PWA_APP_NAME = 'Karamooz'
+PWA_APP_DESCRIPTION = "Karamooz pwa file"
+PWA_APP_THEME_COLOR = '#33FF9C'
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/'
+PWA_APP_STATUS_BAR_COLOR = '#33FF9C'
+PWA_APP_ICONS = [
+    {
+        'src': 'static/images/pwa.png',
+        'sizes': '160x160'
+    }
+]
+PWA_APP_ICONS_APPLE = [
+    {
+        'src': 'static/images/pwa.png',
+        'sizes': '160x160'
+    }
+]
+PWA_APP_SPLASH_SCREEN = [
+    {
+        'src': 'static/images/pwa.png',
+        'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
+    }
+]
+PWA_APP_DIR = 'rtl'
+PWA_APP_LANG = 'fa'

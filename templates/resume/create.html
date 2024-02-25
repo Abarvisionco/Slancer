@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    پروفایل کاربری
+{% endblock %}
+
+{% block content %}
+    <div class="py-5">
+        <div class="container" dir="rtl">
+            {% if messages %}
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <div id="form_errors">
+                        {% for message in messages %}
+                            <span class="text-right">{{ message }}</span><br>
+                        {% endfor %}
+
+                        <button type="button" class="close" data-dismiss="alert"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                </div>
+            {% endif %}
+            {% if form.errors %}
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                <div id="form_errors">
+                    {% for key, value in form.errors.items %}
+                        <span>{{ value }}</span>
+                    {% endfor %}
+
+                    <button type="button" class="close" data-dismiss="alert"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endif %}
+            <div class="row">
+
+
+                <main class="col-md-12" dir="rtl">
+                    <div class="shadow-sm rounded bg-white mb-3">
+                        <div class="box-title border-bottom p-3">
+                            <h6 class="m-0 text-right">رزومه خود را ایجاد کنید</h6>
+                            <p class="mb-0 mt-1 mt-0 small text-right">مدرسه خود را از بین <b>{{ school_len }}</b> مدرسه انتخاب کنید تا رزومه شما ایجاد شود.
+                            </p>
+                        </div>
+                        <div class="box-body p-3">
+                            <form class="js-validate" novalidate="novalidate" method="post">
+                                {% csrf_token %}
+                                <div class="row">
+
+                                    <div class="col-sm-6 mb-2">
+                                        <div class="js-form-message">
+                                            <p id="nameLabel" class="form-label text-right" dir="rtl">
+                                                نام مدرسه
+                                                <span class="text-danger">*</span>
+                                            </p>
+                                            <div class="form-group">
+                                                {{ form.first_name }}
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-sm-6 mb-2">
+                                        <div class="js-form-message">
+                                            <p id="lastnameLabel" class="form-label text-right">
+                                                نام خانوادگی
+                                                <span class="text-danger">*</span>
+                                            </p>
+                                            <div class="form-group">
+                                                {{ form.last_name }}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-sm-12 mb-2">
+                                        <div class="js-form-message">
+                                            <p id="emailLabel" class="form-label text-right">
+                                                آدرس ایمیل
+                                                <span class="text-danger"></span>
+                                            </p>
+                                            <div class="form-group">
+                                                {{ form.email }}
+                                            </div>
+
+                                        </div>
+                                        <br>
+                                        <div class="mb-3 text-right">
+                                            <button type="submit" class="btn btn-success">ویرایش اطلاعات</button>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+
+                </main>
+            </div>
+            </div>
+        </div>
+
+{% endblock %}

@@ -74,8 +74,6 @@ class Resume(models.Model):
     birth_day = models.IntegerField(verbose_name="روز تولد", blank=True, null=True)
     birth_mount = models.IntegerField(verbose_name="ماه تولد", blank=True, null=True)
     birth_year = models.IntegerField(verbose_name="سال تولد", blank=True, null=True)
-    phone_number = models.DecimalField(max_digits=20,decimal_places=2,verbose_name="شماره تلفن")
-    email = models.EmailField(verbose_name="ایمیل")
     resume_file = models.FileField(verbose_name="فایل رزومه شخصی",upload_to="resume_files/%Y/%m/", blank=True, null=True)
     create_time = models.DateTimeField(verbose_name="تاریخ ایجاد",auto_now_add=True,null=True)
     active = models.BooleanField(default=True,verbose_name="وضعیت نمایش رزومه به دیگران")

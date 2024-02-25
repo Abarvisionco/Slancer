@@ -24,8 +24,8 @@ class FieldAdmin(admin.ModelAdmin):
     list_filter = ('best',)
 
 class ResumeAdmin(admin.ModelAdmin):
-    list_display = ('user','school','email','active')
-    search_fields = ('user','school','about','email')
+    list_display = ('user','school','active')
+    search_fields = ('user','school','about')
     list_filter = ('active',)
 
 
