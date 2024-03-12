@@ -151,7 +151,7 @@
       <workItem from="1709109342547" duration="1020000" />
       <workItem from="1709191300714" duration="601000" />
       <workItem from="1709321575943" duration="1218000" />
-      <workItem from="1710266150359" duration="747000" />
+      <workItem from="1710266150359" duration="1305000" />
     </task>
     <task id="LOCAL-00001" summary="make models and user mobile authentication">
       <option name="closed" value="true" />
@@ -209,7 +209,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706462675323</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="create profile page">
+      <option name="closed" value="true" />
+      <created>1710267128685</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1710267128685</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
