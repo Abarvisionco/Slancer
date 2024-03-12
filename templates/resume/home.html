@@ -51,70 +51,74 @@
                                 </form>
                             </div>
                             <div class="p-3">
-                                <form>
-                                    <div class="row form-group">
-                                        <div class="col-md-4">
-                                            <p class="text-muted font-weight-bold mb-0">ACCOUNT DEACTIVATION</p>
-                                        </div>
-                                        {{ form }}
-                                        <div class="col-md-8">
-                                            <p class="text-muted">What happens when you deactivate your account?</p>
-                                            <dl class="text-muted">
-                                                <li>Your profile and Gigs won't be shown on Miver anymore. <span
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        title="People who will try to view your profile or Gigs will get an 'Unavailable Page' message."><i
-                                                        class="fa fa-question-circle" aria-hidden="true"></i></span>
-                                                </li>
-                                                <li>Active orders will be cancelled. <span data-toggle="tooltip"
-                                                                                           data-placement="top"
-                                                                                           title="Not including delivered orders."><i
-                                                        class="fa fa-question-circle" aria-hidden="true"></i></span>
-                                                </li>
-                                                <li>You won't be able to re-activate your Gigs.</li>
-                                            </dl>
-                                        </div>
+                                <div class="row d-flex align-items-center form-group ">
+                                    <div class="col-md-4">
+                                        <p class="text-muted font-weight-bold mb-0">هنرستان خود را انتخاب کنید.</p>
                                     </div>
-                                    <div class="row d-flex align-items-center form-group">
-                                        <div class="col-md-4">
-                                            <p class="text-muted font-weight-bold mb-0">I'm leaving because...</p>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <select class="form-control">
-                                                <option>Choose a reason</option>
-                                                <optgroup label="Account" issues="">
-                                                    <option>Unsubscribe from Miver emails</option>
-                                                    <option>I want to change my username</option>
-                                                    <option>I have another Miver account</option>
-                                                    <option>Other</option>
-                                                </optgroup>
-                                                <optgroup label="Buying" issues="">
-                                                    <option>I can't find what I need on Miver</option>
-                                                    <option>Miver is complicated or hard to use</option>
-                                                    <option>Negative experience with seller/s</option>
-                                                    <option>I'm unhappy with Miver's policies</option>
-                                                    <option>Other</option>
-                                                </optgroup>
-                                            </select>
-                                        </div>
+                                    <div class="col-md-8">
+                                        {{ form.school }}
                                     </div>
-                                    <div class="row form-group">
-                                        <div class="col-md-4">
-                                            <p class="text-muted font-weight-bold mb-0">Tell us more (optional)</p>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="7"
-                                                      placeholder="Help us become better..."></textarea>
-                                        </div>
+                                </div>
+                                <div class="row d-flex align-items-center form-group">
+                                    <div class="col-4">
+                                        <p class="text-muted font-weight-bold mb-0">آدرس لینکدین</p>
                                     </div>
-                                    <div class="text-right">
-                                        <button class="btn btn-success">Deactivate Account</button>
+                                    <div class="col-8">
+                                        {{ form.linkedin }}
                                     </div>
-                                </form>
+                                </div>
+                                <div class="row d-flex align-items-center form-group">
+                                    <div class="col-4">
+                                        <p class="text-muted font-weight-bold mb-0">فایل رزومه</p>
+                                    </div>
+                                    <div class="col-8">
+                                        {{ form.resume_file }}
+                                    </div>
+                                </div>
+                                <div class="row d-flex align-items-center form-group">
+                                    <div class="col-4">
+                                        <p class="text-muted font-weight-bold mb-0">تاریخ تولد:</p>
+                                    </div>
+                                    <div class="col-3">
+                                        <label>روز</label>
+                                        {{ form.birth_day }}
+                                    </div>
+                                    <div class="col-2">
+                                        <label>ماه</label>
+                                        {{ form.birth_mount }}
+                                    </div>
+                                    <div class="col-3">
+                                        <label>سال</label>
+                                        {{ form.birth_year }}
+                                    </div>
+                                </div>
+                                <div class="row d-flex align-items-center form-group">
+                                    <div class="col-4">
+                                        <p class="text-muted font-weight-bold mb-0">آدرس محل سکونت</p>
+                                    </div>
+                                    <div class="col-8">
+                                        {{ form.address }}
+                                    </div>
+                                </div>
+                                <div class="row d-flex align-items-center form-group">
+                                    <div class="col-4">
+                                        <p class="text-muted font-weight-bold mb-0">وضعیت نمایش به دیگران</p>
+                                    </div>
+                                    <div class="col-8">
+                                        {{ form.active }}
+                                    </div>
+                                </div>
+
+                                <div class="text-right">
+                                    <button class="btn btn-success">ویرایش رزومه</button>
+                                </div>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 {% endblock %}

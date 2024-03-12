@@ -55,7 +55,7 @@ class School(models.Model):
     activity_date = models.IntegerField(verbose_name="سال شروع فعالیت",blank=True,null=True)
     phone_number = models.DecimalField(max_digits=20, decimal_places=2,verbose_name="شماره تفن",blank=True,null=True)
     def __str__(self):
-        return self.name
+        return f"{self.name} | {self.district}"
     class Meta:
         verbose_name = "هنرستان"
         verbose_name_plural = "هنرستان ها"
