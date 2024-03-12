@@ -11,7 +11,7 @@
                 <div class="col-lg-3">
                     <div class="bg-white rounded shadow-sm py-3 sidebar-fix">
                         <div class="dropdown-menu-show">
-                            <a class="dropdown-item py-2 active" href="{% url 'resume_home' %}">اطلاعات اولیه رزومه</a>
+                            <a class="dropdown-item py-2 active" href="{% url 'resume_home' %}">نمایش رزومه</a>
                             <a class="dropdown-item py-2" href="edit-security.html">Edit Security</a>
                             <a class="dropdown-item py-2" href="edit-notifications.html">Edit Notification</a>
                             <a class="dropdown-item py-2" href="edit-billing.html">Edit Billing</a>
@@ -56,6 +56,7 @@
                                         <div class="col-md-4">
                                             <p class="text-muted font-weight-bold mb-0">ACCOUNT DEACTIVATION</p>
                                         </div>
+                                        {{ form }}
                                         <div class="col-md-8">
                                             <p class="text-muted">What happens when you deactivate your account?</p>
                                             <dl class="text-muted">

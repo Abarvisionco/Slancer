@@ -66,8 +66,8 @@ class Resume(models.Model):
         the content can gives image, html codes and ...
     '''
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user', default=User.is_authenticated)
-    about =  QuillField()
-    school = models.ForeignKey(School, verbose_name="هنرستان", on_delete=models.CASCADE)
+    about =  QuillField(null=True)
+    school = models.ForeignKey(School,null=True, verbose_name="هنرستان", on_delete=models.SET_NULL)
     update_date = models.DateTimeField(auto_now=True, verbose_name="تاریخ بروز رسانی")
     linkedin = models.URLField(verbose_name="آدرس لینکدین", max_length=500, blank=True, null=True)
     address = models.TextField(verbose_name="آدرس محل سکونت", blank=True, null=True)

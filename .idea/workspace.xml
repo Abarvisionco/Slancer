@@ -5,21 +5,77 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ef24459-1e04-4fc7-baf6-2d42644fbc3e" name="Changes" comment="create profile page">
-      <change afterPath="$PROJECT_DIR$/main/context_processor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resume/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/pwa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/user/resume.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/serviceworker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Karamooz.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Karamooz.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Karamooz/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/Karamooz/asgi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Karamooz/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Karamooz/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Karamooz/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Karamooz/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Karamooz/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/Karamooz/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/migrations/0002_courses_examworks.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/migrations/0002_courses_examworks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/migrations/0003_remove_skills_skill_level_courses_level_skills_level.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/migrations/0003_remove_skills_skill_level_courses_level_skills_level.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/migrations/0004_resume_create_time_alter_resume_update_date.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/migrations/0004_resume_create_time_alter_resume_update_date.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/migrations/0005_remove_city_state_remove_district_city_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/migrations/0005_remove_city_state_remove_district_city_and_more.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/migrations/0006_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/migrations/0006_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/migrations/0007_resume_active_school_active_school_admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/migrations/0007_resume_active_school_active_school_admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/migrations/0008_field_best.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/migrations/0008_field_best.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/migrations/0009_resume_birth_mount_resume_birth_year_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/migrations/0009_resume_birth_mount_resume_birth_year_and_more.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/migrations/0010_remove_city_state_remove_district_city_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/migrations/0010_remove_city_state_remove_district_city_and_more.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/migrations/0011_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/migrations/0011_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/migrations/0012_alter_resume_resume_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/migrations/0012_alter_resume_resume_file.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/migrations/0013_remove_resume_email_remove_resume_phone_number.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/migrations/0013_remove_resume_email_remove_resume_phone_number.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/star.svg.readme" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/star.svg.readme" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/custom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/serviceworker.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/serviceworker.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/verify.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/verify.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/resume/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/create.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/resume/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/backend.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/backend.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/0002_user_username.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/migrations/0002_user_username.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/0003_user_resume_user_school.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/migrations/0003_user_resume_user_school.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/0004_remove_user_resume_remove_user_school.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/migrations/0004_remove_user_resume_remove_user_school.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/0005_remove_user_is_admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/migrations/0005_remove_user_is_admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/usermanager.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/usermanager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,16 +120,24 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "django.template.preview.state": "SHOW_EDITOR",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Projects/Karamooz",
+    "last_opened_file_path": "/home/godfather/Documents/Karamooz",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="Karamooz" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="Karamooz" />
+      </console-settings>
+    </option>
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Projects\Karamooz" />
@@ -117,7 +181,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-50da183f06c8-2887949eec09-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13135.95" />
+        <option value="bundled-python-sdk-d68999036c7f-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.14475.56" />
       </set>
     </attachedChunks>
   </component>
@@ -154,7 +218,12 @@
       <workItem from="1708430340714" duration="27000" />
       <workItem from="1708436337421" duration="1830000" />
       <workItem from="1708513222104" duration="118000" />
-      <workItem from="1708868950531" duration="7046000" />
+      <workItem from="1708868950531" duration="7424000" />
+      <workItem from="1708954273827" duration="286000" />
+      <workItem from="1709109342547" duration="1020000" />
+      <workItem from="1709191300714" duration="601000" />
+      <workItem from="1709321575943" duration="1218000" />
+      <workItem from="1710266150359" duration="443000" />
     </task>
     <task id="LOCAL-00001" summary="make models and user mobile authentication">
       <option name="closed" value="true" />

@@ -103,11 +103,7 @@ def verify(request):
 
 @login_required
 def profile_views(request):
-    user = request.user
-    if models.Resume.objects.filter(user=user):
-        return HttpResponseRedirect(reverse_lazy('resume_home'))
-    else:
-        return HttpResponseRedirect(reverse_lazy('resume_create'))
+    return HttpResponseRedirect(reverse_lazy('resume_home'))
 
 
 
