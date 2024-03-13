@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+    {% include 'django_quill/media.html' %}
     <section class="py-5">
         <div class="container">
             <div class="row">
@@ -26,8 +27,10 @@
                                 <h6 class="mb-0">رزومه خودتان را ویرایش کنید
                                 </h6>
                             </div>
-                            <div class="p-3 border-bottom">
-                                <form>
+                            <form method="post" action="." enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="p-3 border-bottom">
+
                                     <div class="row d-flex align-items-center form-group">
                                         <div class="col-md-4">
                                             <p class="text-muted font-weight-bold mb-0 right">نام و نام خانوادگی</p>
@@ -48,71 +51,106 @@
                                                    value="{{ email }}">
                                         </div>
                                     </div>
-                                </form>
-                            </div>
-                            <div class="p-3">
-                                <div class="row d-flex align-items-center form-group ">
-                                    <div class="col-md-4">
-                                        <p class="text-muted font-weight-bold mb-0">هنرستان خود را انتخاب کنید.</p>
-                                    </div>
-                                    <div class="col-md-8">
-                                        {{ form.school }}
-                                    </div>
                                 </div>
-                                <div class="row d-flex align-items-center form-group">
-                                    <div class="col-4">
-                                        <p class="text-muted font-weight-bold mb-0">آدرس لینکدین</p>
+                                <div class="p-3">
+                                    <div class="row d-flex align-items-center form-group ">
+                                        <div class="col-md-4">
+                                            <p class="text-muted font-weight-bold mb-0">هنرستان خود را انتخاب کنید.</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form.school }}
+                                        </div>
                                     </div>
-                                    <div class="col-8">
-                                        {{ form.linkedin }}
+                                    <div class="row d-flex align-items-center form-group">
+                                        <div class="col-4">
+                                            <p class="text-muted font-weight-bold mb-0">آدرس لینکدین</p>
+                                        </div>
+                                        <div class="col-8">
+                                            {{ form.linkedin }}
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row d-flex align-items-center form-group">
-                                    <div class="col-4">
-                                        <p class="text-muted font-weight-bold mb-0">فایل رزومه</p>
+                                    <div class="row d-flex align-items-center form-group">
+                                        <div class="col-4">
+                                            <p class="text-muted font-weight-bold mb-0">فایل رزومه</p>
+                                        </div>
+                                        <div class="col-8">
+                                            {{ form.resume_file }}
+                                        </div>
                                     </div>
-                                    <div class="col-8">
-                                        {{ form.resume_file }}
+                                    <div class="row d-flex align-items-center form-group">
+                                        <div class="col-4">
+                                            <p class="text-muted font-weight-bold mb-0">تاریخ تولد:</p>
+                                        </div>
+                                        <div class="col-3">
+                                            <label>روز</label>
+                                            {{ form.birth_day }}
+                                        </div>
+                                        <div class="col-2">
+                                            <label>ماه</label>
+                                            {{ form.birth_mount }}
+                                        </div>
+                                        <div class="col-3">
+                                            <label>سال</label>
+                                            {{ form.birth_year }}
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row d-flex align-items-center form-group">
-                                    <div class="col-4">
-                                        <p class="text-muted font-weight-bold mb-0">تاریخ تولد:</p>
+                                    <div class="row d-flex align-items-center form-group">
+                                        <div class="col-4">
+                                            <p class="text-muted font-weight-bold mb-0">درباره شما</p>
+                                        </div>
+                                        <div class="col-8">
+                                            {{ form.about }}
+                                        </div>
                                     </div>
-                                    <div class="col-3">
-                                        <label>روز</label>
-                                        {{ form.birth_day }}
+                                    <div class="row d-flex align-items-center form-group">
+                                        <div class="col-4">
+                                            <p class="text-muted font-weight-bold mb-0">آدرس محل سکونت</p>
+                                        </div>
+                                        <div class="col-8">
+                                            {{ form.address }}
+                                        </div>
                                     </div>
-                                    <div class="col-2">
-                                        <label>ماه</label>
-                                        {{ form.birth_mount }}
+                                    <div class="row d-flex align-items-center form-group">
+                                        <div class="col-4">
+                                            <p class="text-muted font-weight-bold mb-0">وضعیت نمایش به دیگران</p>
+                                        </div>
+                                        <div class="col-8">
+                                            {{ form.active }}
+                                        </div>
                                     </div>
-                                    <div class="col-3">
-                                        <label>سال</label>
-                                        {{ form.birth_year }}
-                                    </div>
-                                </div>
-                                <div class="row d-flex align-items-center form-group">
-                                    <div class="col-4">
-                                        <p class="text-muted font-weight-bold mb-0">آدرس محل سکونت</p>
-                                    </div>
-                                    <div class="col-8">
-                                        {{ form.address }}
-                                    </div>
-                                </div>
-                                <div class="row d-flex align-items-center form-group">
-                                    <div class="col-4">
-                                        <p class="text-muted font-weight-bold mb-0">وضعیت نمایش به دیگران</p>
-                                    </div>
-                                    <div class="col-8">
-                                        {{ form.active }}
-                                    </div>
-                                </div>
 
-                                <div class="text-right">
-                                    <button class="btn btn-success">ویرایش رزومه</button>
-                                </div>
-                            </div>
+                                    <div class="text-right">
+                                        <button class="btn btn-success">ویرایش رزومه</button>
+                                    </div>
+                                    {% if messages %}
+                                        <div class="alert alert-danger alert-dismissible" role="alert">
+                                            <div id="form_errors">
+                                                {% for message in messages %}
+                                                    <span class="text-right">{{ message }}</span><br>
+                                                {% endfor %}
+
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                    {% endif %}
+                                    {% if form.errors %}
+                                        <div class="alert alert-danger alert-dismissible" role="alert">
+                                        <div id="form_errors">
+                                            {% for key, value in form.errors.items %}
+                                                <span>{{ value }}</span>
+                                            {% endfor %}
+
+                                            <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                    {% endif %}
+                                    </div>
                             </form>
                         </div>
                     </div>
@@ -121,4 +159,5 @@
         </div>
         </div>
     </section>
+    
 {% endblock %}

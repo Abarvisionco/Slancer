@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 from django.db import models
 from django_quill.fields import QuillField
 from users.models import User
@@ -65,15 +65,15 @@ class Resume(models.Model):
         content say something about User have this resume.
         the content can gives image, html codes and ...
     '''
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user', default=User.is_authenticated)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user')
     about =  QuillField(null=True)
     school = models.ForeignKey(School,null=True, verbose_name="هنرستان", on_delete=models.SET_NULL)
     update_date = models.DateTimeField(auto_now=True, verbose_name="تاریخ بروز رسانی")
-    linkedin = models.URLField(verbose_name="آدرس لینکدین", max_length=500, blank=True, null=True)
+    linkedin = models.URLField(verbose_name="آدرس لینکدین", blank=True, null=True)
     address = models.TextField(verbose_name="آدرس محل سکونت", blank=True, null=True)
-    birth_day = models.IntegerField(verbose_name="روز تولد", blank=True, null=True)
-    birth_mount = models.IntegerField(verbose_name="ماه تولد", blank=True, null=True)
-    birth_year = models.IntegerField(verbose_name="سال تولد", blank=True, null=True)
+    birth_day = models.IntegerField(verbose_name="روز تولد",max_length=30, blank=True, null=True)
+    birth_mount = models.IntegerField(verbose_name="ماه تولد", max_length=12,blank=True, null=True)
+    birth_year = models.IntegerField(verbose_name="سال تولد",max_length=1450, blank=True, null=True)
     resume_file = models.FileField(verbose_name="فایل رزومه شخصی",upload_to="resume_files/%Y/%m/", blank=True, null=True)
     create_time = models.DateTimeField(verbose_name="تاریخ ایجاد",auto_now_add=True,null=True)
     active = models.BooleanField(default=True,verbose_name="وضعیت نمایش رزومه به دیگران")
