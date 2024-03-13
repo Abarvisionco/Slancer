@@ -45,21 +45,6 @@ class Field(models.Model):
         verbose_name_plural = "رشته ها"
 
 
-class School(models.Model):
-    name = models.CharField(max_length=200,verbose_name="نام هنرستان")
-    about = QuillField(verbose_name="درباره هنرستان",blank=True,null=True)
-    district = models.ForeignKey(District, verbose_name="ناحیه در شهر", on_delete=models.CASCADE)
-    email = models.EmailField(verbose_name="ایمیل", max_length=500,blank=True,null=True)
-    link = models.URLField(verbose_name="آدرس اینترنتی وبسایت", max_length=1000,blank=True,null=True)
-    address = models.TextField(verbose_name="آدرس")
-    activity_date = models.IntegerField(verbose_name="سال شروع فعالیت",blank=True,null=True)
-    phone_number = models.DecimalField(max_digits=20, decimal_places=2,verbose_name="شماره تفن",blank=True,null=True)
-    def __str__(self):
-        return f"{self.name} | {self.district}"
-    class Meta:
-        verbose_name = "هنرستان"
-        verbose_name_plural = "هنرستان ها"
-
 class Resume(models.Model):
     '''
         content say something about User have this resume.
@@ -67,7 +52,8 @@ class Resume(models.Model):
     '''
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user')
     about =  QuillField(null=True)
-    school = models.ForeignKey(School,null=True, verbose_name="هنرستان", on_delete=models.SET_NULL)
+    school = models.CharField(verbose_name="نام هنرستان",max_length=300,null=True)
+    district = models.ForeignKey(District, verbose_name="ناحیه محل هنرستان", on_delete=models.SET_NULL, null=True)
     update_date = models.DateTimeField(auto_now=True, verbose_name="تاریخ بروز رسانی")
     linkedin = models.URLField(verbose_name="آدرس لینکدین", blank=True, null=True)
     address = models.TextField(verbose_name="آدرس محل سکونت", blank=True, null=True)

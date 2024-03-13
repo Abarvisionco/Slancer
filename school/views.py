@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
-from resume.models import School, Resume
+from resume.models import Resume
 from django.contrib.auth import get_user
 from django.contrib import messages
 

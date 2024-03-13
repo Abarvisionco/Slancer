@@ -23,6 +23,7 @@ def resume_home(request):
             resume.birth_year = form.cleaned_data['birth_year']
             resume.address = form.cleaned_data['address']
             resume.active = form.cleaned_data['active']
+            resume.district = form.cleaned_data['district']
             # به‌روزرسانی فیلد user
             resume.user = request.user
             # ذخیره تغییرات در دیتابیس
