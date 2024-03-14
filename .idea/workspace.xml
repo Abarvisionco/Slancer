@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ef24459-1e04-4fc7-baf6-2d42644fbc3e" name="Changes" comment="change db settings and schemas and better this">
-      <change afterPath="$PROJECT_DIR$/media/resume_files/2024/03/20571217.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/resume/skills.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/resume/skills_add.html" afterDir="false" />
+    <list default="true" id="3ef24459-1e04-4fc7-baf6-2d42644fbc3e" name="Changes" comment="make CRUD for `skills` model and authorize datas">
+      <change afterPath="$PROJECT_DIR$/resume/exam_works_views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/resume/exam/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/resume/exam_add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/resume/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/resume/skills.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/skills.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -183,7 +183,7 @@
       <workItem from="1710316904117" duration="599000" />
       <workItem from="1710318531081" duration="10186000" />
       <workItem from="1710394867457" duration="281000" />
-      <workItem from="1710400552233" duration="5924000" />
+      <workItem from="1710400552233" duration="12734000" />
     </task>
     <task id="LOCAL-00001" summary="make models and user mobile authentication">
       <option name="closed" value="true" />
@@ -273,7 +273,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710330137599</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="make CRUD for `skills` model and authorize datas">
+      <option name="closed" value="true" />
+      <created>1710411564295</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1710411564295</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,6 +307,7 @@
     <MESSAGE value="create profile page" />
     <MESSAGE value="change vetter form view" />
     <MESSAGE value="change db settings and schemas and better this" />
-    <option name="LAST_COMMIT_MESSAGE" value="change db settings and schemas and better this" />
+    <MESSAGE value="make CRUD for `skills` model and authorize datas" />
+    <option name="LAST_COMMIT_MESSAGE" value="make CRUD for `skills` model and authorize datas" />
   </component>
 </project>

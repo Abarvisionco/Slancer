@@ -13,8 +13,8 @@
                     <div class="bg-white rounded shadow-sm py-3 sidebar-fix">
                         <div class="dropdown-menu-show">
                             <a class="dropdown-item py-2 " href="{% url 'resume_home' %}">رزومه</a>
-                            <a class="dropdown-item py-2 active" href="{% url 'resume_skills' %}">مهارت ها</a>
-                            <a class="dropdown-item py-2" href="{% url 'exam' %}">نمونه کار ها</a>
+                            <a class="dropdown-item py-2" href="{% url 'resume_skills' %}">مهارت ها</a>
+                            <a class="dropdown-item py-2 active" href="{% url 'exam' %}">نمونه کار ها</a>
                             <a class="dropdown-item py-2" href="edit-billing.html">Edit Billing</a>
                             <a class="dropdown-item py-2" href="edit-payment.html">Edit Payment</a>
                         </div>
@@ -24,8 +24,9 @@
                     <div class="bg-white rounded shadow-sm sidebar-page-right">
                         <div>
                             <div class="p-3 border-bottom text-right">
-                                <h6 class="mb-0">مهارت های خودتان را اضافه کنید.
+                                <h6 class="mb-0">نمونه کار های خودتان را اضافه کنید.
                                 </h6>
+                                    <p class="pt-2">لینک نمونه کار میتواند از وبسایت ها, مخازن github و پیامرسان ها باشد.</p>
                             </div>
 
                             <div class="p-3 border-bottom">
@@ -61,36 +62,30 @@
                                 <table class="table table-bordered m-0" style="text-align: right">
                                     <thead>
                                     <tr>
-                                        <th>نام مهارت</th>
-                                        <th>سطح مهارت</th>
+                                        <th>نام</th>
+                                        <th>لینک</th>
+                                        <th>توضیحات</th>
                                         <th>عملیات</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {% for i in skills %}
+                                    {% for i in exam %}
                                         <tr>
                                             <td>{{ i.name }}</td>
+                                            <td>{% if i.link != None %}
+                                            	<a target="_blank" href="{{ i.link }}">{{ i.link }}</a>
+                                                {% else %}
+                                                -
+                                            {% endif %}</td>
+                                            <td>{{ i.description }}</td>
 
-                                            {% if i.level == "a" %}
-                                                <td class="text-danger">
-                                                    مقدماتی
-                                                </td>
-                                            {% elif i.level == "b" %}
-                                                <td class="text-warning">
-                                                    متوسط
-                                                </td>
-                                            {% else %}
-                                                <td class="text-success">
-                                                    پیشرفته
-                                                </td>
 
-                                            {% endif %}
 
                                             <td>
-                                                <form action="{% url 'resume_skills_delete' i.id %}" method="post">
+                                                <form action="{% url 'exam_delete' i.id %}" method="post">
                                                     {% csrf_token %}
                                                     <a class="btn btn-success  text-white" title="Edit"
-                                                       href="{% url 'resume_skills_update' i.id %}"> ویرایش <i
+                                                       href="{% url 'exam_edit' i.id %}"> ویرایش <i
                                                             class="fa fa-edit"></i></a>
                                                     <button class="btn btn-danger text-white" type="submit"
                                                             title="Delete"> حذف <i
@@ -109,8 +104,8 @@
 
                                 <div class="p-3">
                                     <div class="text-right">
-                                        <a class="btn btn-success text-white" href="{% url 'resume_skills_add' %}">افزودن
-                                            مهارت</a>
+                                        <a class="btn btn-success text-white" href="{% url 'exam_add' %}">افزودن
+                                            نمونه کار</a>
                                     </div>
 
                                 </div>
