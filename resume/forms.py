@@ -18,3 +18,22 @@ class ResumeForm(forms.ModelForm):
             self.helper_text = "ویرایش کنید."
         else:
             self.helper_text = "ایجاد کنید."
+
+
+
+class SkillForm(forms.ModelForm):
+    class Meta:
+        model = models.Skills
+        fields = ['name','level']
+
+    def __init__(self, *args, **kwargs):
+        super(SkillForm, self).__init__(*args, **kwargs)\
+
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = "form-control form--control pl-3"
+
+        # اضافه کردن یک توضیح مخصوص برای فرم
+        if self.instance.pk:
+            self.helper_text = "ویرایش کنید."
+        else:
+            self.helper_text = "ایجاد کنید."
