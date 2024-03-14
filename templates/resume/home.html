@@ -12,8 +12,8 @@
                 <div class="col-lg-3">
                     <div class="bg-white rounded shadow-sm py-3 sidebar-fix">
                         <div class="dropdown-menu-show">
-                            <a class="dropdown-item py-2 active" href="{% url 'resume_home' %}">نمایش رزومه</a>
-                            <a class="dropdown-item py-2" href="edit-security.html">Edit Security</a>
+                            <a class="dropdown-item py-2 active" href="{% url 'resume_home' %}">رزومه</a>
+                            <a class="dropdown-item py-2" href="{% url 'resume_skills' %}">مهارت ها</a>
                             <a class="dropdown-item py-2" href="edit-notifications.html">Edit Notification</a>
                             <a class="dropdown-item py-2" href="edit-billing.html">Edit Billing</a>
                             <a class="dropdown-item py-2" href="edit-payment.html">Edit Payment</a>
@@ -32,20 +32,20 @@
                                 <div class="p-3 border-bottom">
 
                                     <div class="row d-flex align-items-center form-group">
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <p class="text-muted font-weight-bold mb-0 right">نام و نام خانوادگی</p>
                                         </div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-9">
                                             <input type="text" name="name" readonly
                                                    class="form-control font-weight-bold text-muted"
                                                    value="{{ fullname }}">
                                         </div>
                                     </div>
                                     <div class="row d-flex align-items-center form-group">
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <p class="text-muted font-weight-bold mb-0">ایمیل</p>
                                         </div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-9">
                                             <input type="email" name="email"
                                                    class="form-control font-weight-bold text-muted" readonly
                                                    value="{{ email }}">
@@ -54,38 +54,46 @@
                                 </div>
                                 <div class="p-3">
                                     <div class="row d-flex align-items-center form-group ">
-                                        <div class="col-md-4">
-                                            <p class="text-muted font-weight-bold mb-0">هنرستان خود را انتخاب کنید.</p>
+                                        <div class="col-3">
+                                            <p class="text-muted font-weight-bold mb-0">هنرستان در حال تحصیل</p>
                                         </div>
-                                        <div class="col-md-8">
+                                        <div class="col-9">
                                             {{ form.school }}
                                         </div>
                                     </div>
+                                    <div class="row d-flex align-items-center form-group ">
+                                        <div class="col-3">
+                                            <p class="text-muted font-weight-bold mb-0">ناحیه قرارگیری هنرستان</p>
+                                        </div>
+                                        <div class="col-9">
+                                            {{ form.district }}
+                                        </div>
+                                    </div>
                                     <div class="row d-flex align-items-center form-group">
-                                        <div class="col-4">
+                                        <div class="col-3">
                                             <p class="text-muted font-weight-bold mb-0">آدرس لینکدین</p>
                                         </div>
-                                        <div class="col-8">
+                                        <div class="col-9">
                                             {{ form.linkedin }}
                                         </div>
                                     </div>
                                     <div class="row d-flex align-items-center form-group">
-                                        <div class="col-4">
+                                        <div class="col-3">
                                             <p class="text-muted font-weight-bold mb-0">فایل رزومه</p>
                                         </div>
-                                        <div class="col-8">
+                                        <div class="col-9">
                                             {{ form.resume_file }}
                                         </div>
                                     </div>
                                     <div class="row d-flex align-items-center form-group">
-                                        <div class="col-4">
+                                        <div class="col-3">
                                             <p class="text-muted font-weight-bold mb-0">تاریخ تولد:</p>
                                         </div>
                                         <div class="col-3">
                                             <label>روز</label>
                                             {{ form.birth_day }}
                                         </div>
-                                        <div class="col-2">
+                                        <div class="col-3">
                                             <label>ماه</label>
                                             {{ form.birth_mount }}
                                         </div>
@@ -95,26 +103,26 @@
                                         </div>
                                     </div>
                                     <div class="row d-flex align-items-center form-group">
-                                        <div class="col-4">
+                                        <div class="col-3">
                                             <p class="text-muted font-weight-bold mb-0">درباره شما</p>
                                         </div>
-                                        <div class="col-8">
+                                        <div class="col-9">
                                             {{ form.about }}
                                         </div>
                                     </div>
                                     <div class="row d-flex align-items-center form-group">
-                                        <div class="col-4">
+                                        <div class="col-3">
                                             <p class="text-muted font-weight-bold mb-0">آدرس محل سکونت</p>
                                         </div>
-                                        <div class="col-8">
+                                        <div class="col-9">
                                             {{ form.address }}
                                         </div>
                                     </div>
                                     <div class="row d-flex align-items-center form-group">
-                                        <div class="col-4">
+                                        <div class="col-3">
                                             <p class="text-muted font-weight-bold mb-0">وضعیت نمایش به دیگران</p>
                                         </div>
-                                        <div class="col-8">
+                                        <div class="col-9">
                                             {{ form.active }}
                                         </div>
                                     </div>
@@ -159,5 +167,5 @@
         </div>
         </div>
     </section>
-    
+
 {% endblock %}

@@ -14,22 +14,19 @@ class DistrictAdmin(admin.ModelAdmin):
     list_display = ('name','city')
     search_fields = ('name',)
 
-class SchoolAdmin(admin.ModelAdmin):
-    list_display = ('name', 'district','phone_number')
-    search_fields = ('name','about')
-
 class FieldAdmin(admin.ModelAdmin):
     list_display = ('name', 'best')
     search_fields = ('name',)
     list_filter = ('best',)
 
 class ResumeAdmin(admin.ModelAdmin):
-    list_display = ('user','school','active')
+    ordering = ('update_date',)
+    list_per_page = 100
+    list_display = ('user','school','active','update_date')
     search_fields = ('user','school','about')
-    list_filter = ('active',)
+    list_filter = ('active','update_date','create_time')
 
 
-admin.site.register(models.School, SchoolAdmin)
 admin.site.register(models.Resume, ResumeAdmin)
 admin.site.register(models.City, CityAdmin)
 admin.site.register(models.State, StateAdmin)
