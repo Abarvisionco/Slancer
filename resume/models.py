@@ -65,7 +65,7 @@ class Resume(models.Model):
     active = models.BooleanField(default=True,verbose_name="وضعیت نمایش رزومه به دیگران")
 
     def __str__(self):
-        return self.user.mobile
+        return f"{self.user.mobile} | {self.user.get_full_name()}"
     class Meta:
         verbose_name = "رزومه"
         verbose_name_plural = "رزومه ها"

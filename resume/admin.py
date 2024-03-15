@@ -19,6 +19,12 @@ class FieldAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     list_filter = ('best',)
 
+class SkillAdmin(admin.ModelAdmin):
+    list_display = ('name', 'level', 'resume')
+    list_filter = ('level',)
+    search_fields = ('name',)
+
+
 class ResumeAdmin(admin.ModelAdmin):
     ordering = ('update_date',)
     list_per_page = 100
@@ -33,6 +39,6 @@ admin.site.register(models.State, StateAdmin)
 admin.site.register(models.Courses)
 admin.site.register(models.WorkExperience)
 admin.site.register(models.ExamWorks)
-admin.site.register(models.Skills)
+admin.site.register(models.Skills, SkillAdmin)
 admin.site.register(models.District, DistrictAdmin)
 admin.site.register(models.Field, FieldAdmin)

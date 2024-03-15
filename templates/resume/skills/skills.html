@@ -11,12 +11,12 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="bg-white rounded shadow-sm py-3 sidebar-fix">
-                        <div class="dropdown-menu-show">
+                        <div class="dropdown-menu-show"  style="text-align: right">
                             <a class="dropdown-item py-2 " href="{% url 'resume_home' %}">رزومه</a>
                             <a class="dropdown-item py-2 active" href="{% url 'resume_skills' %}">مهارت ها</a>
-                            <a class="dropdown-item py-2" href="edit-notifications.html">Edit Notification</a>
-                            <a class="dropdown-item py-2" href="edit-billing.html">Edit Billing</a>
-                            <a class="dropdown-item py-2" href="edit-payment.html">Edit Payment</a>
+                            <a class="dropdown-item py-2" href="{% url 'exam' %}">نمونه کار ها</a>
+                            <a class="dropdown-item py-2" href="{% url 'work_experience' %}">تجارب کاری</a>
+                            <a class="dropdown-item py-2 " href="{% url 'courses' %}">دوره ها</a>
                         </div>
                     </div>
                 </div>

@@ -53,7 +53,7 @@ def skills(request):
     context = {
         'skills': skills,
     }
-    return render(request,'resume/skills.html',context)
+    return render(request, 'resume/skills/skills.html', context)
 
 def add_skill(request):
     if request.method == "POST":
@@ -76,7 +76,7 @@ def add_skill(request):
         'form':form,
         'action': "اضافه",
     }
-    return render(request, 'resume/skills_add.html',context)
+    return render(request, 'resume/skills/skills_add.html', context)
 
 def delete_skill(request, id):
     try:
@@ -115,5 +115,5 @@ def update_skill(request, id):
         'form':form,
         'action': "ویرایش",
     }
-    return render(request, 'resume/skills_add.html',context)
+    return render(request, 'resume/skills/skills_add.html', context)
 
