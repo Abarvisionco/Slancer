@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ef24459-1e04-4fc7-baf6-2d42644fbc3e" name="Changes" comment="make CRUD for `skills` model and authorize datas">
-      <change afterPath="$PROJECT_DIR$/resume/exam_works_views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/resume/exam/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/resume/exam_add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/exam_works_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/exam_works_views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/resume/exam_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/exam/exam_add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/resume/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/resume/skills.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/skills.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +96,7 @@
       <recent name="D:\Projects\Karamooz\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/resume/exam" />
       <recent name="D:\Projects\Karamooz\static\images" />
       <recent name="D:\Projects\Karamooz\static\images\user" />
       <recent name="D:\Projects\Karamooz" />
@@ -183,7 +181,8 @@
       <workItem from="1710316904117" duration="599000" />
       <workItem from="1710318531081" duration="10186000" />
       <workItem from="1710394867457" duration="281000" />
-      <workItem from="1710400552233" duration="12734000" />
+      <workItem from="1710400552233" duration="14747000" />
+      <workItem from="1710487594817" duration="1362000" />
     </task>
     <task id="LOCAL-00001" summary="make models and user mobile authentication">
       <option name="closed" value="true" />

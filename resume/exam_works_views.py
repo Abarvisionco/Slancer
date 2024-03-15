@@ -33,7 +33,7 @@ def add_exam(request):
         'form':form,
         'action': "اضافه",
     }
-    return render(request, 'resume/exam_add.html',context)
+    return render(request, 'resume/exam/exam_add.html', context)
 
 def update_exam(request, id):
     try:
@@ -63,7 +63,7 @@ def update_exam(request, id):
         'form':form,
         'action': "ویرایش",
     }
-    return render(request, 'resume/exam_add.html',context)
+    return render(request, 'resume/exam/exam_add.html', context)
 
 
 def delete_exam(request, id):
