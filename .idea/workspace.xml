@@ -4,196 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ef24459-1e04-4fc7-baf6-2d42644fbc3e" name="Changes" comment="Change resume files and make better">
-      <change afterPath="$PROJECT_DIR$/resume/work_views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/autocomplete.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/base.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/changelists.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/dark_mode.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/dashboard.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/forms.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/nav_sidebar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/responsive.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/responsive_rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/vendor/select2/LICENSE-SELECT2.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/vendor/select2/select2.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/vendor/select2/select2.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/widgets.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/README.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/calendar-icons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/gis/move_vertex_off.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/gis/move_vertex_on.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/icon-addlink.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/icon-alert.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/icon-calendar.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/icon-changelink.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/icon-clock.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/icon-deletelink.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/icon-hidelink.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/icon-no.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/icon-unknown-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/icon-unknown.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/icon-viewlink.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/icon-yes.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/inline-delete.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/search.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/selector-icons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/sorting-icons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/tooltag-add.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/tooltag-arrowright.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/jquery.ui.datepicker.jalali/default.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/jquery.ui.datepicker.jalali/scripts/calendar.all.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/jquery.ui.datepicker.jalali/scripts/calendar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/jquery.ui.datepicker.jalali/scripts/jquery-1.10.2.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/jquery.ui.datepicker.jalali/scripts/jquery-1.10.2.min.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/jquery.ui.datepicker.jalali/scripts/jquery.ui.core.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/jquery.ui.datepicker.jalali/scripts/jquery.ui.datepicker-cc-fa.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/jquery.ui.datepicker.jalali/scripts/jquery.ui.datepicker-cc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/jquery.ui.datepicker.jalali/themes/base/images/ui-icons_444444_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/jquery.ui.datepicker.jalali/themes/base/images/ui-icons_555555_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/jquery.ui.datepicker.jalali/themes/base/images/ui-icons_777620_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/jquery.ui.datepicker.jalali/themes/base/images/ui-icons_777777_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/jquery.ui.datepicker.jalali/themes/base/images/ui-icons_cc0000_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/jquery.ui.datepicker.jalali/themes/base/images/ui-icons_ffffff_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/jquery.ui.datepicker.jalali/themes/base/jquery-ui.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/SelectBox.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/SelectFilter2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/actions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/admin/DateTimeShortcuts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/admin/RelatedObjectLookups.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/autocomplete.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/calendar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/cancel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/change_form.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/collapse.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/core.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/django_jalali..js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/django_jalali.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/filters.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/inlines.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/jquery.init.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/nav_sidebar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/popup_response.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/prepopulate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/prepopulate_init.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/theme.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/urlify.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/jquery/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/jquery/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/jquery/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/LICENSE.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/af.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/ar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/az.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/bg.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/bn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/bs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/ca.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/cs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/da.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/de.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/dsb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/el.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/en.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/es.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/et.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/eu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/fa.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/fi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/fr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/gl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/he.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/hi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/hr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/hsb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/hu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/hy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/id.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/is.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/it.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/ja.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/ka.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/km.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/ko.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/lt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/lv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/mk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/ms.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/nb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/ne.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/nl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/pl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/ps.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/pt-BR.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/pt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/ro.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/ru.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/sk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/sl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/sq.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/sr-Cyrl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/sr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/sv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/th.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/tk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/tr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/uk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/vi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/zh-CN.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/zh-TW.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/select2.full.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/select2.full.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/xregexp/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/xregexp/xregexp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/xregexp/xregexp.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/django-pwa-app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/django_quill/django_quill.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/django_quill/django_quill.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/bootstrap/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/bootstrap/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/bootstrap/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/bootstrap/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/bootstrap/glyphicons-halflings-regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/icons/Thumbs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/icons/icon-128x128.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/icons/icon-144x144.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/icons/icon-152x152.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/icons/icon-192x192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/icons/icon-384x384.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/icons/icon-512x512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/icons/icon-72x72.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/icons/icon-96x96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/icons/splash-1125x2436.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/icons/splash-1242x2208.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/icons/splash-1242x2688.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/icons/splash-1536x2048.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/icons/splash-1668x2224.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/icons/splash-1668x2388.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/icons/splash-2048x2732.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/icons/splash-640x1136.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/icons/splash-750x1334.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/icons/splash-828x1792.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/resume/work/exam_add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/resume/work/home.html" afterDir="false" />
+    <list default="true" id="3ef24459-1e04-4fc7-baf6-2d42644fbc3e" name="Changes" comment="create `work_experience` CRUD for resume">
+      <change afterPath="$PROJECT_DIR$/resume/courses_views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/resume/courses/course_add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/resume/courses/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Karamooz/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Karamooz/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/resume/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/resume/exam/exam_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/exam/exam_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/work_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/work_views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/resume/exam/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/exam/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/resume/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/resume/skills.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/skills/skills.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/resume/skills_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/skills/skills_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/resume/skills/skills.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/skills/skills.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/resume/work/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/work/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,11 +102,11 @@
       <recent name="D:\Projects\Karamooz\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/resume/courses" />
       <recent name="$PROJECT_DIR$/templates/resume/skills" />
       <recent name="$PROJECT_DIR$/templates/resume/exam" />
       <recent name="D:\Projects\Karamooz\static\images" />
       <recent name="D:\Projects\Karamooz\static\images\user" />
-      <recent name="D:\Projects\Karamooz" />
     </key>
   </component>
   <component name="RunManager">
@@ -366,7 +189,7 @@
       <workItem from="1710318531081" duration="10186000" />
       <workItem from="1710394867457" duration="281000" />
       <workItem from="1710400552233" duration="14747000" />
-      <workItem from="1710487594817" duration="10765000" />
+      <workItem from="1710487594817" duration="14785000" />
     </task>
     <task id="LOCAL-00001" summary="make models and user mobile authentication">
       <option name="closed" value="true" />
@@ -472,7 +295,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710489277544</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="create `work_experience` CRUD for resume">
+      <option name="closed" value="true" />
+      <created>1710503708044</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1710503708044</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -500,6 +331,7 @@
     <MESSAGE value="change db settings and schemas and better this" />
     <MESSAGE value="make CRUD for `skills` model and authorize datas" />
     <MESSAGE value="Change resume files and make better" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change resume files and make better" />
+    <MESSAGE value="create `work_experience` CRUD for resume" />
+    <option name="LAST_COMMIT_MESSAGE" value="create `work_experience` CRUD for resume" />
   </component>
 </project>

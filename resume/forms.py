@@ -77,4 +77,19 @@ class WorkForm(forms.ModelForm):
 
 
 
+class CourseForm(forms.ModelForm):
+    class Meta:
+        model = models.Courses
+        fields = ['name', 'level', 'description', 'start_date', 'end_date']
+
+    def __init__(self, *args, **kwargs):
+        super(CourseForm, self).__init__(*args, **kwargs)
+
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = "form-control form--control pl-3"
+
+        self.fields['start_date'] = JalaliDateField(label=('date'),  # date format is  "yyyy-mm-dd"
+                                                    widget=AdminJalaliDateWidget,  # optional, to use default datepicker
+                                                    )
+        self.fields['end_date'] = JalaliDateField(label=('date1'), widget=AdminJalaliDateWidget,required=False)
 
