@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-
+{% load jalali_tags %}
+{% load static %}
 {% block title %}
     رزومه شما
 {% endblock %}
@@ -14,17 +15,17 @@
                     <div class="bg-white rounded shadow-sm sidebar-page-right">
                         <div>
                             <div class="p-3 border-bottom text-right">
-                                <h6 class="mb-0">مهارت های خودتان را {{ action }} کنید.
+                                <h6 class="mb-0">تجربه  های شغلی خودتان را {{ action }} کنید.
                                 </h6>
                             </div>
-                            <div class="p-3 border-bottom">
+                            <div class="p-3 border-bottom" style="text-align: right">
                                 <form method="post" action="." enctype="multipart/form-data">
                                     {% csrf_token %}
                                     <div class="p-3 border-bottom">
 
                                         <div class="row d-flex align-items-center form-group">
                                             <div class="col-md-3">
-                                                <p class="text-muted font-weight-bold mb-0 right">نام مهارت</p>
+                                                <p class="text-muted font-weight-bold mb-0 right">عنوان شغلی یا نام شغلی</p>
                                             </div>
                                             <div class="col-md-9">
                                                 {{ form.name }}
@@ -32,11 +33,38 @@
                                         </div>
                                         <div class="row d-flex align-items-center form-group">
                                             <div class="col-md-3">
-                                                <p class="text-muted font-weight-bold mb-0">سطح مهارت</p>
+                                                <p class="text-muted font-weight-bold mb-0">محل کار </p>
                                             </div>
                                             <div class="col-md-9">
 
-                                                {{ form.level }}
+                                                {{ form.co_name }}
+                                            </div>
+                                        </div>
+                                        <div class="row d-flex align-items-center form-group">
+                                            <div class="col-md-3">
+                                                <p class="text-muted font-weight-bold mb-0">تاریخ شروع کار</p>
+                                            </div>
+                                            <div class="col-md-9">
+
+                                                {{ form.start_date }}
+                                            </div>
+                                        </div>
+                                        <div class="row d-flex align-items-center form-group">
+                                            <div class="col-md-3">
+                                                <p class="text-muted font-weight-bold mb-0">تاریخ پایان کار (در صورتی که هنوز مشغول کار هستید خالی بگذارید)</p>
+                                            </div>
+                                            <div class="col-md-9">
+
+                                                {{ form.end_date }}
+                                            </div>
+                                        </div>
+                                        <div class="row d-flex align-items-center form-group">
+                                            <div class="col-md-3">
+                                                <p class="text-muted font-weight-bold mb-0">توضیحات</p>
+                                            </div>
+                                            <div class="col-md-9">
+
+                                                {{ form.description }}
                                             </div>
                                         </div>
 
@@ -45,7 +73,7 @@
                                     <div class="m-3"></div>
                                     <div class="text-right">
                                         <button class="btn btn-success text-white" type="submit"> {{ action }} کردن
-                                            مهارت
+                                            تجربه شغلی
                                         </button>
                                     </div>
 
@@ -85,5 +113,8 @@
                         </div>
                     </div>
     </section>
+    <link rel="stylesheet" href="{% static 'admin/jquery.ui.datepicker.jalali/themes/base/jquery-ui.min.css' %}">
+		<script src="{% static 'admin/js/django_jalali.min.js' %}"></script>
+	<!-- OR -->
 
 {% endblock %}

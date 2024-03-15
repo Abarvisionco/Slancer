@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
     رزومه شما
 {% endblock %}
 
 {% block content %}
+   
     {% include 'django_quill/media.html' %}
     <section class="py-5">
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-12" dir="rtl">
+                <div class="col-lg-12" dir="rtl" style="text-align: right"> 
                     <div class="bg-white rounded shadow-sm sidebar-page-right">
                         <div>
                             <div class="p-3 border-bottom text-right">

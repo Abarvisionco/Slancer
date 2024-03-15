@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load jalali_tags %}
+
+{% block title %}
+    رزومه شما
+{% endblock %}
+
+{% block content %}
+    {% include 'django_quill/media.html' %}
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="bg-white rounded shadow-sm py-3 sidebar-fix">
+                        <div class="dropdown-menu-show"  style="text-align: right">
+                            <a class="dropdown-item py-2 " href="{% url 'resume_home' %}">رزومه</a>
+                            <a class="dropdown-item py-2" href="{% url 'resume_skills' %}">مهارت ها</a>
+                            <a class="dropdown-item py-2" href="{% url 'exam' %}">نمونه کار ها</a>
+                            <a class="dropdown-item py-2 active" href="{% url 'work_experience' %}">تجارب کاری</a>
+                            <a class="dropdown-item py-2" href="edit-payment.html">Edit Payment</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9" dir="rtl">
+                    <div class="bg-white rounded shadow-sm sidebar-page-right">
+                        <div>
+                            <div class="p-3 border-bottom text-right">
+                                <h6 class="mb-0">نمونه کار های خودتان را اضافه کنید.
+                                </h6>
+                            </div>
+
+                            <div class="p-3 border-bottom">
+                                {% if messages %}
+                                    <br>
+                                    <div class="alert alert-danger alert-dismissible" role="alert">
+                                        <div id="form_errors">
+                                            {% for message in messages %}
+                                                <span class="text-right">{{ message }}</span><br>
+                                            {% endfor %}
+
+                                            <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                {% endif %}
+                                {% if form.errors %}
+                                    <div class="alert alert-danger alert-dismissible" role="alert">
+                                    <div id="form_errors">
+                                        {% for key, value in form.errors.items %}
+                                            <span>{{ value }}</span>
+                                        {% endfor %}
+
+                                        <button type="button" class="close" data-dismiss="alert"
+                                                aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                {% endif %}
+                                <table class="table table-bordered m-0" style="text-align: right">
+                                    <thead>
+                                    <tr>
+                                        <th>نام</th>
+                                        <th>نام محل کار</th>
+                                        <th>تاریخ شروع کار</th>
+                                        <th>تاریخ پایان کار</th>
+                                        <th>توضیحات</th>
+                                        <th>عملیات</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for i in exam %}
+                                        <tr>
+                                            <td>{{ i.name }}</td>
+                                            <td>{{ i.co_name }}</td>
+                                            <td>{{ i.start_date|to_jalali:'%y/%m/%d' }}</td>
+                                            <td>{% if i.end_date != None %}
+                                                {{ i.end_date|to_jalali:'%y/%m/%d' }}
+                                            {% else %}
+                                                تا کنون
+                                            {% endif %}</td>
+                                            <td>{{ i.description }}</td>
+
+
+                                            <td>
+                                                <form action="{% url 'work_delete' i.id %}" method="post">
+                                                    {% csrf_token %}
+                                                    <a class="btn btn-success  text-white" title="Edit"
+                                                       href="{% url 'work_update' i.id %}"> ویرایش <i
+                                                            class="fa fa-edit"></i></a>
+                                                    <button class="btn btn-danger text-white" type="submit"
+                                                            title="Delete"> حذف <i
+                                                            class="fa fa-trash"></i></button>
+                                                </form>
+
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+
+
+                                </div>
+
+                                <div class="p-3">
+                                    <div class="text-right">
+                                        <a class="btn btn-success text-white" href="{% url 'work_add' %}">افزودن
+                                            تجارب شغلی</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+{% endblock %}

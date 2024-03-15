@@ -2,10 +2,12 @@ asgiref==3.7.2
 certifi==2024.2.2
 charset-normalizer==3.3.2
 Django==5.0.3
+django-jalali-date==1.1.0
 django-pwa==1.1.0
 django-quill==0.1.0
 django-quill-editor==0.1.40
 idna==3.6
+jdatetime==4.1.1
 kavenegar==1.1.2
 requests==2.31.0
 sqlparse==0.4.4

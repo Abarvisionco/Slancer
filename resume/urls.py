@@ -1,7 +1,6 @@
 from django.urls import path
 from resume import views
-from resume import exam_works_views
-
+from resume import exam_works_views, work_views
 
 urlpatterns = [
     path('',views.resume_home, name='resume_home'),
@@ -15,4 +14,9 @@ urlpatterns = [
     path('exam_works/add/', exam_works_views.add_exam, name='exam_add'),
     path('exam_works/<int:id>/', exam_works_views.update_exam, name='exam_edit'),
     path('examـworks/<int:id>/delete/',exam_works_views.delete_exam, name='exam_delete'),
+    # work CRUD
+    path('work_experience/', work_views.home, name='work_experience'),
+    path('work_experience/add/',work_views.add_work, name='work_add'),
+    path('work_experience/<int:id>/', work_views.update_work, name='work_update'),
+    path('work_experience/<int:id>/delete/',work_views.delete_work, name='work_delete'),
 ]
