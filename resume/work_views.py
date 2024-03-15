@@ -8,9 +8,11 @@ from django.http import HttpResponseRedirect
 
 
 def home(request):
+    id = Resume.objects.get(user=request.user).id
     exam = WorkExperience.objects.filter(resume__user=request.user)
     context = {
-        'exam': exam
+        'exam': exam,
+        'id':id
     }
     return render(request, 'resume/work/home.html', context)
 

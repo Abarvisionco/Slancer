@@ -11,17 +11,25 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                    <div class="bg-white rounded shadow-sm py-3 sidebar-fix">
-                        <div class="dropdown-menu-show"  style="text-align: right">
+                    <div class="bg-white rounded shadow-sm py-3 sidebar-fix mt-2">
+                            <div class="dropdown-menu-show" style="text-align: right">
+                                <a class="dropdown-item py-2" href="{% url 'resume' id %}">نمایش رزومه</a>
+
+                            </div>
+                        </div>
+                    <div class="bg-white rounded shadow-sm py-3 sidebar-fix mt-2">
+                        <div class="dropdown-menu-show" style="text-align: right">
                             <a class="dropdown-item py-2 " href="{% url 'resume_home' %}">رزومه</a>
                             <a class="dropdown-item py-2" href="{% url 'resume_skills' %}">مهارت ها</a>
                             <a class="dropdown-item py-2" href="{% url 'exam' %}">نمونه کار ها</a>
                             <a class="dropdown-item py-2" href="{% url 'work_experience' %}">تجارب کاری</a>
                             <a class="dropdown-item py-2 active" href="{% url 'courses' %}">دوره ها</a>
                         </div>
+                        
                     </div>
+                    
                 </div>
-                <div class="col-lg-9" dir="rtl">
+                <div class="col-lg-9 mt-2" dir="rtl">
                     <div class="bg-white rounded shadow-sm sidebar-page-right">
                         <div>
                             <div class="p-3 border-bottom text-right">
@@ -64,8 +72,8 @@
                                     <tr>
                                         <th>نام</th>
                                         <th>سطح</th>
-                                        <th>تاریخ شروع </th>
-                                        <th>تاریخ پایان </th>
+                                        <th>تاریخ شروع</th>
+                                        <th>تاریخ پایان</th>
                                         <th>توضیحات</th>
                                         <th>عملیات</th>
                                     </tr>

@@ -4,18 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ef24459-1e04-4fc7-baf6-2d42644fbc3e" name="Changes" comment="create `work_experience` CRUD for resume">
-      <change afterPath="$PROJECT_DIR$/resume/courses_views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/resume/courses/course_add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/resume/courses/home.html" afterDir="false" />
+    <list default="true" id="3ef24459-1e04-4fc7-baf6-2d42644fbc3e" name="Changes" comment="create `course` CRUD for resume">
+      <change afterPath="$PROJECT_DIR$/company/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/resume_images/2024/03/1689578111280.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resume/migrations/0022_resume_image.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resume/skills_views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/resume/resume.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Karamooz/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Karamooz/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Karamooz/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Karamooz/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/courses_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/courses_views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/exam_works_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/exam_works_views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/work_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/work_views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/company/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/company/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/company/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/forms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/company/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/company/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/company/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/resume/courses/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/courses/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/resume/exam/exam_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/exam/exam_add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/resume/exam/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/exam/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/resume/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/resume/skills/skills.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/skills/skills.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/resume/skills/skills_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/skills/skills_add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/resume/work/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/work/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +103,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -189,7 +210,8 @@
       <workItem from="1710318531081" duration="10186000" />
       <workItem from="1710394867457" duration="281000" />
       <workItem from="1710400552233" duration="14747000" />
-      <workItem from="1710487594817" duration="14785000" />
+      <workItem from="1710487594817" duration="17339000" />
+      <workItem from="1710517980503" duration="3249000" />
     </task>
     <task id="LOCAL-00001" summary="make models and user mobile authentication">
       <option name="closed" value="true" />
@@ -303,7 +325,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710503708044</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="create `course` CRUD for resume">
+      <option name="closed" value="true" />
+      <created>1710508347015</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1710508347015</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,6 +362,7 @@
     <MESSAGE value="make CRUD for `skills` model and authorize datas" />
     <MESSAGE value="Change resume files and make better" />
     <MESSAGE value="create `work_experience` CRUD for resume" />
-    <option name="LAST_COMMIT_MESSAGE" value="create `work_experience` CRUD for resume" />
+    <MESSAGE value="create `course` CRUD for resume" />
+    <option name="LAST_COMMIT_MESSAGE" value="create `course` CRUD for resume" />
   </component>
 </project>
