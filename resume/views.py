@@ -3,10 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 
 from resume import models
-from resume.forms import ResumeForm, SkillForm
-from django.contrib import messages
+from resume.forms import ResumeForm
 from django.http import HttpResponseRedirect
-# from users.models import User
 
 @login_required
 def resume_home(request):
@@ -21,6 +19,7 @@ def resume_home(request):
             resume.school = form.cleaned_data['school']
             resume.linkedin = form.cleaned_data['linkedin']
             resume.resume_file = form.cleaned_data['resume_file']
+            resume.image = form.cleaned_data['image']
             resume.birth_day = form.cleaned_data['birth_day']
             resume.birth_mount = form.cleaned_data['birth_mount']
             resume.birth_year = form.cleaned_data['birth_year']
@@ -43,77 +42,16 @@ def resume_home(request):
         'email': user_email,
         'resume': resume,
         'form': form,
+        'id':resume.id,
     }
 
     return render(request, 'resume/home.html', context)
 
-def skills(request):
-    skills = models.Skills.objects.filter(resume__user=request.user)
 
+
+def resume(request, id):
+    resume = models.Resume.objects.get(id=id)
     context = {
-        'skills': skills,
+        'resume':resume,
     }
-    return render(request, 'resume/skills/skills.html', context)
-
-def add_skill(request):
-    if request.method == "POST":
-        form = SkillForm(request.POST, request.FILES)
-        if form.is_valid():
-            try:
-                resume = models.Resume.objects.get(user=request.user)
-                skills = models.Skills.objects.create(name=form.cleaned_data['name'], level=form.cleaned_data['level'], resume=resume)
-
-                skills.save()
-                messages.success(request, f"مهارت {form.cleaned_data['name']} با موفقیت اضافه شد. ")
-                return HttpResponseRedirect(reverse_lazy("resume_skills"))
-            except:
-                messages.error(request, "لطفا اول اطلاعات اولیه رزومه خود را تکمیل کنید")
-                return HttpResponseRedirect(reverse_lazy("resume_skills"))
-    else:
-        form = SkillForm()
-
-    context = {
-        'form':form,
-        'action': "اضافه",
-    }
-    return render(request, 'resume/skills/skills_add.html', context)
-
-def delete_skill(request, id):
-    try:
-        skill = models.Skills.objects.get(id=id, resume__user=request.user)
-        messages.success(request,f" {skill} با موفقیت حذف شد. ")
-    except:
-        messages.error(request,"اعتبار سنجی دچار خطا شد.")
-    if request.method == "POST":
-        skill.delete()
-    return HttpResponseRedirect(reverse_lazy('resume_skills'))
-
-def update_skill(request, id):
-    try:
-        skill = models.Skills.objects.get(id=id, resume__user=request.user)
-        print(skill)
-        if request.method == "POST":
-            form = SkillForm(request.POST, request.FILES, instance=skill)
-            if form.is_valid():
-                try:
-
-                    skill.name = form.cleaned_data['name']
-                    skill.level = form.cleaned_data['level']
-                    skill.save()
-                    messages.success(request, f"تغییرات روی {skill.name} با موفقیت اعمال شد. ")
-                    return HttpResponseRedirect(reverse_lazy("resume_skills"))
-                except:
-                    messages.error(request, "هنگام بروز رسانی مشکلی بوجود آمد. لطفا مجدد تلاش کنید.")
-                    return HttpResponseRedirect(reverse_lazy("resume_skills"))
-        else:
-            form = SkillForm(instance=skill)
-    except:
-        messages.error(request,"اعتبار سنجی دچار خطا شد.")
-        return HttpResponseRedirect(reverse_lazy('resume_skills'))
-
-    context = {
-        'form':form,
-        'action': "ویرایش",
-    }
-    return render(request, 'resume/skills/skills_add.html', context)
-
+    return render(request, 'resume/resume.html', context)

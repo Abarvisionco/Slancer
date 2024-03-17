@@ -6,9 +6,11 @@ from resume.models import ExamWorks, Resume
 from django.http import HttpResponseRedirect
 
 def home(request):
+    resume = Resume.objects.get(user=request.user)
     exam = ExamWorks.objects.filter(resume__user=request.user)
     context = {
-        'exam':exam
+        'exam':exam,
+        'id':resume.id,
     }
     return render(request,'resume/exam/home.html', context)
 

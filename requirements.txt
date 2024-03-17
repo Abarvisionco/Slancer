@@ -9,6 +9,7 @@ django-quill-editor==0.1.40
 idna==3.6
 jdatetime==4.1.1
 kavenegar==1.1.2
+pillow==10.2.0
 requests==2.31.0
 sqlparse==0.4.4
 typing_extensions==4.10.0
