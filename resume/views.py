@@ -52,7 +52,13 @@ def resume_home(request):
 
 def resume(request, id):
     resume = models.Resume.objects.get(id=id)
+    langs = models.Language.objects.filter(resume=resume)
+    skills = models.Skills.objects.filter(resume=resume)
+    exams = models.ExamWorks.objects.filter(resume=resume)
     context = {
         'resume':resume,
+        'langs':langs,
+        'skills':skills,
+        'exams':exams,
     }
     return render(request, 'resume/resume.html', context)

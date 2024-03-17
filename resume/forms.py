@@ -44,7 +44,7 @@ class SkillForm(forms.ModelForm):
 class ExamForm(forms.ModelForm):
     class Meta:
         model = models.ExamWorks
-        fields = ['name', 'link', 'description']
+        fields = ['name', 'link', 'description', 'image']
 
     def __init__(self, *args, **kwargs):
         super(ExamForm, self).__init__(*args, **kwargs)

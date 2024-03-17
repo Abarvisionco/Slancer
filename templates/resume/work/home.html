@@ -12,13 +12,13 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="bg-white rounded shadow-sm py-3 sidebar-fix mt-2">
-                            <div class="dropdown-menu-show" style="text-align: right">
-                                <a class="dropdown-item py-2" href="{% url 'resume' id %}">نمایش رزومه</a>
+                        <div class="dropdown-menu-show" style="text-align: right">
+                            <a class="dropdown-item py-2" href="{% url 'resume' id %}">نمایش رزومه</a>
 
-                            </div>
                         </div>
+                    </div>
                     <div class="bg-white rounded shadow-sm py-3 sidebar-fix mt-2">
-                        <div class="dropdown-menu-show"  style="text-align: right">
+                        <div class="dropdown-menu-show" style="text-align: right">
                             <a class="dropdown-item py-2 " href="{% url 'resume_home' %}">رزومه</a>
                             <a class="dropdown-item py-2" href="{% url 'resume_skills' %}">مهارت ها</a>
                             <a class="dropdown-item py-2" href="{% url 'exam' %}">نمونه کار ها</a>
@@ -28,7 +28,7 @@
 
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="col-lg-9 mt-2" dir="rtl">
                     <div class="bg-white rounded shadow-sm sidebar-page-right">
@@ -73,8 +73,8 @@
                                     <tr>
                                         <th>نام</th>
                                         <th>نام محل کار</th>
-                                        <th>تاریخ شروع </th>
-                                        <th>تاریخ پایان </th>
+                                        <th>تاریخ شروع</th>
+                                        <th>تاریخ پایان</th>
                                         <th>توضیحات</th>
                                         <th>عملیات</th>
                                     </tr>
@@ -83,6 +83,7 @@
                                     {% for i in exam %}
                                         <tr>
                                             <td>{{ i.name }}</td>
+
                                             <td>{{ i.co_name }}</td>
                                             <td>{{ i.start_date|to_jalali:'%y/%m/%d' }}</td>
                                             <td>{% if i.end_date != None %}

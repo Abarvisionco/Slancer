@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}
     رزومه شما
 {% endblock %}
@@ -73,6 +75,7 @@
                                     <thead>
                                     <tr>
                                         <th>نام</th>
+                                        <th>عکس</th>
                                         <th>لینک</th>
                                         <th>توضیحات</th>
                                         <th>عملیات</th>
@@ -82,6 +85,13 @@
                                     {% for i in exam %}
                                         <tr>
                                             <td>{{ i.name }}</td>
+                                            <td>{% if i.image %}
+                                                <img width="60" class="m-0 center-block" src="{{ i.image.url }}" alt="{{ i.name }}">
+                                                {% else %}
+                                                <img width="60" class="m-0 center-block" src="{% static 'images/work-completed.png' %}" alt="{{ i.name }}">
+                                            {% endif %}
+                                            
+                                            </td>
                                             <td>{% if i.link != None %}
                                             	<a target="_blank" href="{{ i.link }}">{{ i.link }}</a>
                                                 {% else %}

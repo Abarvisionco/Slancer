@@ -4,32 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6634a1c9-4654-46f0-94d0-4794f5d4fdb1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/resume/lang_views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resume/migrations/0023_resume_link_language.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/resume/lang/skills.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/resume/lang/skills_add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Karamooz.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Karamooz.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="6634a1c9-4654-46f0-94d0-4794f5d4fdb1" name="Changes" comment="change resume model and make `language` model and CRUD">
+      <change afterPath="$PROJECT_DIR$/media/exam_works/2024/03/217234.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/resume_images/2024/03/20571006.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resume/migrations/0024_examworks_image.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/work-completed.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/resume/courses/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/courses/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/work_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/work_views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/resume/exam/exam_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/exam/exam_add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/resume/exam/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/exam/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/resume/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/resume/skills/skills.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/skills/skills.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/resume/resume.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/resume.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/resume/work/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/work/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -198,8 +196,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1710668614163</updated>
-      <workItem from="1710668616435" duration="4224000" />
+      <workItem from="1710668616435" duration="13423000" />
     </task>
+    <task id="LOCAL-00001" summary="change resume model and make `language` model and CRUD">
+      <option name="closed" value="true" />
+      <created>1710673113125</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1710673113125</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,6 +214,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="change resume model and make `language` model and CRUD" />
+    <option name="LAST_COMMIT_MESSAGE" value="change resume model and make `language` model and CRUD" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Karamooz$main.coverage" NAME="main Coverage Results" MODIFIED="1710669888165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

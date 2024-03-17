@@ -156,6 +156,7 @@ class Courses(models.Model):
 class ExamWorks(models.Model):
     name = models.CharField(max_length=200, verbose_name="عنوان نمونه کار")
     link = models.URLField(verbose_name="آدرس نمونه کار", null=True, blank=True)
+    image = models.ImageField(verbose_name="عکس نمونه کار",null=True, blank=True, upload_to='exam_works/%Y/%m')
     description = models.TextField(verbose_name="توضیحات")
     resume = models.ForeignKey(Resume, verbose_name="رزومه", on_delete=models.CASCADE)
 
