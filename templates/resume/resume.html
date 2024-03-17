@@ -20,7 +20,10 @@
                                     <i class="fa fa-circle"></i> فعال
                                 </div>
                             </div>
+                            {% if request.user.id == resume.user.id %}
+                                <div><a href="{% url 'resume_home' %}" class="ambassadors-badge">ویرایش رزومه</a></div>
 
+                            {% endif %}
                             <div class="user-profile-info">
                                 <div>
                                     <div class="user-profile-image">
@@ -79,8 +82,9 @@
                                                                                      target="_blank">{{ resume.user.email }}</a></strong>
                                         </li>
                                     {% endif %}
-                                {% if resume.resume_file and resume.resume_file.url != "/media/False" %}
-                                        <li class="fa-file">فایل رزومه پیوست<strong><a download href="{{ resume.resume_file.url }}"
+                                    {% if resume.resume_file and resume.resume_file.url != "/media/False" %}
+                                        <li class="fa-file">فایل رزومه پیوست<strong><a download
+                                                                                       href="{{ resume.resume_file.url }}"
                                                                                        target="_blank">دانلود</a></strong>
                                         </li>
                                     {% endif %}
@@ -146,235 +150,80 @@
                     </div>
                 </div>
                 <div class="col-lg-8 right" style="text-align: right">
-                    <h2>نمونه کار ها</h2>
-                    <div class="recommended">
+                    <div class="box shadow-sm rounded bg-white mb-3">
+                        <div class="box-title border-bottom p-3">
+                            <h6 class="m-0">درباره</h6>
+                        </div>
+                        <div class="box-body p-3">
+                            <p>
+                                {% if resume.about %}
+                                    {{ resume.about.html|safe }}
+                                {% else %}
+                                    توضیحاتی در رابطه با  {{ resume.user.get_full_name }}  هم اکنون موجود نیست.
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+
+                    {% if exams %}
+                        <hr>
+                    	<div class="mb-3">
+                        <h6 class="">نمونه کار ها</h6>
+                    </div>
+                    <div class="recommended mb-2">
                         <div class="row">
                             {% for i in exams %}
-                            	<div class="col-md-4">
-                                <div>
-                                    <a href="#">
-                                    {% if i.image %}
-                                        <img class="img-fluid" src="{{ i.image.url }}"/>
-	                                {% else %}
-                                        <img class="img-fluid p-2" src="{% static 'images/work-completed.png' %}"/>
+                                <div class="col-md-4">
+                                    <div>
 
-                                    {% endif %}                                     </a>
-                                    <div class="inner-slider">
-                                        <div class="inner-wrapper">
-                                            <div class="d-flex align-items-center">
+                                        <a {% if i.link %} href="{{ i.link }}" {% endif %}>
+                                            {% if i.image %}
+                                                <img class="img-fluid" src="{{ i.image.url }}"/>
+                                            {% else %}
+                                                <img class="img-fluid p-2"
+                                                     src="{% static 'images/work-completed.png' %}"/>
+
+                                            {% endif %}                                     </a>
+                                        <div class="inner-slider">
+                                            <div class="inner-wrapper">
+                                                <div class="d-flex align-items-center">
                                                 <span class="seller-image">
                                             {% if i.resume.image and i.resume.image.url != '/media/False' %}
 
-                                                <img class="img-fluid" src="{{ i.resume.image.url }}" alt='{{ i.name }}' />
+                                                <img class="img-fluid" src="{{ i.resume.image.url }}"
+                                                     alt='{{ i.name }}'/>
 
-                                                {% endif %}
+                                            {% endif %}
                                                 </span>
-                                                                                                <span class="seller-name">
+                                                    <span class="seller-name">
                                                 <a>{{ i.name }}</a>
-                                                {% if i.link %}
-                                                	<a  href="{{ i.link }}" target="_blank">{{ i.link }}</a>
-                                                    {% else %}
-                                                    <a >-</a>
-                                                {% endif %}
+                                                        {% if i.link %}
+                                                            <a href="{{ i.link }}" target="_blank">{{ i.link }}</a>
+                                                        {% else %}
+                                                            <a>-</a>
+                                                        {% endif %}
                                                 </span>
+                                                </div>
+                                                <h3>{{ i.description }}</h3>
+
+
                                             </div>
-                                            <h3>{{ i.description }}</h3>
-
-
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             {% endfor %}
 
                         </div>
                     </div>
-                    <div class="review-section">
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <h4 class="m-0">Reviews as Seller <small><span class="star-rating-s15"></span><span><span
-                                    class="total-rating-out-five header-average-rating"
-                                    data-impression-collected="true">5</span></span><span><span
-                                    class="total-rating header-total-rating"
-                                    data-impression-collected="true">(28051)</span></span></small>
-                            </h4>
-                            <select class="custom-select custom-select-sm border-0 shadow-sm ml-2">
-                                <option>Most Relevant</option>
-                                <option>Most Recent</option>
-                            </select>
-                        </div>
-                        <div class="breakdown">
-                            <ul class="header-stars">
-                                <li>
-                                    Seller communication level
-                                    <small>
-                                        <span class="star-rating-s15"></span>
-                                        <span class="total-rating-out-five">5</span>
-                                    </small>
-                                </li>
-                                <li>
-                                    Recommend to a friend
-                                    <small>
-                                        <span class="star-rating-s15"></span>
-                                        <span class="total-rating-out-five">5</span>
-                                    </small>
-                                </li>
-                                <li>
-                                    Service as described
-                                    <small>
-                                        <span class="star-rating-s15"></span>
-                                        <span class="total-rating-out-five">5</span>
-                                    </small>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="review-list">
-                        <ul>
-                            <li>
-                                <div class="d-flex">
-                                    <div class="left">
-<span>
-<img src="images/user/s9.png" class="profile-pict-img img-fluid" alt="">
-</span>
-                                    </div>
-                                    <div class="right">
-                                        <h4>
-                                            Askbootstrap
-                                            <span class="gig-rating text-body-2">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" width="15" height="15">
-<path fill="currentColor"
-      d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
-</path>
-</svg>
-5.0
-</span>
-                                        </h4>
-                                        <div class="country d-flex align-items-center">
-<span>
-<img class="country-flag img-fluid" src="images/flag/india.png">
-</span>
-                                            <div class="country-name font-accent">India</div>
-                                        </div>
-                                        <div class="review-description">
-                                            <p>
-                                                The process was smooth, after providing the required info,
-                                                Pragyesh sent me an outstanding packet of wireframes. Thank you a lot!
-                                            </p>
-                                        </div>
-                                        <span class="publish py-3 d-inline-block w-100">Published 4 weeks ago</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="d-flex">
-                                    <div class="left">
-<span>
-<img src="images/user/s8.png" class="profile-pict-img img-fluid" alt="">
-</span>
-                                    </div>
-                                    <div class="right">
-                                        <h4>
-                                            Askbootstrap
-                                            <span class="gig-rating text-body-2">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" width="15" height="15">
-<path fill="currentColor"
-      d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
-</path>
-</svg>
-5.0
-</span>
-                                        </h4>
-                                        <div class="country d-flex align-items-center">
-<span>
-<img class="country-flag img-fluid" src="images/flag/flag.png">
-</span>
-                                            <div class="country-name font-accent">Germany</div>
-                                        </div>
-                                        <div class="review-description">
-                                            <p>
-                                                The process was smooth, after providing the required info,
-                                                Pragyesh sent me an outstanding packet of wireframes. Thank you a lot!
-                                            </p>
-                                        </div>
-                                        <span class="publish py-3 d-inline-block w-100">Published 4 weeks ago</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="d-flex">
-                                    <div class="left">
-<span>
-<img src="images/user/s7.png" class="profile-pict-img img-fluid" alt="">
-</span>
-                                    </div>
-                                    <div class="right">
-                                        <h4>
-                                            Askbootstrap
-                                            <span class="gig-rating text-body-2">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" width="15" height="15">
-<path fill="currentColor"
-      d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
-</path>
-</svg>
-5.0
-</span>
-                                        </h4>
-                                        <div class="country d-flex align-items-center">
- <span>
-<img class="country-flag img-fluid" src="images/flag/uk.png">
-</span>
-                                            <div class="country-name font-accent">UK</div>
-                                        </div>
-                                        <div class="review-description">
-                                            <p>
-                                                The process was smooth, after providing the required info,
-                                                Pragyesh sent me an outstanding packet of wireframes. Thank you a lot!
-                                            </p>
-                                        </div>
-                                        <span class="publish py-3 d-inline-block w-100">Published 4 weeks ago</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="d-flex">
-                                    <div class="left">
-<span>
-<img src="images/user/s6.png" class="profile-pict-img img-fluid" alt="">
-</span>
-                                    </div>
-                                    <div class="right">
-                                        <h4>
-                                            Askbootstrap
-                                            <span class="gig-rating text-body-2">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" width="15" height="15">
-<path fill="currentColor"
-      d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
-</path>
-</svg>
-5.0
-</span>
-                                        </h4>
-                                        <div class="country d-flex align-items-center">
-<span>
-<img class="country-flag img-fluid" src="images/flag/australia.png">
-</span>
-                                            <div class="country-name font-accent">Australia</div>
-                                        </div>
-                                        <div class="review-description">
-                                            <p>
-                                                The process was smooth, after providing the required info,
-                                                Pragyesh sent me an outstanding packet of wireframes. Thank you a lot!
-                                            </p>
-                                        </div>
-                                        <span class="publish py-3 d-inline-block w-100">Published 4 weeks ago</span>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                        <hr>
+                    {% endif %}
+
+
+
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 
