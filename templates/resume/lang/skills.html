@@ -19,12 +19,11 @@
                     <div class="bg-white rounded shadow-sm py-3 sidebar-fix mt-2">
                         <div class="dropdown-menu-show" style="text-align: right">
                             <a class="dropdown-item py-2 " href="{% url 'resume_home' %}">رزومه</a>
-                            <a class="dropdown-item py-2 active" href="{% url 'resume_skills' %}">مهارت ها</a>
+                            <a class="dropdown-item py-2 " href="{% url 'resume_skills' %}">مهارت ها</a>
                             <a class="dropdown-item py-2" href="{% url 'exam' %}">نمونه کار ها</a>
                             <a class="dropdown-item py-2" href="{% url 'work_experience' %}">تجارب کاری</a>
                             <a class="dropdown-item py-2 " href="{% url 'courses' %}">دوره ها</a>
-                            <a class="dropdown-item py-2 " href="{% url 'resume_lang' %}">زبان ها</a>
-
+                            <a class="dropdown-item py-2 active" href="{% url 'resume_lang' %}">زبان ها</a>
                         </div>
                     </div>
                     
@@ -33,7 +32,7 @@
                     <div class="bg-white rounded shadow-sm sidebar-page-right">
                         <div>
                             <div class="p-3 border-bottom text-right">
-                                <h6 class="mb-0">مهارت های خودتان را اضافه کنید.
+                                <h6 class="mb-0">زبان های خودتان را اضافه کنید.
                                 </h6>
                             </div>
 
@@ -96,10 +95,10 @@
                                             {% endif %}
 
                                             <td>
-                                                <form action="{% url 'resume_skills_delete' i.id %}" method="post">
+                                                <form action="{% url 'resume_lang_delete' i.id %}" method="post">
                                                     {% csrf_token %}
                                                     <a class="btn btn-success  text-white" title="Edit"
-                                                       href="{% url 'resume_skills_update' i.id %}"> ویرایش <i
+                                                       href="{% url 'resume_lang_update' i.id %}"> ویرایش <i
                                                             class="fa fa-edit"></i></a>
                                                     <button class="btn btn-danger text-white" type="submit"
                                                             title="Delete"> حذف <i
@@ -118,8 +117,8 @@
 
                                 <div class="p-3">
                                     <div class="text-right">
-                                        <a class="btn btn-success text-white" href="{% url 'resume_skills_add' %}">افزودن
-                                            مهارت</a>
+                                        <a class="btn btn-success text-white" href="{% url 'resume_lang_add' %}">افزودن
+                                            زبان</a>
                                     </div>
 
                                 </div>

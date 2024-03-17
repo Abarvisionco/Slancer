@@ -4,39 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ef24459-1e04-4fc7-baf6-2d42644fbc3e" name="Changes" comment="create `course` CRUD for resume">
-      <change afterPath="$PROJECT_DIR$/company/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/resume_images/2024/03/1689578111280.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resume/migrations/0022_resume_image.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resume/skills_views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/resume/resume.html" afterDir="false" />
+    <list default="true" id="6634a1c9-4654-46f0-94d0-4794f5d4fdb1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/resume/lang_views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resume/migrations/0023_resume_link_language.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/resume/lang/skills.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/resume/lang/skills_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Karamooz.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Karamooz.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Karamooz/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Karamooz/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Karamooz/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Karamooz/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume/courses_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/courses_views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume/exam_works_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/exam_works_views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume/work_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/work_views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/company/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/company/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/company/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/forms.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/company/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/company/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/company/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/views.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/resume/courses/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/courses/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/resume/exam/exam_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/exam/exam_add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/resume/exam/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/exam/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/resume/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/resume/skills/skills.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/skills/skills.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/resume/skills/skills_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/skills/skills_add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/resume/work/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/work/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,13 +31,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
-    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
       </list>
     </option>
@@ -58,80 +41,93 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;ProdByGodfather&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="fffe447f-71da-4358-83ee-c80194152765" />
-        <option name="url" value="https://github.com/Abar-vision/Karamooz.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 2
-}</component>
-  <component name="ProjectId" id="2bR4F7R8TO9uPKo9XIRO8cn6jiN" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2doJgptAI1xfYNL9EPse4RcUrRD" />
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Django Server.Karamooz.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
-    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/godfather/Documents/Karamooz&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Django Server.Unnamed.executor": "Run",
+    "Python.main.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/godfather/Documents/Karamooz/templates/resume/lang",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.django.DjangoModulesConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="PyConsoleOptionsProvider">
-    <option name="myPythonConsoleState">
-      <console-settings module-name="Karamooz" is-module-sdk="true">
-        <option name="myUseModuleSdk" value="true" />
-        <option name="myModuleName" value="Karamooz" />
-      </console-settings>
-    </option>
-  </component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Projects\Karamooz" />
-      <recent name="D:\Projects\Karamooz\static" />
-      <recent name="D:\Projects\Karamooz\users" />
-      <recent name="D:\Projects\Karamooz\templates" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates/resume/courses" />
-      <recent name="$PROJECT_DIR$/templates/resume/skills" />
-      <recent name="$PROJECT_DIR$/templates/resume/exam" />
-      <recent name="D:\Projects\Karamooz\static\images" />
-      <recent name="D:\Projects\Karamooz\static\images\user" />
+      <recent name="$PROJECT_DIR$/templates/resume/lang" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Karamooz" type="Python.DjangoServer" factoryName="Django server">
+  <component name="RunManager" selected="Django Server.Unnamed">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="Karamooz" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.10 (Karamooz)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="Karamooz" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="true" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unnamed" type="Python.DjangoServer" factoryName="Django server" nameIsGenerated="true">
       <module name="Karamooz" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -141,6 +137,7 @@
         <env name="DJANGO_SETTINGS_MODULE" value="Karamooz.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.10 (Karamooz)" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -156,6 +153,35 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
+      <module name="Karamooz" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.10 (Karamooz)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="localhost" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Django Server.Unnamed" />
+      <item itemvalue="Python.main" />
+    </list>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -167,202 +193,22 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3ef24459-1e04-4fc7-baf6-2d42644fbc3e" name="Changes" comment="" />
-      <created>1706164450712</created>
+      <changelist id="6634a1c9-4654-46f0-94d0-4794f5d4fdb1" name="Changes" comment="" />
+      <created>1710668614163</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1706164450712</updated>
-      <workItem from="1706164489430" duration="10703000" />
-      <workItem from="1706294854467" duration="83000" />
-      <workItem from="1706441429163" duration="20269000" />
-      <workItem from="1706509070971" duration="2373000" />
-      <workItem from="1706520210650" duration="130000" />
-      <workItem from="1706543994852" duration="5809000" />
-      <workItem from="1706596507171" duration="55000" />
-      <workItem from="1706618815658" duration="2109000" />
-      <workItem from="1706628033175" duration="9202000" />
-      <workItem from="1706766899517" duration="408000" />
-      <workItem from="1706784970005" duration="1637000" />
-      <workItem from="1706888699550" duration="1901000" />
-      <workItem from="1707032449005" duration="801000" />
-      <workItem from="1707046877719" duration="279000" />
-      <workItem from="1707210023051" duration="443000" />
-      <workItem from="1707225640686" duration="35000" />
-      <workItem from="1707299708412" duration="17000" />
-      <workItem from="1707636966693" duration="1326000" />
-      <workItem from="1707644904512" duration="2124000" />
-      <workItem from="1707722310594" duration="47000" />
-      <workItem from="1708348198486" duration="1799000" />
-      <workItem from="1708366232684" duration="845000" />
-      <workItem from="1708430340714" duration="27000" />
-      <workItem from="1708436337421" duration="1830000" />
-      <workItem from="1708513222104" duration="118000" />
-      <workItem from="1708868950531" duration="7424000" />
-      <workItem from="1708954273827" duration="286000" />
-      <workItem from="1709109342547" duration="1020000" />
-      <workItem from="1709191300714" duration="601000" />
-      <workItem from="1709321575943" duration="1218000" />
-      <workItem from="1710266150359" duration="1521000" />
-      <workItem from="1710270886389" duration="1932000" />
-      <workItem from="1710310770798" duration="678000" />
-      <workItem from="1710315038792" duration="599000" />
-      <workItem from="1710316904117" duration="599000" />
-      <workItem from="1710318531081" duration="10186000" />
-      <workItem from="1710394867457" duration="281000" />
-      <workItem from="1710400552233" duration="14747000" />
-      <workItem from="1710487594817" duration="17339000" />
-      <workItem from="1710517980503" duration="3249000" />
+      <updated>1710668614163</updated>
+      <workItem from="1710668616435" duration="4224000" />
     </task>
-    <task id="LOCAL-00001" summary="make models and user mobile authentication">
-      <option name="closed" value="true" />
-      <created>1706172332812</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1706172332812</updated>
-    </task>
-    <task id="LOCAL-00002" summary="make models and user mobile authentication">
-      <option name="closed" value="true" />
-      <created>1706172592150</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1706172592150</updated>
-    </task>
-    <task id="LOCAL-00003" summary="make `user login` &amp; `user verify`">
-      <option name="closed" value="true" />
-      <created>1706454979834</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1706454979834</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Create `README.md` file">
-      <option name="closed" value="true" />
-      <created>1706455311934</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1706455311934</updated>
-    </task>
-    <task id="LOCAL-00005" summary="update `README.md` file">
-      <option name="closed" value="true" />
-      <created>1706455482653</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1706455482653</updated>
-    </task>
-    <task id="LOCAL-00006" summary="update `README.md` file">
-      <option name="closed" value="true" />
-      <created>1706455509692</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1706455509692</updated>
-    </task>
-    <task id="LOCAL-00007" summary="create profile page">
-      <option name="closed" value="true" />
-      <created>1706462675323</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1706462675323</updated>
-    </task>
-    <task id="LOCAL-00008" summary="create profile page">
-      <option name="closed" value="true" />
-      <created>1710267128685</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1710267128685</updated>
-    </task>
-    <task id="LOCAL-00009" summary="create profile page">
-      <option name="closed" value="true" />
-      <created>1710267468796</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1710267468796</updated>
-    </task>
-    <task id="LOCAL-00010" summary="change vetter form view">
-      <option name="closed" value="true" />
-      <created>1710329050938</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1710329050938</updated>
-    </task>
-    <task id="LOCAL-00011" summary="change db settings and schemas and better this">
-      <option name="closed" value="true" />
-      <created>1710330137599</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1710330137599</updated>
-    </task>
-    <task id="LOCAL-00012" summary="make CRUD for `skills` model and authorize datas">
-      <option name="closed" value="true" />
-      <created>1710411564295</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1710411564295</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Change resume files and make better">
-      <option name="closed" value="true" />
-      <created>1710489277544</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1710489277544</updated>
-    </task>
-    <task id="LOCAL-00014" summary="create `work_experience` CRUD for resume">
-      <option name="closed" value="true" />
-      <created>1710503708044</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1710503708044</updated>
-    </task>
-    <task id="LOCAL-00015" summary="create `course` CRUD for resume">
-      <option name="closed" value="true" />
-      <created>1710508347015</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1710508347015</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="make models and user mobile authentication" />
-    <MESSAGE value="make `user login` &amp; `user verify`" />
-    <MESSAGE value="Create `README.md` file" />
-    <MESSAGE value="update `README.md` file" />
-    <MESSAGE value="create profile page" />
-    <MESSAGE value="change vetter form view" />
-    <MESSAGE value="change db settings and schemas and better this" />
-    <MESSAGE value="make CRUD for `skills` model and authorize datas" />
-    <MESSAGE value="Change resume files and make better" />
-    <MESSAGE value="create `work_experience` CRUD for resume" />
-    <MESSAGE value="create `course` CRUD for resume" />
-    <option name="LAST_COMMIT_MESSAGE" value="create `course` CRUD for resume" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Karamooz$main.coverage" NAME="main Coverage Results" MODIFIED="1710669888165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

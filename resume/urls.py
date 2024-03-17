@@ -1,6 +1,6 @@
 from django.urls import path
 from resume import views, courses_views
-from resume import exam_works_views, work_views, courses_views, skills_views
+from resume import exam_works_views, work_views, courses_views, skills_views, lang_views
 
 urlpatterns = [
     path('',views.resume_home, name='resume_home'),
@@ -24,5 +24,10 @@ urlpatterns = [
     path('course/',courses_views.home, name='courses'),
     path('course/add/',courses_views.add_course,name='course_add'),
     path('course/<int:id>/',courses_views.update_course,name='course_update'),
-    path('course/<int:id>/delete/',courses_views.delete_course, name='course_delete')
+    path('course/<int:id>/delete/',courses_views.delete_course, name='course_delete'),
+    # lang CRUD
+    path('language/',lang_views.skills,name='resume_lang'),
+    path('language/add/',lang_views.add_skill,name='resume_lang_add'),
+    path('language/<int:id>/', lang_views.update_skill, name='resume_lang_update'),
+    path('language/<int:id>/delete/',lang_views.delete_skill,name='resume_lang_delete'),
 ]

@@ -7,7 +7,7 @@ from jalali_date.widgets import AdminJalaliDateWidget, AdminSplitJalaliDateTime
 class ResumeForm(forms.ModelForm):
     class Meta:
         model = models.Resume
-        fields = ['about','school','linkedin','resume_file','address','birth_day','birth_mount','birth_year','active','district','image']
+        fields = ['about','school','linkedin','resume_file','address','birth_day','birth_mount','birth_year','active','district','image', 'link']
 
     def __init__(self, *args, **kwargs):
         super(ResumeForm, self).__init__(*args, **kwargs)\
@@ -93,3 +93,19 @@ class CourseForm(forms.ModelForm):
                                                     )
         self.fields['end_date'] = JalaliDateField(label=('date1'), widget=AdminJalaliDateWidget,required=False)
 
+class LangForm(forms.ModelForm):
+    class Meta:
+        model = models.Language
+        fields = ['name','level']
+
+    def __init__(self, *args, **kwargs):
+        super(LangForm, self).__init__(*args, **kwargs)\
+
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = "form-control form--control pl-3"
+
+        # اضافه کردن یک توضیح مخصوص برای فرم
+        if self.instance.pk:
+            self.helper_text = "ویرایش کنید."
+        else:
+            self.helper_text = "ایجاد کنید."
