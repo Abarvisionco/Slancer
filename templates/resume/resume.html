@@ -9,16 +9,23 @@
 {% block content %}
 
 
-    <div class="main-page second py-5 right" dir="rtl">
+   {% if resume.active or resume.user.id == request.user.id %}
+   	 <div class="main-page second py-5 right" dir="rtl">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 left">
                     <div class="profile_info">
                         <div class="seller-card">
                             <div>
-                                <div class="user-online-indicator is-online " data-user-id="1152855">
+                                {% if resume.active %}
+                                	<div class="user-online-indicator is-online " data-user-id="1152855">
                                     <i class="fa fa-circle"></i> فعال
                                 </div>
+                                    {% else %}
+                                    <div class="user-online-indicator is-online text-danger danger" style="border-color: red" data-user-id="1152855">
+                                    <i class="fa fa-circle"></i> غیرفعال
+                                </div>
+                                {% endif %}
                             </div>
                             {% if request.user.id == resume.user.id %}
                                 <div><a href="{% url 'resume_home' %}" class="ambassadors-badge">ویرایش رزومه</a></div>
@@ -93,12 +100,16 @@
                         </div>
                     </div>
                     <div class="seller-profile" style="text-align: right">
-                        <div class="description right">
-                            <h3>آدرس</h3>
-                            <p>
-                                {{ resume.address }}
-                            </p>
-                        </div>
+                        {% if resume.address %}
+                            <div class="description right">
+                                <h3>آدرس</h3>
+                                <p>
+
+                                    {{ resume.address }}
+                                </p>
+                            </div>
+                        {% endif %}
+
                         <div class="languages">
                             <h3>زبان ها</h3>
                             <ul>
@@ -156,10 +167,8 @@
                         </div>
                         <div class="box-body p-3">
                             <p>
-                                {% if resume.about %}
+                                {% if resume.about != None %}
                                     {{ resume.about.html|safe }}
-                                {% else %}
-                                    توضیحاتی در رابطه با  {{ resume.user.get_full_name }}  هم اکنون موجود نیست.
                                 {% endif %}
                             </p>
                         </div>
@@ -167,26 +176,26 @@
 
                     {% if exams %}
                         <hr>
-                    	<div class="mb-3">
-                        <h6 class="">نمونه کار ها</h6>
-                    </div>
-                    <div class="recommended mb-2">
-                        <div class="row">
-                            {% for i in exams %}
-                                <div class="col-md-4">
-                                    <div>
+                        <div class="mb-3">
+                            <h6 class="">نمونه کار ها</h6>
+                        </div>
+                        <div class="recommended mb-2">
+                            <div class="row">
+                                {% for i in exams %}
+                                    <div class="col-md-4">
+                                        <div>
 
-                                        <a {% if i.link %} href="{{ i.link }}" {% endif %}>
-                                            {% if i.image %}
-                                                <img class="img-fluid" src="{{ i.image.url }}"/>
-                                            {% else %}
-                                                <img class="img-fluid p-2"
-                                                     src="{% static 'images/work-completed.png' %}"/>
+                                            <a {% if i.link %} href="{{ i.link }}" {% endif %}>
+                                                {% if i.image %}
+                                                    <img class="img-fluid" src="{{ i.image.url }}"/>
+                                                {% else %}
+                                                    <img class="img-fluid p-2"
+                                                         src="{% static 'images/work-completed.png' %}"/>
 
-                                            {% endif %}                                     </a>
-                                        <div class="inner-slider">
-                                            <div class="inner-wrapper">
-                                                <div class="d-flex align-items-center">
+                                                {% endif %}                                     </a>
+                                            <div class="inner-slider">
+                                                <div class="inner-wrapper">
+                                                    <div class="d-flex align-items-center">
                                                 <span class="seller-image">
                                             {% if i.resume.image and i.resume.image.url != '/media/False' %}
 
@@ -195,29 +204,28 @@
 
                                             {% endif %}
                                                 </span>
-                                                    <span class="seller-name">
+                                                        <span class="seller-name">
                                                 <a>{{ i.name }}</a>
-                                                        {% if i.link %}
-                                                            <a href="{{ i.link }}" target="_blank">{{ i.link }}</a>
-                                                        {% else %}
-                                                            <a>-</a>
-                                                        {% endif %}
+                                                            {% if i.link %}
+                                                                <a href="{{ i.link }}" target="_blank">{{ i.link }}</a>
+                                                            {% else %}
+                                                                <a>-</a>
+                                                            {% endif %}
                                                 </span>
+                                                    </div>
+                                                    <h3>{{ i.description }}</h3>
+
+
                                                 </div>
-                                                <h3>{{ i.description }}</h3>
-
-
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            {% endfor %}
+                                {% endfor %}
 
+                            </div>
                         </div>
-                    </div>
                         <hr>
                     {% endif %}
-
 
 
                 </div>
@@ -225,6 +233,12 @@
         </div>
     </div>
     </div>
+       {% else %}
+       <div class="m-5" style="text-align: center" dir="rtl">
+       <h2>وضعیت نمایش این رزومه غیر فعال میباشد.</h2>
+           <a href="{% url 'home' %}" class="btn btn-outline-success mt-3" > خانه</a>
+       </div>
+   {% endif %}
 
 
 {% endblock %}
