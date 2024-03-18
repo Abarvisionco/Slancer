@@ -27,6 +27,7 @@ def add_work(request):
                                                        co_name=form.cleaned_data['co_name'],
                                                        description=form.cleaned_data['description'],
                                                        start_date=form.cleaned_data['start_date'],
+                                                       image=form.cleaned_data['image'],
                                                        end_date=form.cleaned_data['end_date'], resume=resume)
 
                 skills.save()
@@ -59,6 +60,7 @@ def update_work(request, id):
                     skill.description = form.cleaned_data['description']
                     skill.co_name = form.cleaned_data['co_name']
                     skill.name = form.cleaned_data['name']
+                    skill.image = form.cleaned_data['image']
                     skill.save()
                     messages.success(request, f"تغییرات روی {skill.name} با موفقیت اعمال شد. ")
                     return HttpResponseRedirect(reverse_lazy("work_experience"))

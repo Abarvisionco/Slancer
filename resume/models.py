@@ -69,6 +69,8 @@ class Resume(models.Model):
     district = models.ForeignKey(District, verbose_name="ناحیه محل هنرستان", on_delete=models.SET_NULL, null=True)
     update_date = models.DateTimeField(auto_now=True, verbose_name="تاریخ بروز رسانی")
     linkedin = models.URLField(verbose_name="آدرس لینکدین", blank=True, null=True)
+    link = models.URLField(verbose_name="آدرس سایت", blank=True, null=True)
+
     address = models.TextField(verbose_name="آدرس محل سکونت", blank=True, null=True)
     birth_day = models.IntegerField(verbose_name="روز تولد", max_length=30, blank=True, null=True)
     birth_mount = models.IntegerField(verbose_name="ماه تولد", max_length=12, blank=True, null=True)
@@ -122,6 +124,19 @@ class Skills(models.Model):
         verbose_name_plural = "مهارت ها"
 
 
+class Language(models.Model):
+    name = models.CharField(max_length=200, verbose_name="نام زبان")
+    level = models.CharField(max_length=5, choices=Level_CHOICE, default='a', verbose_name="سطح زبان")
+    resume = models.ForeignKey(Resume, verbose_name="رزومه", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "زبان"
+        verbose_name_plural = "زبان ها"
+
+
 class Courses(models.Model):
     name = models.CharField(max_length=100, verbose_name="نام دوره آموزشی")
     description = models.TextField(verbose_name="توشیحات دوره")
@@ -141,6 +156,7 @@ class Courses(models.Model):
 class ExamWorks(models.Model):
     name = models.CharField(max_length=200, verbose_name="عنوان نمونه کار")
     link = models.URLField(verbose_name="آدرس نمونه کار", null=True, blank=True)
+    image = models.ImageField(verbose_name="عکس نمونه کار",null=True, blank=True, upload_to='exam_works/%Y/%m')
     description = models.TextField(verbose_name="توضیحات")
     resume = models.ForeignKey(Resume, verbose_name="رزومه", on_delete=models.CASCADE)
 

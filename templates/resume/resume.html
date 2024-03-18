@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}
     رزومه شما
 {% endblock %}
@@ -7,438 +9,236 @@
 {% block content %}
 
 
-<div class="main-page second py-5 right">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 left">
-                <div class="profile_info">
-                    <div class="seller-card">
-                        <div>
-                            <div class="user-online-indicator is-online " data-user-id="1152855">
-                                <i class="fa fa-circle"></i>online
-                            </div>
-                        </div>
-                        <div><a href="#" class="ambassadors-badge">Ambassador</a></div>
-                        <div class="user-profile-info">
+   {% if resume.active or resume.user.id == request.user.id %}
+   	 <div class="main-page second py-5 right" dir="rtl">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 left">
+                    <div class="profile_info">
+                        <div class="seller-card">
                             <div>
-                                <div class="user-profile-image">
-                                    <label class="user-pict">
-                                        <img src="images/user/s10.png" class="img-fluid user-pict-img"
-                                             alt="Askbootstrap">
-                                        <a href="#"
-                                           class="user-badge-round user-badge-round-med locale-en-us top-rated-seller"></a></label>
+                                {% if resume.active %}
+                                	<div class="user-online-indicator is-online " data-user-id="1152855">
+                                    <i class="fa fa-circle"></i> فعال
                                 </div>
+                                    {% else %}
+                                    <div class="user-online-indicator is-online text-danger danger" style="border-color: red" data-user-id="1152855">
+                                    <i class="fa fa-circle"></i> غیرفعال
+                                </div>
+                                {% endif %}
                             </div>
-                            <div class="user-profile-label">
-                                <div class="username-line">
-                                    <a href="#" class="seller-link">Askbootstrap</a>
+                            {% if request.user.id == resume.user.id %}
+                                <div><a href="{% url 'resume_home' %}" class="ambassadors-badge">ویرایش رزومه</a></div>
+
+                            {% endif %}
+                            <div class="user-profile-info">
+                                <div>
+                                    <div class="user-profile-image">
+                                        <label class="user-pict">
+                                            {% if resume.image and resume.image.url != '/media/False' %}
+                                                <img src="{{ resume.image.url }}" class="img-fluid user-pict-img"
+                                                     alt="Askbootstrap">
+                                                <a href="#"
+                                                   class="user-badge-round user-badge-round-med locale-en-us top-rated-seller"></a>
+                                                </label>
+                                            {% else %}
+                                                <img src="{% static 'images/user.png' %}"
+                                                     class="img-fluid user-pict-img"
+                                                     alt="Askbootstrap">
+                                                <a href="#"
+                                                   class="user-badge-round user-badge-round-med locale-en-us top-rated-seller"></a>
+                                                </label>
+                                            {% endif %}
+                                    </div>
                                 </div>
-                                <div class="oneliner-wrapper">
-                                    <small class="oneliner">Professional Voice Actress</small>
-                                    <div class="ratings-wrapper">
-                                        <p class="rating-text"><strong>5.0</strong> (1k+ reviews)</p>
+                                <div class="user-profile-label mt-1">
+                                    <div class="username-line">
+                                        <a class="seller-link">{{ resume.user.get_full_name }}</a>
                                     </div>
                                 </div>
                             </div>
+                            <div class="buttons-wrapper">
+
+                                <div class="btn-lrg-standard btn-white btn-custom-order">{{ resume.user.mobile }}</div>
+                                <a href="tel:{{ resume.user.mobile }}"
+                                   class="btn-lrg-standard btn-contact-me js-contact-me js-open-popup-join mr-2 ml-1">تماس</a>
+                            </div>
+                            <div class="user-stats-desc">
+                                <ul class="user-stats">
+                                    {% if resume.birth_mount and resume.birth_day and resume.birth_year %}
+                                        <li class="fa-birthday-cake">تاریخ
+                                            تولد<strong>{{ resume.birth_year }}/{{ resume.birth_mount }}/{{ resume.birth_day }}</strong>
+                                        </li>
+                                    {% endif %}
+                                    {% if resume.district %}
+                                        <li class="location">ناحیه - استان<strong>{{ resume.district }}</strong></li>
+                                    {% endif %}
+                                    {% if resume.link %}
+                                        <li class="fa-link">وبسایت<strong><a href="{{ resume.link }}"
+                                                                             target="_blank">{{ resume.link }}</a></strong>
+                                        </li>
+                                    {% endif %}
+                                    {% if resume.linkedin %}
+                                        <li class="fa-linkedin">آدرس لینکدین<strong><a href="{{ resume.linkedin }}"
+                                                                                       target="_blank">نمایش</a></strong>
+                                        </li>
+                                    {% endif %}
+                                    {% if resume.user.email %}
+                                        <li class="fa-envelope">آدرس ایمیل<strong><a href="{{ resume.user.email }}"
+                                                                                     class="small"
+                                                                                     target="_blank">{{ resume.user.email }}</a></strong>
+                                        </li>
+                                    {% endif %}
+                                    {% if resume.resume_file and resume.resume_file.url != "/media/False" %}
+                                        <li class="fa-file">فایل رزومه پیوست<strong><a download
+                                                                                       href="{{ resume.resume_file.url }}"
+                                                                                       target="_blank">دانلود</a></strong>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
                         </div>
-                        <div class="buttons-wrapper">
-                            <a href="#" class="btn-lrg-standard btn-contact-me js-contact-me js-open-popup-join">Contact
-                                Me</a>
-                            <div class="btn-lrg-standard btn-white btn-custom-order">Get a Quote</div>
-                        </div>
-                        <div class="user-stats-desc">
-                            <ul class="user-stats">
-                                <li class="location">From<strong>United States</strong></li>
-                                <li class="member-since">Member since<strong>Dec 2012</strong></li>
-                                <li class="response-time">Avg. Response Time<strong>2 hours</strong></li>
-                                <li class="recent-delivery">Recent Delivery<strong>about&nbsp;15</strong></li>
+                    </div>
+                    <div class="seller-profile" style="text-align: right">
+                        {% if resume.address %}
+                            <div class="description right">
+                                <h3>آدرس</h3>
+                                <p>
+
+                                    {{ resume.address }}
+                                </p>
+                            </div>
+                        {% endif %}
+
+                        <div class="languages">
+                            <h3>زبان ها</h3>
+                            <ul>
+                                {% for i in langs %}
+                                    <li>{{ i.name }}&nbsp;&nbsp;- <span>{% if i.level == "a" %}
+                                        <span class="text-danger">
+                                                    مقدماتی
+                                                </span>
+                                    {% elif i.level == "b" %}
+                                        <span class="text-warning">
+                                                    متوسط
+                                                </span>
+                                    {% else %}
+                                        <span class="text-success">
+                                                    پیشرفته
+                                                </span>
+
+                                    {% endif %}</span></li>
+                                {% endfor %}
+
+
                             </ul>
                         </div>
+                        <div class="languages">
+                            <h3>مهارت ها</h3>
+                            <ul class="row">
+                                {% for i in skills %}
+                                    <li class="col-6">{{ i.name }}&nbsp;&nbsp;- <span>{% if i.level == "a" %}
+                                        <span class="text-danger">
+                                                    مقدماتی
+                                                </span>
+                                    {% elif i.level == "b" %}
+                                        <span class="text-warning">
+                                                    متوسط
+                                                </span>
+                                    {% else %}
+                                        <span class="text-success">
+                                                    پیشرفته
+                                                </span>
+
+                                    {% endif %}</span></li>
+                                {% endfor %}
+
+
+                            </ul>
+                        </div>
+
+
                     </div>
                 </div>
-                <div class="seller-profile">
-                    <div class="description">
-                        <h3>Description</h3>
-                        <p>I am a Voice Actress with over 16+ years experience in everything from video games to phone
-                            systems to explainer videos to children's books.
-                            I am originally from the South East of England and have a natural British accent, as well as
-                            a
-                            Standard American accent from living in the US for 15 years.
-                        </p>
-                    </div>
-                    <div class="languages">
-                        <h3>Languages</h3>
-                        <ul>
-                            <li>English&nbsp;&nbsp;- <span>Fluent</span></li>
-                            <li>Spanish&nbsp;<strong>(español)</strong>&nbsp;- <span>Conversational</span></li>
-                            <li>French&nbsp;<strong>(français)</strong>&nbsp;- <span>Basic</span></li>
-                        </ul>
-                    </div>
-                    <div class="linked-accounts">
-                        <h3>Linked Accounts</h3>
-                        <ul>
-                            <li class="platform social-account facebook"><i class="platform-icon facebook hint--top"
-                                                                            aria-hidden="true" data-hint="facebook"></i><span
-                                    class="text">facebook</span></li>
-                            <li class="platform social-account google"><i class="platform-icon google hint--top"
-                                                                          aria-hidden="true"
-                                                                          data-hint="google"></i><span class="text">google</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="skills">
-                        <h3>Skills</h3>
-                        <ul>
-                            <li class=""><a href="#">voice talent</a></li>
-                            <li class=""><a href="#">voice acting</a></li>
-                            <li class=""><a href="#">voiceover</a></li>
-                            <li class=""><a href="#">voice over</a></li>
-                            <li class=""><a href="#">voiceover talent</a></li>
-                            <li class=""><a href="#">voice actor</a></li>
-                            <li class=""><a href="#">voicetalent</a></li>
-                            <li class=""><a href="#">voiceacting</a></li>
-                            <li class=""><a href="#">voiceactor</a></li>
-                            <li class=""><a href="#">voiceover artist</a></li>
-                        </ul>
-                    </div>
-                    <div class="education-list list">
-                        <h3>Education</h3>
-                        <ul>
-                            <li>
-                                <p>B.A. - communication studies</p>
-                                <p>Clayton State University, United States, Graduated 2006</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-8 right">
-                <h2>Askbootstrap's Gigs</h2>
-                <div class="recommended">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div>
-                                <a href="#">
-                                    <img class="img-fluid" src="images/list/v1.png"/>
-                                </a>
-                                <div class="inner-slider">
-                                    <div class="inner-wrapper">
-                                        <div class="d-flex align-items-center">
-<span class="seller-image">
-<img class="img-fluid" src="images/user/s1.png" alt=''/>
-</span>
-                                            <span class="seller-name">
-<a href="profile.html">Marcin Kowalski</a>
-<span class="level hint--top level-one-seller">
-Level 1 Seller
-</span>
-</span>
-                                        </div>
-                                        <h3>I will create professional audio ads or radio commercials for your
-                                            project</h3>
-                                        <div class="content-info">
-                                            <div class="rating-wrapper">
-<span class="gig-rating text-body-2">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" width="15" height="15">
-<path fill="currentColor"
-      d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
-</path>
-</svg>
-5.0
-<span>(7)</span>
-</span>
-                                            </div>
-                                        </div>
-                                        <div class="footer">
-                                            <i class="fa fa-heart" aria-hidden="true"></i>
-                                            <div class="price">
-                                                <a href="#">
-                                                    Starting At <span> $1,205</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="col-lg-8 right" style="text-align: right">
+                    <div class="box shadow-sm rounded bg-white mb-3">
+                        <div class="box-title border-bottom p-3">
+                            <h6 class="m-0">درباره</h6>
                         </div>
-                        <div class="col-md-4">
-                            <div>
-                                <a href="#">
-                                    <img class="img-fluid" src="images/list/v2.png"/>
-                                </a>
-                                <div class="inner-slider">
-                                    <div class="inner-wrapper">
-                                        <div class="d-flex align-items-center">
-<span class="seller-image">
-<img class="img-fluid" src="images/user/s2.png" alt=''/>
-</span>
-                                            <span class="seller-name">
-<a href="profile.html">Marcin Kowalski</a>
-<span class="level hint--top level-one-seller">
-Level 1 Seller
-</span>
-</span>
-                                        </div>
-                                        <h3>I will create professional audio ads or radio commercials for your
-                                            project</h3>
-                                        <div class="content-info">
-                                            <div class="rating-wrapper">
-<span class="gig-rating text-body-2">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" width="15" height="15">
-<path fill="currentColor"
-      d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
-</path>
-</svg>
-5.0
-<span>(7)</span>
-</span>
-                                            </div>
-                                        </div>
-                                        <div class="footer">
-                                            <i class="fa fa-heart" aria-hidden="true"></i>
-                                            <div class="price">
-                                                <a href="#">
-                                                    Starting At <span> $1,205</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div>
-                                <a href="#">
-                                    <img class="img-fluid" src="images/list/v3.png"/>
-                                </a>
-                                <div class="inner-slider">
-                                    <div class="inner-wrapper">
-                                        <div class="d-flex align-items-center">
-<span class="seller-image">
-<img class="img-fluid" src="images/user/s3.png" alt=''/>
-</span>
-                                            <span class="seller-name">
-<a href="profile.html">Marcin Kowalski</a>
-<span class="level hint--top level-one-seller">
-Level 1 Seller
-</span>
-</span>
-                                        </div>
-                                        <h3>I will create professional audio ads or radio commercials for your
-                                            project</h3>
-                                        <div class="content-info">
-                                            <div class="rating-wrapper">
-<span class="gig-rating text-body-2">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" width="15" height="15">
-<path fill="currentColor"
-      d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
-</path>
-</svg>
-5.0
-<span>(7)</span>
-</span>
-                                            </div>
-                                        </div>
-                                        <div class="footer">
-                                            <i class="fa fa-heart" aria-hidden="true"></i>
-                                            <div class="price">
-                                                <a href="#">
-                                                    Starting At <span> $1,205</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="box-body p-3">
+                            <p>
+                                {% if resume.about != None %}
+                                    {{ resume.about.html|safe }}
+                                {% endif %}
+                            </p>
                         </div>
                     </div>
-                </div>
-                <div class="review-section">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h4 class="m-0">Reviews as Seller <small><span class="star-rating-s15"></span><span><span
-                                class="total-rating-out-five header-average-rating"
-                                data-impression-collected="true">5</span></span><span><span
-                                class="total-rating header-total-rating" data-impression-collected="true">(28051)</span></span></small>
-                        </h4>
-                        <select class="custom-select custom-select-sm border-0 shadow-sm ml-2">
-                            <option>Most Relevant</option>
-                            <option>Most Recent</option>
-                        </select>
-                    </div>
-                    <div class="breakdown">
-                        <ul class="header-stars">
-                            <li>
-                                Seller communication level
-                                <small>
-                                    <span class="star-rating-s15"></span>
-                                    <span class="total-rating-out-five">5</span>
-                                </small>
-                            </li>
-                            <li>
-                                Recommend to a friend
-                                <small>
-                                    <span class="star-rating-s15"></span>
-                                    <span class="total-rating-out-five">5</span>
-                                </small>
-                            </li>
-                            <li>
-                                Service as described
-                                <small>
-                                    <span class="star-rating-s15"></span>
-                                    <span class="total-rating-out-five">5</span>
-                                </small>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="review-list">
-                    <ul>
-                        <li>
-                            <div class="d-flex">
-                                <div class="left">
-<span>
-<img src="images/user/s9.png" class="profile-pict-img img-fluid" alt="">
-</span>
-                                </div>
-                                <div class="right">
-                                    <h4>
-                                        Askbootstrap
-                                        <span class="gig-rating text-body-2">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" width="15" height="15">
-<path fill="currentColor"
-      d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
-</path>
-</svg>
-5.0
-</span>
-                                    </h4>
-                                    <div class="country d-flex align-items-center">
-<span>
-<img class="country-flag img-fluid" src="images/flag/india.png">
-</span>
-                                        <div class="country-name font-accent">India</div>
+
+                    {% if exams %}
+                        <hr>
+                        <div class="mb-3">
+                            <h6 class="">نمونه کار ها</h6>
+                        </div>
+                        <div class="recommended mb-2">
+                            <div class="row">
+                                {% for i in exams %}
+                                    <div class="col-md-4">
+                                        <div>
+
+                                            <a {% if i.link %} href="{{ i.link }}" {% endif %}>
+                                                {% if i.image %}
+                                                    <img class="img-fluid" src="{{ i.image.url }}"/>
+                                                {% else %}
+                                                    <img class="img-fluid p-2"
+                                                         src="{% static 'images/work-completed.png' %}"/>
+
+                                                {% endif %}                                     </a>
+                                            <div class="inner-slider">
+                                                <div class="inner-wrapper">
+                                                    <div class="d-flex align-items-center">
+                                                <span class="seller-image">
+                                            {% if i.resume.image and i.resume.image.url != '/media/False' %}
+
+                                                <img class="img-fluid" src="{{ i.resume.image.url }}"
+                                                     alt='{{ i.name }}'/>
+
+                                            {% endif %}
+                                                </span>
+                                                        <span class="seller-name">
+                                                <a>{{ i.name }}</a>
+                                                            {% if i.link %}
+                                                                <a href="{{ i.link }}" target="_blank">{{ i.link }}</a>
+                                                            {% else %}
+                                                                <a>-</a>
+                                                            {% endif %}
+                                                </span>
+                                                    </div>
+                                                    <h3>{{ i.description }}</h3>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="review-description">
-                                        <p>
-                                            The process was smooth, after providing the required info,
-                                            Pragyesh sent me an outstanding packet of wireframes. Thank you a lot!
-                                        </p>
-                                    </div>
-                                    <span class="publish py-3 d-inline-block w-100">Published 4 weeks ago</span>
-                                </div>
+                                {% endfor %}
+
                             </div>
-                        </li>
-                        <li>
-                            <div class="d-flex">
-                                <div class="left">
-<span>
-<img src="images/user/s8.png" class="profile-pict-img img-fluid" alt="">
-</span>
-                                </div>
-                                <div class="right">
-                                    <h4>
-                                        Askbootstrap
-                                        <span class="gig-rating text-body-2">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" width="15" height="15">
-<path fill="currentColor"
-      d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
-</path>
-</svg>
-5.0
-</span>
-                                    </h4>
-                                    <div class="country d-flex align-items-center">
-<span>
-<img class="country-flag img-fluid" src="images/flag/flag.png">
-</span>
-                                        <div class="country-name font-accent">Germany</div>
-                                    </div>
-                                    <div class="review-description">
-                                        <p>
-                                            The process was smooth, after providing the required info,
-                                            Pragyesh sent me an outstanding packet of wireframes. Thank you a lot!
-                                        </p>
-                                    </div>
-                                    <span class="publish py-3 d-inline-block w-100">Published 4 weeks ago</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="d-flex">
-                                <div class="left">
-<span>
-<img src="images/user/s7.png" class="profile-pict-img img-fluid" alt="">
-</span>
-                                </div>
-                                <div class="right">
-                                    <h4>
-                                        Askbootstrap
-                                        <span class="gig-rating text-body-2">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" width="15" height="15">
-<path fill="currentColor"
-      d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
-</path>
-</svg>
-5.0
-</span>
-                                    </h4>
-                                    <div class="country d-flex align-items-center">
- <span>
-<img class="country-flag img-fluid" src="images/flag/uk.png">
-</span>
-                                        <div class="country-name font-accent">UK</div>
-                                    </div>
-                                    <div class="review-description">
-                                        <p>
-                                            The process was smooth, after providing the required info,
-                                            Pragyesh sent me an outstanding packet of wireframes. Thank you a lot!
-                                        </p>
-                                    </div>
-                                    <span class="publish py-3 d-inline-block w-100">Published 4 weeks ago</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="d-flex">
-                                <div class="left">
-<span>
-<img src="images/user/s6.png" class="profile-pict-img img-fluid" alt="">
-</span>
-                                </div>
-                                <div class="right">
-                                    <h4>
-                                        Askbootstrap
-                                        <span class="gig-rating text-body-2">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" width="15" height="15">
-<path fill="currentColor"
-      d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
-</path>
-</svg>
-5.0
-</span>
-                                    </h4>
-                                    <div class="country d-flex align-items-center">
-<span>
-<img class="country-flag img-fluid" src="images/flag/australia.png">
-</span>
-                                        <div class="country-name font-accent">Australia</div>
-                                    </div>
-                                    <div class="review-description">
-                                        <p>
-                                            The process was smooth, after providing the required info,
-                                            Pragyesh sent me an outstanding packet of wireframes. Thank you a lot!
-                                        </p>
-                                    </div>
-                                    <span class="publish py-3 d-inline-block w-100">Published 4 weeks ago</span>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+                        </div>
+                        <hr>
+                    {% endif %}
+
+
                 </div>
             </div>
         </div>
     </div>
-</div>
+    </div>
+       {% else %}
+       <div class="m-5" style="text-align: center" dir="rtl">
+       <h2>وضعیت نمایش این رزومه غیر فعال میباشد.</h2>
+           <a href="{% url 'home' %}" class="btn btn-outline-success mt-3" > خانه</a>
+       </div>
+   {% endif %}
 
 
 {% endblock %}

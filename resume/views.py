@@ -21,6 +21,7 @@ def resume_home(request):
             resume.resume_file = form.cleaned_data['resume_file']
             resume.image = form.cleaned_data['image']
             resume.birth_day = form.cleaned_data['birth_day']
+            resume.link = form.cleaned_data['link']
             resume.birth_mount = form.cleaned_data['birth_mount']
             resume.birth_year = form.cleaned_data['birth_year']
             resume.address = form.cleaned_data['address']
@@ -51,7 +52,13 @@ def resume_home(request):
 
 def resume(request, id):
     resume = models.Resume.objects.get(id=id)
+    langs = models.Language.objects.filter(resume=resume)
+    skills = models.Skills.objects.filter(resume=resume)
+    exams = models.ExamWorks.objects.filter(resume=resume)
     context = {
         'resume':resume,
+        'langs':langs,
+        'skills':skills,
+        'exams':exams,
     }
     return render(request, 'resume/resume.html', context)
