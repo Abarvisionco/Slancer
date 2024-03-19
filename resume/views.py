@@ -56,11 +56,13 @@ def resume(request, id):
     skills = models.Skills.objects.filter(resume=resume)
     exams = models.ExamWorks.objects.filter(resume=resume)
     work = models.WorkExperience.objects.filter(resume=resume)
+    course = models.Courses.objects.filter(resume=resume)
     context = {
         'resume':resume,
         'langs':langs,
         'skills':skills,
         'exams':exams,
         'work':work,
+        'course':course,
     }
     return render(request, 'resume/resume.html', context)

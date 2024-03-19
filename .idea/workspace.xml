@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6634a1c9-4654-46f0-94d0-4794f5d4fdb1" name="Changes" comment="add resume.active action">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/resume/resume.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/resume.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -187,7 +188,7 @@
       <workItem from="1710668616435" duration="13423000" />
       <workItem from="1710684625196" duration="5711000" />
       <workItem from="1710798166700" duration="157000" />
-      <workItem from="1710849113063" duration="4452000" />
+      <workItem from="1710849113063" duration="6939000" />
     </task>
     <task id="LOCAL-00001" summary="change resume model and make `language` model and CRUD">
       <option name="closed" value="true" />
