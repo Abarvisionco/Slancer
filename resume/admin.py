@@ -1,5 +1,8 @@
 from django.contrib import admin
 from resume import models
+from jalali_date import datetime2jalali, date2jalali
+from jalali_date.admin import ModelAdminJalaliMixin, StackedInlineJalaliMixin, TabularInlineJalaliMixin
+
 
 # make good view for admin panel
 class StateAdmin(admin.ModelAdmin):
@@ -33,11 +36,16 @@ class ResumeAdmin(admin.ModelAdmin):
     list_filter = ('active','update_date','create_time')
 
 
+class WorkExperienceAdmin(ModelAdminJalaliMixin,admin.ModelAdmin):
+    list_display = ('name','start_date', 'end_date')
+
+
+
 admin.site.register(models.Resume, ResumeAdmin)
 admin.site.register(models.City, CityAdmin)
 admin.site.register(models.State, StateAdmin)
 admin.site.register(models.Courses)
-admin.site.register(models.WorkExperience)
+admin.site.register(models.WorkExperience, WorkExperienceAdmin)
 admin.site.register(models.ExamWorks)
 admin.site.register(models.Skills, SkillAdmin)
 admin.site.register(models.District, DistrictAdmin)
