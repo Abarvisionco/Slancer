@@ -74,7 +74,7 @@
                                         <li class="location">ناحیه - استان<strong>{{ resume.district }}</strong></li>
                                     {% endif %}
                                     {% if resume.link %}
-                                        <li class="fa-link">وبسایت<strong><a href="{{ resume.link }}"
+                                        <li class="fa-link">وبسایت<strong><a class="small" href="{{ resume.link }}"
                                                                              target="_blank">{{ resume.link }}</a></strong>
                                         </li>
                                     {% endif %}
@@ -182,10 +182,10 @@
                         <div class="recommended mb-2">
                             <div class="row">
                                 {% for i in exams %}
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 col-6">
                                         <div>
 
-                                            <a {% if i.link %} href="{{ i.link }}" {% endif %}>
+                                            <a target="_blank" {% if i.link %} href="{{ i.link }}" {% endif %}>
                                                 {% if i.image %}
                                                     <img class="img-fluid" src="{{ i.image.url }}"/>
                                                 {% else %}
@@ -205,12 +205,8 @@
                                             {% endif %}
                                                 </span>
                                                         <span class="seller-name">
-                                                <a>{{ i.name }}</a>
-                                                            {% if i.link %}
-                                                                <a href="{{ i.link }}" target="_blank">{{ i.link }}</a>
-                                                            {% else %}
-                                                                <a>-</a>
-                                                            {% endif %}
+                                                <a target="_blank" {% if i.link %} href="{{ i.link }}" {% endif %}>{{ i.name }}</a>
+
                                                 </span>
                                                     </div>
                                                     <h3>{{ i.description }}</h3>
@@ -226,7 +222,45 @@
                         </div>
                         <hr>
                     {% endif %}
+                    {% if work %}
+                    	<div id="faq" class="faq right" style="margin: 0px; text-align: right">
+                        <div class="mb-3">
+                            <h6 class="">تجارب کاری</h6>
+                        </div>
+                    <div class="accordion" id="accordionExample">
+                        {% for i in work %}
+                        	<div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" style="text-align: right" type="button" data-toggle="collapse"
+                                            data-target="#collapse{{ i.id }}" aria-expanded="true" aria-controls="collapseOne">
+                                        {{ i.name }}
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapse{{ i.id }}" class="collapse" aria-labelledby="headingOne"
+                                 data-parent="#accordionExample">
+                                <div class="card-body">
+                                    {{ i.description }}
+                                    <br><br>
+                                <div>
+                                    <span class="small">شرکت: {{ i.co_name }}</span>
+                                    <span class="small" style="float: left">از {{ i.start_date }} تا {% if i.end_date == None %}
+                                    	کنون
+                                        {% else %}
+                                        {{ i.end_date }}
+                                    {% endif %} </span>
+                                </div>
 
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+                        <hr>
+                    {% endif %}
 
                 </div>
             </div>

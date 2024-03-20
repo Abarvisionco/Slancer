@@ -27,7 +27,6 @@ def add_work(request):
                                                        co_name=form.cleaned_data['co_name'],
                                                        description=form.cleaned_data['description'],
                                                        start_date=form.cleaned_data['start_date'],
-                                                       image=form.cleaned_data['image'],
                                                        end_date=form.cleaned_data['end_date'], resume=resume)
 
                 skills.save()
