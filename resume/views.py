@@ -17,6 +17,7 @@ def resume_home(request):
         if form.is_valid():
             # بروزرسانی مقادیر فیلدهای مربوط به Resume با داده‌های ورودی فرم
             resume.school = form.cleaned_data['school']
+            resume.field = form.cleaned_data['field']
             resume.linkedin = form.cleaned_data['linkedin']
             resume.resume_file = form.cleaned_data['resume_file']
             resume.image = form.cleaned_data['image']

@@ -70,7 +70,7 @@ class Resume(models.Model):
     update_date = models.DateTimeField(auto_now=True, verbose_name="تاریخ بروز رسانی")
     linkedin = models.URLField(verbose_name="آدرس لینکدین", blank=True, null=True)
     link = models.URLField(verbose_name="آدرس سایت", blank=True, null=True)
-
+    field = models.ForeignKey(Field, on_delete=models.CASCADE, null=True, verbose_name="رشته")
     address = models.TextField(verbose_name="آدرس محل سکونت", blank=True, null=True)
     birth_day = models.IntegerField(verbose_name="روز تولد", max_length=30, blank=True, null=True)
     birth_mount = models.IntegerField(verbose_name="ماه تولد", max_length=12, blank=True, null=True)
