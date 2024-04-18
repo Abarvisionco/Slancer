@@ -7,7 +7,7 @@ from jalali_date.widgets import AdminJalaliDateWidget, AdminSplitJalaliDateTime
 class ResumeForm(forms.ModelForm):
     class Meta:
         model = models.Resume
-        fields = ['about','school','linkedin','resume_file','address','birth_day','birth_mount','birth_year','active','district','image', 'link']
+        fields = ['about','school','linkedin', 'field','resume_file','address','birth_day','birth_mount','birth_year','active','district','image', 'link']
 
     def __init__(self, *args, **kwargs):
         super(ResumeForm, self).__init__(*args, **kwargs)\

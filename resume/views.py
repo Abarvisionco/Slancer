@@ -17,6 +17,7 @@ def resume_home(request):
         if form.is_valid():
             # بروزرسانی مقادیر فیلدهای مربوط به Resume با داده‌های ورودی فرم
             resume.school = form.cleaned_data['school']
+            resume.field = form.cleaned_data['field']
             resume.linkedin = form.cleaned_data['linkedin']
             resume.resume_file = form.cleaned_data['resume_file']
             resume.image = form.cleaned_data['image']
@@ -56,11 +57,13 @@ def resume(request, id):
     skills = models.Skills.objects.filter(resume=resume)
     exams = models.ExamWorks.objects.filter(resume=resume)
     work = models.WorkExperience.objects.filter(resume=resume)
+    course = models.Courses.objects.filter(resume=resume)
     context = {
         'resume':resume,
         'langs':langs,
         'skills':skills,
         'exams':exams,
         'work':work,
+        'course':course,
     }
     return render(request, 'resume/resume.html', context)

@@ -64,10 +64,10 @@
                     <div class="popular">
                         <span class="text-body-2">محبوب</span>
                         <ul>
-                            <li><a href="#" class="text-body-2">Voice over</a></li>
-                            <li><a href="#" class="text-body-2">translation</a></li>
-                            <li><a href="#" class="text-body-2">logo design</a></li>
-                            <li><a href="#" class="text-body-2">Articles &amp; Blog Posts</a></li>
+                            {% for i in field %}
+                                <li><a href="#" class="text-body-2">{{ i.name }}</a></li>
+                            {% endfor %}
+
                         </ul>
                     </div>
                 </div>

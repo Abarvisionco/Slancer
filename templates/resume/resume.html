@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load jalali_tags %}
+
 {% load static %}
 
 {% block title %}
@@ -54,6 +56,7 @@
                                 <div class="user-profile-label mt-1">
                                     <div class="username-line">
                                         <a class="seller-link">{{ resume.user.get_full_name }}</a>
+                                        <h6 class="small mt-2">{{ resume.school }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -110,7 +113,8 @@
                             </div>
                         {% endif %}
 
-                        <div class="languages">
+                        {% if langs %}
+                        	<div class="languages">
                             <h3>زبان ها</h3>
                             <ul>
                                 {% for i in langs %}
@@ -133,7 +137,9 @@
 
                             </ul>
                         </div>
-                        <div class="languages">
+                        {% endif %}
+                        {% if skills %}
+                        	<div class="languages">
                             <h3>مهارت ها</h3>
                             <ul class="row">
                                 {% for i in skills %}
@@ -156,6 +162,7 @@
 
                             </ul>
                         </div>
+                        {% endif %}
 
 
                     </div>
@@ -223,32 +230,88 @@
                         <hr>
                     {% endif %}
                     {% if work %}
+                        <div id="faq" class="faq right" style="margin: 0px; text-align: right">
+                            <div class="mb-3">
+                                <h6 class="">تجارب کاری</h6>
+                            </div>
+                            <div class="accordion" id="accordionExample">
+                                {% for i in work %}
+                                    <div class="card">
+                                        <div class="card-header" id="headingOne">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-link" style="text-align: right" type="button"
+                                                        data-toggle="collapse"
+                                                        data-target="#collapse{{ i.id }}" aria-expanded="true"
+                                                        aria-controls="collapseOne">
+                                                    {{ i.name }}
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="collapse{{ i.id }}" class="collapse" aria-labelledby="headingOne"
+                                             data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                {{ i.description }}
+                                                <br><br>
+                                                <div style="color: gray">
+                                                    <span class="small">محل کار: {{ i.co_name }}</span>
+                                                    <span class="small"
+                                                          style="float: left">از {{ i.start_date|to_jalali:'%y/%m/%d' }} تا
+                                                        {% if i.end_date == None %}
+                                                            کنون
+                                                        {% else %}
+                                                            {{ i.end_date|to_jalali:'%y/%m/%d' }}
+                                                        {% endif %} </span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                        <hr>
+                    {% endif %}
+                {% if course %}
                     	<div id="faq" class="faq right" style="margin: 0px; text-align: right">
                         <div class="mb-3">
-                            <h6 class="">تجارب کاری</h6>
+                            <h6 class=""> آموزش های گذرانده شده</h6>
                         </div>
                     <div class="accordion" id="accordionExample">
-                        {% for i in work %}
+                        {% for i in course %}
                         	<div class="card">
                             <div class="card-header" id="headingOne">
                                 <h2 class="mb-0">
                                     <button class="btn btn-link" style="text-align: right" type="button" data-toggle="collapse"
-                                            data-target="#collapse{{ i.id }}" aria-expanded="true" aria-controls="collapseOne">
+                                            data-target="#collapse_course{{ i.id }}" aria-expanded="true" aria-controls="collapseOne">
                                         {{ i.name }}
                                     </button>
                                 </h2>
                             </div>
-                            <div id="collapse{{ i.id }}" class="collapse" aria-labelledby="headingOne"
+                            <div id="collapse_course{{ i.id }}" class="collapse" aria-labelledby="headingOne"
                                  data-parent="#accordionExample">
                                 <div class="card-body">
                                     {{ i.description }}
                                     <br><br>
-                                <div>
-                                    <span class="small">شرکت: {{ i.co_name }}</span>
-                                    <span class="small" style="float: left">از {{ i.start_date }} تا {% if i.end_date == None %}
+                                <div style="color: gray">
+                                    <span class="small"> سطح دوره: {% if i.level == "a" %}
+                                                <span class="text-danger">
+                                                    مقدماتی
+                                                </span>
+                                            {% elif i.level == "b" %}
+                                                <span class="text-warning">
+                                                    متوسط
+                                                </span>
+                                            {% else %}
+                                                <span class="text-success">
+                                                    پیشرفته
+                                                </span>
+
+                                            {% endif %}</span>
+                                    <span class="small" style="float: left">از {{ i.start_date|to_jalali:'%y/%m/%d' }} تا {% if i.end_date == None %}
                                     	کنون
                                         {% else %}
-                                        {{ i.end_date }}
+                                        {{ i.end_date|to_jalali:'%y/%m/%d' }}
                                     {% endif %} </span>
                                 </div>
 

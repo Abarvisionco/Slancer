@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6634a1c9-4654-46f0-94d0-4794f5d4fdb1" name="Changes" comment="add resume.active action">
+    <list default="true" id="6634a1c9-4654-46f0-94d0-4794f5d4fdb1" name="Changes" comment="add `courses` to resume html page">
+      <change afterPath="$PROJECT_DIR$/media/exam_works/2024/04/Mahdi_ghasemi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resume/migrations/0025_resume_field.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resume/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume/work_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/work_views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/resume/exam/exam_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/exam/exam_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/resume/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/resume/resume.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/resume.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +59,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/godfather/Documents/Karamooz/templates/resume/lang&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/godfather/Documents/Hoopad/hprot_restructure&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -190,7 +196,12 @@
       <workItem from="1710668616435" duration="13423000" />
       <workItem from="1710684625196" duration="5711000" />
       <workItem from="1710798166700" duration="157000" />
-      <workItem from="1710849113063" duration="3179000" />
+      <workItem from="1710849113063" duration="7519000" />
+      <workItem from="1710927012471" duration="151000" />
+      <workItem from="1711350227572" duration="650000" />
+      <workItem from="1712038199923" duration="39000" />
+      <workItem from="1712231457137" duration="12000" />
+      <workItem from="1713467439350" duration="1768000" />
     </task>
     <task id="LOCAL-00001" summary="change resume model and make `language` model and CRUD">
       <option name="closed" value="true" />
@@ -216,7 +227,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710694047230</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add `courses` to resume html page">
+      <option name="closed" value="true" />
+      <created>1710870386173</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1710870386174</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,7 +246,8 @@
     <MESSAGE value="change resume model and make `language` model and CRUD" />
     <MESSAGE value="update resume page and add `exam_works` &amp; `skills` &amp; `langs` and ..." />
     <MESSAGE value="add resume.active action" />
-    <option name="LAST_COMMIT_MESSAGE" value="add resume.active action" />
+    <MESSAGE value="add `courses` to resume html page" />
+    <option name="LAST_COMMIT_MESSAGE" value="add `courses` to resume html page" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Karamooz$main.coverage" NAME="main Coverage Results" MODIFIED="1710669888165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
