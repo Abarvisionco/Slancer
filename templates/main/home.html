@@ -18,17 +18,14 @@
                                 <div class="col-lg-2 col-md-2 col-6 form-group">
                                     <div class="location-dropdown">
                                         <i class="icofont-location-arrow"></i>
-                                        <select class="custom-select form-control border-0 shadow-sm form-control-lg" name="state">
-                                            <option> استان </option>
-                                            <option> Graphics & Design </option>
-                                            <option> Digital Marketing </option>
-                                            <option> Writing & Translation </option>
-                                            <option> Video & Animation </option>
-                                            <option> Music & Audio </option>
-                                            <option> Programming & Tech </option>
-                                            <option> Business </option>
-                                            <option> Lifestyle </option>
-                                            <option> Industries </option>
+                                        <select class="custom-select form-control border-0 shadow-sm form-control-lg"
+                                                name="state">
+                                            <option> استان</option>
+                                            {% for i in stete %}
+                                                <option> {{ i.name }} </option>
+
+                                            {% endfor %}
+
                                         </select>
                                     </div>
                                 </div>
@@ -36,26 +33,22 @@
                                     <div class="location-dropdown">
                                         <i class="icofont-location-arrow"></i>
                                         <select class="custom-select form-control border-0 shadow-sm form-control-lg">
-                                            <option> رشته </option>
-                                            <option> Graphics & Design </option>
-                                            <option> Digital Marketing </option>
-                                            <option> Writing & Translation </option>
-                                            <option> Video & Animation </option>
-                                            <option> Music & Audio </option>
-                                            <option> Programming & Tech </option>
-                                            <option> Business </option>
-                                            <option> Lifestyle </option>
-                                            <option> Industries </option>
+                                            <option> رشته</option>
+                                            {% for i in field %}
+                                                <option> {{ i.name }} </option>
+
+                                            {% endfor %}
+
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-9 form-group">
                                     <input type="text" placeholder="چیزی سرچ کنید..."
-                                        class="form-control border-0 form-control-lg shadow-sm">
+                                           class="form-control border-0 form-control-lg shadow-sm">
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-6 form-group">
                                     <button type="submit"
-                                        class="btn btn-success btn-block btn-lg btn-gradient shadow-sm"><i
+                                            class="btn btn-success btn-block btn-lg btn-gradient shadow-sm"><i
                                             class="fa fa-search"></i></button>
                                 </div>
                             </div>
@@ -72,7 +65,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5">
-                    <img class="img-fluid" src="{% static 'images/banner.svg' %}" alt='' />
+                    <img class="img-fluid" src="{% static 'images/banner.svg' %}" alt=''/>
                 </div>
 
             </div>
@@ -82,18 +75,50 @@
         <div class="view_slider recommended">
             <div class="container">
                 <div class="row">
+                    {% for i in resume %}
+                    	<div class="col-md-4 col-6 col-lg-3">
+                        <div class="box mb-3 shadow-sm rounded bg-white profile-box text-center">
+                            <div class="py-4 px-3 border-bottom">
+                                <img width="100" src="{% if i.image and i.image.url != '/media/False' %}
+                                	{{ i.image.url }}
+                                	{% else %}
+                                	{% static 'images/user.png' %}
+                                {% endif %} " class="img-fluid mt-2 rounded-circle"
+                                     alt="Responsive image">
+                                <h5 class="font-weight-bold text-dark mb-1 mt-4">{{ i.user.get_full_name }}</h5>
+                                <p class="mb-0 text-muted">{{ i.school }}</p>
+                            </div>
+                            <div class="d-flex">
+                                <div class="col-6 border-right p-3">
+                                    <h6 class="font-weight-bold text-dark mb-1">ناحیه</h6>
+                                    <p class="mb-0 text-black-50 small">{{ i.district }}</p>
+                                </div>
+                                <div class="col-6 p-3">
+                                    <h6 class="font-weight-bold text-dark mb-1">رشته</h6>
+                                    <p class="mb-0 text-black-50 small">{{ i.field }}</p>
+                                </div>
+                            </div>
+                            <div class="overflow-hidden border-top">
+                                <a class="font-weight-bold p-3 d-block"
+                                   href="{% url 'resume' i.id %}">
+                                    نمایش پروفایل </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
                     <div class="col-lg-12">
                         <h3 class="text-white">Recently Viewed & More</h3>
                         <div class="view recent-slider recommended-slider">
                             <div>
                                 <a href="product-detail.html">
-                                    <img class="img-fluid" src="images/list/v1.png" />
+                                    <img class="img-fluid" src="images/list/v1.png"/>
                                 </a>
                                 <div class="inner-slider">
                                     <div class="inner-wrapper">
                                         <div class="d-flex align-items-center">
                                             <span class="seller-image">
-                                                <img class="img-fluid" src="images/user/s1.png" alt='' />
+                                                <img class="img-fluid" src="images/user/s1.png" alt=''/>
                                             </span>
                                             <span class="seller-name">
                                                 <a href="profile.html">Marcin Kowalski</a>
@@ -108,9 +133,9 @@
                                             <div class="rating-wrapper">
                                                 <span class="gig-rating text-body-2">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792"
-                                                        width="15" height="15">
+                                                         width="15" height="15">
                                                         <path fill="currentColor"
-                                                            d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
+                                                              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
                                                         </path>
                                                     </svg>
                                                     5.0
@@ -131,13 +156,13 @@
                             </div>
                             <div>
                                 <a href="product-detail.html">
-                                    <img class="img-fluid" src="images/list/v2.png" />
+                                    <img class="img-fluid" src="images/list/v2.png"/>
                                 </a>
                                 <div class="inner-slider">
                                     <div class="inner-wrapper">
                                         <div class="d-flex align-items-center">
                                             <span class="seller-image">
-                                                <img class="img-fluid" src="images/user/s2.png" alt='' />
+                                                <img class="img-fluid" src="images/user/s2.png" alt=''/>
                                             </span>
                                             <span class="seller-name">
                                                 <a href="profile.html">Marcin Kowalski</a>
@@ -152,9 +177,9 @@
                                             <div class="rating-wrapper">
                                                 <span class="gig-rating text-body-2">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792"
-                                                        width="15" height="15">
+                                                         width="15" height="15">
                                                         <path fill="currentColor"
-                                                            d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
+                                                              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
                                                         </path>
                                                     </svg>
                                                     5.0
@@ -175,13 +200,13 @@
                             </div>
                             <div>
                                 <a href="product-detail.html">
-                                    <img class="img-fluid" src="images/list/v3.png" />
+                                    <img class="img-fluid" src="images/list/v3.png"/>
                                 </a>
                                 <div class="inner-slider">
                                     <div class="inner-wrapper">
                                         <div class="d-flex align-items-center">
                                             <span class="seller-image">
-                                                <img class="img-fluid" src="images/user/s3.png" alt='' />
+                                                <img class="img-fluid" src="images/user/s3.png" alt=''/>
                                             </span>
                                             <span class="seller-name">
                                                 <a href="profile.html">Marcin Kowalski</a>
@@ -196,9 +221,9 @@
                                             <div class="rating-wrapper">
                                                 <span class="gig-rating text-body-2">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792"
-                                                        width="15" height="15">
+                                                         width="15" height="15">
                                                         <path fill="currentColor"
-                                                            d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
+                                                              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
                                                         </path>
                                                     </svg>
                                                     5.0
@@ -219,13 +244,13 @@
                             </div>
                             <div>
                                 <a href="product-detail.html">
-                                    <img class="img-fluid" src="images/list/v4.png" />
+                                    <img class="img-fluid" src="images/list/v4.png"/>
                                 </a>
                                 <div class="inner-slider">
                                     <div class="inner-wrapper">
                                         <div class="d-flex align-items-center">
                                             <span class="seller-image">
-                                                <img class="img-fluid" src="images/user/s4.png" alt='' />
+                                                <img class="img-fluid" src="images/user/s4.png" alt=''/>
                                             </span>
                                             <span class="seller-name">
                                                 <a href="profile.html">Marcin Kowalski</a>
@@ -240,9 +265,9 @@
                                             <div class="rating-wrapper">
                                                 <span class="gig-rating text-body-2">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792"
-                                                        width="15" height="15">
+                                                         width="15" height="15">
                                                         <path fill="currentColor"
-                                                            d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
+                                                              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
                                                         </path>
                                                     </svg>
                                                     5.0
@@ -263,13 +288,13 @@
                             </div>
                             <div>
                                 <a href="product-detail.html">
-                                    <img class="img-fluid" src="images/list/v5.png" />
+                                    <img class="img-fluid" src="images/list/v5.png"/>
                                 </a>
                                 <div class="inner-slider">
                                     <div class="inner-wrapper">
                                         <div class="d-flex align-items-center">
                                             <span class="seller-image">
-                                                <img class="img-fluid" src="images/user/s5.png" alt='' />
+                                                <img class="img-fluid" src="images/user/s5.png" alt=''/>
                                             </span>
                                             <span class="seller-name">
                                                 <a href="profile.html">Marcin Kowalski</a>
@@ -284,9 +309,9 @@
                                             <div class="rating-wrapper">
                                                 <span class="gig-rating text-body-2">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792"
-                                                        width="15" height="15">
+                                                         width="15" height="15">
                                                         <path fill="currentColor"
-                                                            d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
+                                                              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
                                                         </path>
                                                     </svg>
                                                     5.0
@@ -307,13 +332,13 @@
                             </div>
                             <div>
                                 <a href="product-detail.html">
-                                    <img class="img-fluid" src="images/list/v6.png" />
+                                    <img class="img-fluid" src="images/list/v6.png"/>
                                 </a>
                                 <div class="inner-slider">
                                     <div class="inner-wrapper">
                                         <div class="d-flex align-items-center">
                                             <span class="seller-image">
-                                                <img class="img-fluid" src="images/user/s6.png" alt='' />
+                                                <img class="img-fluid" src="images/user/s6.png" alt=''/>
                                             </span>
                                             <span class="seller-name">
                                                 <a href="profile.html">Marcin Kowalski</a>
@@ -328,9 +353,9 @@
                                             <div class="rating-wrapper">
                                                 <span class="gig-rating text-body-2">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792"
-                                                        width="15" height="15">
+                                                         width="15" height="15">
                                                         <path fill="currentColor"
-                                                            d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
+                                                              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
                                                         </path>
                                                     </svg>
                                                     5.0
@@ -610,13 +635,15 @@
                         <h2>Give Your Business The Right Tools</h2>
                         <ul>
                             <li><span><img src="images/checkmark.svg"> Full Transparency</span> A new shared dashboard
-                                allows you to track your team's activity, so that everyone is always in sync.</li>
+                                allows you to track your team's activity, so that everyone is always in sync.
+                            </li>
                             <li><span><img src="images/checkmark.svg"> VIP Customer Support
                                 </span>Quick response time and upgraded support solutions will help you to get what you
                                 need, when you need it.
                             </li>
                             <li><span><img src="images/checkmark.svg"> Improved Billing Options</span>One team - one
-                                payment method. You can now add a card on file that every team member can use.</li>
+                                payment method. You can now add a card on file that every team member can use.
+                            </li>
                         </ul>
                     </div>
                     <div class="col-md-6">
