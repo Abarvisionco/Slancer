@@ -3291,3 +3291,13 @@ p.help-block li {
          max-width: 100%;
     }
 }
+.right_text{
+    direction: rtl;
+    text-align: right;
+}
+.font-a{
+    font-size: 12px;
+}
+.non{
+!important;
+}

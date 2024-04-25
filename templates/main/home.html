@@ -74,306 +74,90 @@
     <section class="py-5 bg-dark">
         <div class="view_slider recommended">
             <div class="container">
+                <div class="text-right mb-4"><h3 class="text-white pb-2">بروز ترین رزومه ها </h3>
+                    <a href="">نمایش همه رزومه ها</a>
+                </div>
                 <div class="row">
+
                     {% for i in resume %}
-                    	<div class="col-md-4 col-6 col-lg-3">
-                        <div class="box mb-3 shadow-sm rounded bg-white profile-box text-center">
-                            <div class="py-4 px-3 border-bottom">
-                                <img width="100" src="{% if i.image and i.image.url != '/media/False' %}
+                        <div class="col-md-4 col-6 col-lg-3">
+                            <div class="box mb-3 shadow-sm rounded bg-white profile-box text-center">
+                                <div class="py-4 px-3 border-bottom">
+                                    <img width="100" src="{% if i.image and i.image.url != '/media/False' %}
                                 	{{ i.image.url }}
                                 	{% else %}
                                 	{% static 'images/user.png' %}
                                 {% endif %} " class="img-fluid mt-2 rounded-circle"
-                                     alt="Responsive image">
-                                <h5 class="font-weight-bold text-dark mb-1 mt-4">{{ i.user.get_full_name }}</h5>
-                                <p class="mb-0 text-muted">{{ i.school }}</p>
-                            </div>
-                            <div class="d-flex">
-                                <div class="col-6 border-right p-3">
-                                    <h6 class="font-weight-bold text-dark mb-1">ناحیه</h6>
-                                    <p class="mb-0 text-black-50 small">{{ i.district }}</p>
+                                         alt="Responsive image">
+                                    <h5 class="font-weight-bold text-dark mb-1 mt-4">{{ i.user.get_full_name }}</h5>
+                                    <p class="mb-0 text-muted">{{ i.school }}</p>
                                 </div>
-                                <div class="col-6 p-3">
-                                    <h6 class="font-weight-bold text-dark mb-1">رشته</h6>
-                                    <p class="mb-0 text-black-50 small">{{ i.field }}</p>
+                                <div class="d-flex">
+                                    <div class="col-6 border-right p-3">
+                                        <h6 class="font-weight-bold text-dark mb-1">ناحیه</h6>
+                                        <p class="mb-0 text-black-50 small">{{ i.district }}</p>
+                                    </div>
+                                    <div class="col-6 p-3">
+                                        <h6 class="font-weight-bold text-dark mb-1">رشته</h6>
+                                        <p class="mb-0 text-black-50 small">{{ i.field }}</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="overflow-hidden border-top">
-                                <a class="font-weight-bold p-3 d-block"
-                                   href="{% url 'resume' i.id %}">
-                                    نمایش پروفایل </a>
+                                <div class="overflow-hidden border-top">
+                                    <a class="font-weight-bold p-3 d-block"
+                                       href="{% url 'resume' i.id %}">
+                                        نمایش پروفایل </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     {% endfor %}
 
                     <div class="col-lg-12">
-                        <h3 class="text-white">Recently Viewed & More</h3>
-                        <div class="view recent-slider recommended-slider">
-                            <div>
-                                <a href="product-detail.html">
-                                    <img class="img-fluid" src="images/list/v1.png"/>
-                                </a>
-                                <div class="inner-slider">
-                                    <div class="inner-wrapper">
-                                        <div class="d-flex align-items-center">
-                                            <span class="seller-image">
-                                                <img class="img-fluid" src="images/user/s1.png" alt=''/>
-                                            </span>
-                                            <span class="seller-name">
-                                                <a href="profile.html">Marcin Kowalski</a>
-                                                <span class="level hint--top level-one-seller">
-                                                    Level 1 Seller
+                        <div class="text-right mb-4"><h3 class="text-white pb-2 mt-4">بروز ترین نمونه کار ها </h3>
+                            <a href="">نمایش همه نمونه کار ها</a>
+                        </div>
+                        <div class="row">
+                            {% for i in exams %}
+                                    <div class="col-lg-3 col-md-4 col-6">
+                                        <div>
+
+                                            <a target="_blank" {% if i.link %} href="{{ i.link }}" {% endif %}>
+                                                {% if i.image %}
+                                                    <img class="img-fluid" src="{{ i.image.url }}"/>
+                                                {% else %}
+                                                    <img class="img-fluid p-2"
+                                                         src="{% static 'images/work-completed.png' %}"/>
+
+                                                {% endif %}                                     </a>
+                                            <div class="inner-slider">
+                                                <div class="inner-wrapper">
+                                                    <div class="d-flex align-items-center">
+                                                <span class="seller-image">
+                                            {% if i.resume.image and i.resume.image.url != '/media/False' %}
+
+                                                <img class="img-fluid" src="{{ i.resume.image.url }}"
+                                                     alt='{{ i.name }}'/>
+                                                {% else %}
+                                                <img class="img-fluid" src="{% static 'images/user.jpg' %}"
+                                                     alt='{{ i.name }}'/>
+
+                                            {% endif %}
                                                 </span>
-                                            </span>
-                                        </div>
-                                        <h3>I will create professional audio ads or radio commercials for your project
-                                        </h3>
-                                        <div class="content-info">
-                                            <div class="rating-wrapper">
-                                                <span class="gig-rating text-body-2">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792"
-                                                         width="15" height="15">
-                                                        <path fill="currentColor"
-                                                              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
-                                                        </path>
-                                                    </svg>
-                                                    5.0
-                                                    <span>(7)</span>
+                                                        <span class="seller-name">
+                                                <a target="_blank" {% if i.link %} href="{{ i.link }}" {% endif %}>{{ i.name }}</a>
+
                                                 </span>
-                                            </div>
-                                        </div>
-                                        <div class="footer">
-                                            <i class="fa fa-heart" aria-hidden="true"></i>
-                                            <div class="price">
-                                                <a href="#">
-                                                    Starting At <span> $1,205</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <a href="product-detail.html">
-                                    <img class="img-fluid" src="images/list/v2.png"/>
-                                </a>
-                                <div class="inner-slider">
-                                    <div class="inner-wrapper">
-                                        <div class="d-flex align-items-center">
-                                            <span class="seller-image">
-                                                <img class="img-fluid" src="images/user/s2.png" alt=''/>
-                                            </span>
-                                            <span class="seller-name">
-                                                <a href="profile.html">Marcin Kowalski</a>
-                                                <span class="level hint--top level-one-seller">
-                                                    Level 1 Seller
-                                                </span>
-                                            </span>
-                                        </div>
-                                        <h3>I will create professional audio ads or radio commercials for your project
-                                        </h3>
-                                        <div class="content-info">
-                                            <div class="rating-wrapper">
-                                                <span class="gig-rating text-body-2">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792"
-                                                         width="15" height="15">
-                                                        <path fill="currentColor"
-                                                              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
-                                                        </path>
-                                                    </svg>
-                                                    5.0
-                                                    <span>(7)</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="footer">
-                                            <i class="fa fa-heart" aria-hidden="true"></i>
-                                            <div class="price">
-                                                <a href="#">
-                                                    Starting At <span> $1,205</span>
-                                                </a>
+                                                    </div>
+                                                    <h3 dir="rtl" class="text-right">{{ i.description|slice:":75" }}...</h3>
+                                                    <hr>
+                                                    <div class="text-center">
+                                                        <a href="{% url 'resume' i.resume.id %}" class=""><b>نمایش پروفایل</b></a>
+                                                    </div>
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div>
-                                <a href="product-detail.html">
-                                    <img class="img-fluid" src="images/list/v3.png"/>
-                                </a>
-                                <div class="inner-slider">
-                                    <div class="inner-wrapper">
-                                        <div class="d-flex align-items-center">
-                                            <span class="seller-image">
-                                                <img class="img-fluid" src="images/user/s3.png" alt=''/>
-                                            </span>
-                                            <span class="seller-name">
-                                                <a href="profile.html">Marcin Kowalski</a>
-                                                <span class="level hint--top level-one-seller">
-                                                    Level 1 Seller
-                                                </span>
-                                            </span>
-                                        </div>
-                                        <h3>I will create professional audio ads or radio commercials for your project
-                                        </h3>
-                                        <div class="content-info">
-                                            <div class="rating-wrapper">
-                                                <span class="gig-rating text-body-2">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792"
-                                                         width="15" height="15">
-                                                        <path fill="currentColor"
-                                                              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
-                                                        </path>
-                                                    </svg>
-                                                    5.0
-                                                    <span>(7)</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="footer">
-                                            <i class="fa fa-heart" aria-hidden="true"></i>
-                                            <div class="price">
-                                                <a href="#">
-                                                    Starting At <span> $1,205</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <a href="product-detail.html">
-                                    <img class="img-fluid" src="images/list/v4.png"/>
-                                </a>
-                                <div class="inner-slider">
-                                    <div class="inner-wrapper">
-                                        <div class="d-flex align-items-center">
-                                            <span class="seller-image">
-                                                <img class="img-fluid" src="images/user/s4.png" alt=''/>
-                                            </span>
-                                            <span class="seller-name">
-                                                <a href="profile.html">Marcin Kowalski</a>
-                                                <span class="level hint--top level-one-seller">
-                                                    Level 1 Seller
-                                                </span>
-                                            </span>
-                                        </div>
-                                        <h3>I will create professional audio ads or radio commercials for your project
-                                        </h3>
-                                        <div class="content-info">
-                                            <div class="rating-wrapper">
-                                                <span class="gig-rating text-body-2">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792"
-                                                         width="15" height="15">
-                                                        <path fill="currentColor"
-                                                              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
-                                                        </path>
-                                                    </svg>
-                                                    5.0
-                                                    <span>(7)</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="footer">
-                                            <i class="fa fa-heart" aria-hidden="true"></i>
-                                            <div class="price">
-                                                <a href="#">
-                                                    Starting At <span> $1,205</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <a href="product-detail.html">
-                                    <img class="img-fluid" src="images/list/v5.png"/>
-                                </a>
-                                <div class="inner-slider">
-                                    <div class="inner-wrapper">
-                                        <div class="d-flex align-items-center">
-                                            <span class="seller-image">
-                                                <img class="img-fluid" src="images/user/s5.png" alt=''/>
-                                            </span>
-                                            <span class="seller-name">
-                                                <a href="profile.html">Marcin Kowalski</a>
-                                                <span class="level hint--top level-one-seller">
-                                                    Level 1 Seller
-                                                </span>
-                                            </span>
-                                        </div>
-                                        <h3>I will create professional audio ads or radio commercials for your project
-                                        </h3>
-                                        <div class="content-info">
-                                            <div class="rating-wrapper">
-                                                <span class="gig-rating text-body-2">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792"
-                                                         width="15" height="15">
-                                                        <path fill="currentColor"
-                                                              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
-                                                        </path>
-                                                    </svg>
-                                                    5.0
-                                                    <span>(7)</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="footer">
-                                            <i class="fa fa-heart" aria-hidden="true"></i>
-                                            <div class="price">
-                                                <a href="#">
-                                                    Starting At <span> $1,205</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <a href="product-detail.html">
-                                    <img class="img-fluid" src="images/list/v6.png"/>
-                                </a>
-                                <div class="inner-slider">
-                                    <div class="inner-wrapper">
-                                        <div class="d-flex align-items-center">
-                                            <span class="seller-image">
-                                                <img class="img-fluid" src="images/user/s6.png" alt=''/>
-                                            </span>
-                                            <span class="seller-name">
-                                                <a href="profile.html">Marcin Kowalski</a>
-                                                <span class="level hint--top level-one-seller">
-                                                    Level 1 Seller
-                                                </span>
-                                            </span>
-                                        </div>
-                                        <h3>I will create professional audio ads or radio commercials for your project
-                                        </h3>
-                                        <div class="content-info">
-                                            <div class="rating-wrapper">
-                                                <span class="gig-rating text-body-2">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792"
-                                                         width="15" height="15">
-                                                        <path fill="currentColor"
-                                                              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
-                                                        </path>
-                                                    </svg>
-                                                    5.0
-                                                    <span>(7)</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="footer">
-                                            <i class="fa fa-heart" aria-hidden="true"></i>
-                                            <div class="price">
-                                                <a href="#">
-                                                    Starting At <span> $1,205</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -385,67 +169,43 @@
     <div class="services-wrapper bg-white py-5">
         <div class="container">
             <h2>Popular Professional Services</h2>
-            <div class="row service-slider">
-                <div class="col">
-                    <div class="service">
-                        <img src="images/service-01.jpg">
-                        <h3><span>Build Your Brand</span> Logo Design</h3>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="service">
-                        <img src="images/service-02.jpg">
-                        <h3><span>Customize your site</span> wordpress</h3>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="service">
-                        <img src="images/service-03.jpg">
-                        <h3><span>share your message</span> voice over</h3>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="service">
-                        <img src="images/service-04.jpg">
-                        <h3><span>engage your audience</span> whiteboard</h3>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="service">
-                        <img src="images/service-05.jpg">
-                        <h3><span>reach more customers</span> social media</h3>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="service">
-                        <img src="images/service-01.jpg">
-                        <h3><span>Build Your Brand</span> Logo Design</h3>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="service">
-                        <img src="images/service-02.jpg">
-                        <h3><span>Customize your site</span> wordpress</h3>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="service">
-                        <img src="images/service-03.jpg">
-                        <h3><span>share your message</span> voice over</h3>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="service">
-                        <img src="images/service-04.jpg">
-                        <h3><span>engage your audience</span> whiteboard</h3>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="service">
-                        <img src="images/service-05.jpg">
-                        <h3><span>reach more customers</span> social media</h3>
-                    </div>
-                </div>
+            <div class="row">
+                {% for i in exams %}
+                                    <div class="col-md-4 col-6">
+                                        <div>
+
+                                            <a target="_blank" {% if i.link %} href="{{ i.link }}" {% endif %}>
+                                                {% if i.image %}
+                                                    <img class="img-fluid" src="{{ i.image.url }}"/>
+                                                {% else %}
+                                                    <img class="img-fluid p-2"
+                                                         src="{% static 'images/work-completed.png' %}"/>
+
+                                                {% endif %}                                     </a>
+                                            <div class="inner-slider">
+                                                <div class="inner-wrapper">
+                                                    <div class="d-flex align-items-center">
+                                                <span class="seller-image">
+                                            {% if i.resume.image and i.resume.image.url != '/media/False' %}
+
+                                                <img class="img-fluid" src="{{ i.resume.image.url }}"
+                                                     alt='{{ i.name }}'/>
+
+                                            {% endif %}
+                                                </span>
+                                                        <span class="seller-name">
+                                                <a target="_blank" {% if i.link %} href="{{ i.link }}" {% endif %}>{{ i.name }}</a>
+
+                                                </span>
+                                                    </div>
+                                                    <h3>{{ i.description }}</h3>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
             </div>
         </div>
     </div>
