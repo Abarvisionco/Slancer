@@ -159,6 +159,7 @@ class ExamWorks(models.Model):
     image = models.ImageField(verbose_name="عکس نمونه کار",null=True, blank=True, upload_to='exam_works/%Y/%m')
     description = models.TextField(verbose_name="توضیحات")
     resume = models.ForeignKey(Resume, verbose_name="رزومه", on_delete=models.CASCADE)
+    update_date = models.DateTimeField(null=True, auto_now=True, verbose_name="زمان بروز رسانی")
 
     def __str__(self):
         return self.name
