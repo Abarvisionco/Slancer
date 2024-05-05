@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    About Page
+{% endblock %}
+
+{% block content %}
+    <section class="py-5 bg-dark inner-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="mt-0 mb-3 text-white">درباره ما</h1>
+                    <div class="breadcrumbs">
+                        <p class="mb-0 text-white"><a class="text-white" href="{% url 'home' %}">خانه</a> / <span
+                                class="text-success">درباره ما</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5 bg-white" dir="rtl">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="pl-4 col-lg-5 col-md-5 pr-4">
+                    <img class="rounded img-fluid" src="{% static 'images/about.jpg' %}" alt="Card image cap">
+                </div>
+                <div class="col-lg-6 col-md-6 pl-5 pr-5 right_text">
+                    <h2 class="mb-5"> ما برای شما بهترین مجریان را پیدا میکنم
+                    </h2>
+                    <h5 class="mt-2">هدف ما</h5>
+                    <p>
+                        شاید جستجو های سرسام آور برای یک هنرجو در کلیه رشته ها برای شروع کار یکی از مهم ترین انتخاب های او در زندگی باشد.
+                        اما برای ما که جمعی فارغ التحصیل هنرستانی هستیم نیاز بودن پلتفرمی مثل این را احساس میکردیم و طبعا داشتن رزومه، پیدا کردن کار و کار کردن را برای شما راحت تر از قبل کرده ایم.
+                    </p>
+                    <h5 class="mt-4">تیم ما</h5>
+                    <p>
+                        تیم کوچک ما با سابقه کوتاه مدت در حوضه نرم افزار اقدام به طراحی و توسعه پلتفرم هایی مطابق با نیاز های احساس شده کرده است.
+                        <br>
+                        ما از گذشته با دیدگاهی جدید آینده را میسازیم.
+                        گروه <a href="https://abarvision.ir" target="_blank">اَبَر پردازش</a> .
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
