@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6634a1c9-4654-46f0-94d0-4794f5d4fdb1" name="Changes" comment="`v0.5.1` - show active resumes to filter page">
+    <list default="true" id="6634a1c9-4654-46f0-94d0-4794f5d4fdb1" name="Changes" comment="`v0.6.0` - add filter page for `exam works`">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/registration/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/profile.html" afterDir="false" />
     </list>
@@ -190,7 +190,7 @@
       <workItem from="1714971917833" duration="30000" />
       <workItem from="1714995589593" duration="949000" />
       <workItem from="1714996992401" duration="24000" />
-      <workItem from="1715003475872" duration="2185000" />
+      <workItem from="1715003475872" duration="2699000" />
     </task>
     <task id="LOCAL-00001" summary="change resume model and make `language` model and CRUD">
       <option name="closed" value="true" />
@@ -272,7 +272,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714983434154</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="`v0.6.0` - add filter page for `exam works`">
+      <option name="closed" value="true" />
+      <created>1715005975470</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1715005975470</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,7 +298,8 @@
     <MESSAGE value="`v0.4.1` - add about page" />
     <MESSAGE value="`v0.5.0` - add filter page for resumes" />
     <MESSAGE value="`v0.5.1` - show active resumes to filter page" />
-    <option name="LAST_COMMIT_MESSAGE" value="`v0.5.1` - show active resumes to filter page" />
+    <MESSAGE value="`v0.6.0` - add filter page for `exam works`" />
+    <option name="LAST_COMMIT_MESSAGE" value="`v0.6.0` - add filter page for `exam works`" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Karamooz$main.coverage" NAME="main Coverage Results" MODIFIED="1710669888165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
