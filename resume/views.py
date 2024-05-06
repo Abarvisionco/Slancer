@@ -70,7 +70,7 @@ def resume(request, id):
 
 
 def filter_resumes(request):
-    resume = models.Resume.objects.all()
+    resume = models.Resume.objects.all().filter(active=True)
     form = ResumeFilterForm(request.GET)
     state_query = request.GET.get('state', '')
     if state_query:
