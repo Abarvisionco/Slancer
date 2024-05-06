@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6634a1c9-4654-46f0-94d0-4794f5d4fdb1" name="Changes" comment="`v0.6.0` - add filter page for `exam works`">
+    <list default="true" id="6634a1c9-4654-46f0-94d0-4794f5d4fdb1" name="Changes" comment="`v1.0.0` - first release of project">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/profile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +67,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -191,6 +190,7 @@
       <workItem from="1714995589593" duration="949000" />
       <workItem from="1714996992401" duration="24000" />
       <workItem from="1715003475872" duration="2699000" />
+      <workItem from="1715006206689" duration="226000" />
     </task>
     <task id="LOCAL-00001" summary="change resume model and make `language` model and CRUD">
       <option name="closed" value="true" />
@@ -280,11 +280,30 @@
       <option name="project" value="LOCAL" />
       <updated>1715005975470</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="`v1.0.0` - first release of project">
+      <option name="closed" value="true" />
+      <created>1715006289054</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1715006289054</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -299,7 +318,8 @@
     <MESSAGE value="`v0.5.0` - add filter page for resumes" />
     <MESSAGE value="`v0.5.1` - show active resumes to filter page" />
     <MESSAGE value="`v0.6.0` - add filter page for `exam works`" />
-    <option name="LAST_COMMIT_MESSAGE" value="`v0.6.0` - add filter page for `exam works`" />
+    <MESSAGE value="`v1.0.0` - first release of project" />
+    <option name="LAST_COMMIT_MESSAGE" value="`v1.0.0` - first release of project" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Karamooz$main.coverage" NAME="main Coverage Results" MODIFIED="1710669888165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
