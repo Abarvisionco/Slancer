@@ -98,3 +98,33 @@ def filter_resumes(request):
     }
     return render(request, 'resume/all_resume.html', context)
 
+def filter_all_exams(request):
+    exams = models.ExamWorks.objects.filter(resume__active=True)
+    form = ResumeFilterForm(request.GET)
+
+    state_query = request.GET.get('state', '')
+    if state_query:
+        exams = exams.filter(resume__district__city__state=state_query)
+    district_query = request.GET.get('district', '')
+    if district_query:
+        exams = exams.filter(resume__district=district_query)
+    field_query = request.GET.get('field', '')
+    if field_query:
+        exams = exams.filter(resume__field=field_query)
+    name_query = request.GET.get('name', '')
+    if name_query:
+        exams = exams.filter(resume__school__contains=name_query)
+
+    exams = exams.order_by('resume__update_date')
+
+    # pagination
+    paginator = Paginator(exams, 24)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {
+        'exams': page_obj,
+        'form':form,
+        'resume': page_obj,
+
+    }
+    return render(request, 'resume/all_exams.html', context)

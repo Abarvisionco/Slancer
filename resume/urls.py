@@ -31,5 +31,6 @@ urlpatterns = [
     path('language/<int:id>/', lang_views.update_skill, name='resume_lang_update'),
     path('language/<int:id>/delete/',lang_views.delete_skill,name='resume_lang_delete'),
 
-    path('all/',views.filter_resumes, name='all_resume')
+    path('all/',views.filter_resumes, name='all_resume'),
+    path('exams/', views.filter_all_exams, name='all_exams')
 ]
