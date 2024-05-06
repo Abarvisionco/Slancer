@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6634a1c9-4654-46f0-94d0-4794f5d4fdb1" name="Changes" comment="`v0.5.0` - add filter page for resumes">
-      <change afterPath="$PROJECT_DIR$/templates/resume/all_resume.html" afterDir="false" />
+    <list default="true" id="6634a1c9-4654-46f0-94d0-4794f5d4fdb1" name="Changes" comment="`v0.5.1` - show active resumes to filter page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/profile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,31 +52,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Django Server.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/media/godfather/New Volume/Hoopad/hplate_backend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Django Server.Miver.executor": "Run",
+    "Django Server.Unnamed.executor": "Run",
+    "Python.main.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/Hoopad/mini-Hplate",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates/resume/lang" />
     </key>
   </component>
-  <component name="RunManager" selected="Django Server.Unnamed">
+  <component name="RunManager" selected="Django Server.Miver">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Karamooz" />
       <option name="ENV_FILES" value="" />
@@ -106,7 +101,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Unnamed" type="Python.DjangoServer" factoryName="Django server" nameIsGenerated="true">
+    <configuration name="Miver" type="Python.DjangoServer" factoryName="Django server">
       <module name="Karamooz" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -116,10 +111,21 @@
         <env name="DJANGO_SETTINGS_MODULE" value="Karamooz.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.10 (Karamooz)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
       <option name="launchJavascriptDebuger" value="false" />
       <option name="port" value="8000" />
       <option name="host" value="localhost" />
@@ -132,7 +138,7 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Django Server.Unnamed" />
+      <item itemvalue="Django Server.Miver" />
       <item itemvalue="Python.main" />
     </list>
   </component>
@@ -178,7 +184,13 @@
       <workItem from="1714907684941" duration="607000" />
       <workItem from="1714913715085" duration="10288000" />
       <workItem from="1714928332485" duration="998000" />
-      <workItem from="1714979705377" duration="3101000" />
+      <workItem from="1714979705377" duration="4033000" />
+      <workItem from="1714984107991" duration="23000" />
+      <workItem from="1714984268624" duration="37000" />
+      <workItem from="1714971917833" duration="30000" />
+      <workItem from="1714995589593" duration="949000" />
+      <workItem from="1714996992401" duration="24000" />
+      <workItem from="1715003475872" duration="2185000" />
     </task>
     <task id="LOCAL-00001" summary="change resume model and make `language` model and CRUD">
       <option name="closed" value="true" />
@@ -252,7 +264,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714983083981</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="`v0.5.1` - show active resumes to filter page">
+      <option name="closed" value="true" />
+      <created>1714983434154</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1714983434154</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,7 +289,8 @@
     <MESSAGE value="`v0.4.0` - add updated resumes to home page" />
     <MESSAGE value="`v0.4.1` - add about page" />
     <MESSAGE value="`v0.5.0` - add filter page for resumes" />
-    <option name="LAST_COMMIT_MESSAGE" value="`v0.5.0` - add filter page for resumes" />
+    <MESSAGE value="`v0.5.1` - show active resumes to filter page" />
+    <option name="LAST_COMMIT_MESSAGE" value="`v0.5.1` - show active resumes to filter page" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Karamooz$main.coverage" NAME="main Coverage Results" MODIFIED="1710669888165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
