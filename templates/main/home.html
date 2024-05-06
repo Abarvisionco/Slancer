@@ -13,17 +13,17 @@
                         </p>
                     </div>
                     <div class="homepage-search-form">
-                        <form class="form-noborder" method="get" action=".">
+                        <form class="form-noborder" method="get" action="{% url 'all_resume' %}">
                             <div class="form-row">
                                 <div class="col-lg-2 col-md-2 col-6 form-group">
                                     <div class="location-dropdown">
                                         <i class="icofont-location-arrow"></i>
                                         <select class="custom-select form-control border-0 shadow-sm form-control-lg"
                                                 name="state">
-                                            <option> استان</option>
+                                            <option value=""> استان</option>
                                             {% for i in stete %}
-                                                <option> {{ i.name }} </option>
 
+                                                <option value="{{ i.id }}"> {{ i.name }} </option>
                                             {% endfor %}
 
                                         </select>
@@ -32,10 +32,11 @@
                                 <div class="col-lg-2 col-md-2 col-6 form-group">
                                     <div class="location-dropdown">
                                         <i class="icofont-location-arrow"></i>
-                                        <select class="custom-select form-control border-0 shadow-sm form-control-lg">
-                                            <option> رشته</option>
+                                        <select class="custom-select form-control border-0 shadow-sm form-control-lg"
+                                        name="field">
+                                            <option value=""> رشته</option>
                                             {% for i in field %}
-                                                <option> {{ i.name }} </option>
+                                                <option value="{{ i.id }}"> {{ i.name }} </option>
 
                                             {% endfor %}
 
@@ -43,7 +44,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-9 form-group">
-                                    <input type="text" placeholder="چیزی سرچ کنید..."
+                                    <input name="name" type="text" placeholder="نام هنرستان ..."
                                            class="form-control border-0 form-control-lg shadow-sm">
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-6 form-group">
@@ -58,7 +59,7 @@
                         <span class="text-body-2">محبوب</span>
                         <ul>
                             {% for i in field %}
-                                <li><a href="#" class="text-body-2">{{ i.name }}</a></li>
+                                <li><a href="{% url 'all_resume' %}?field={{ i.id }}" class="text-body-2">{{ i.name }}</a></li>
                             {% endfor %}
 
                         </ul>
@@ -75,7 +76,7 @@
         <div class="view_slider recommended">
             <div class="container">
                 <div class="text-right mb-4"><h3 class="text-white pb-2">بروز ترین رزومه ها </h3>
-                    <a href="">نمایش همه رزومه ها</a>
+                    <a href="{% url 'all_resume' %}">نمایش همه رزومه ها</a>
                 </div>
                 <div class="row">
 

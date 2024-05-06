@@ -33,14 +33,14 @@
 <nav class="navbar navbar-expand-lg navbar-light topbar static-top shadow-sm bg-white osahan-nav-top px-0">
     <div class="container">
 
-        <a class="navbar-brand" href="index-2.html"><img src="{% static 'images/logo.svg' %}" alt=""></a>
+        <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/logo.svg' %}" alt="logo"></a>
 
-        <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
+        <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search" method="get" action="{% url 'all_resume' %}">
             <div class="input-group">
-                <input type="text" class="form-control bg-white small" dir="rtl" placeholder="جستجوی کارآموز..."
+                <input type="text" class="form-control bg-white small" name="name" dir="rtl" placeholder="جستجوی هنرستان..."
                        aria-label="Search" aria-describedby="basic-addon2">
                 <div class="input-group-append">
-                    <button class="btn btn-success" type="button">
+                    <button class="btn btn-success" type="submit">
                         <i class="fa fa-search fa-sm"></i>
                     </button>
                 </div>

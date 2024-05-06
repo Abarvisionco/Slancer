@@ -22,21 +22,3 @@ def about(request):
     return render(request, 'main/about.html')
 
 
-def filter_resumes(request):
-    resume = Resume.objects.all()
-
-    state_query = request.GET.get('state', '')
-    if state_query:
-        resume = resume.filter(state=state_query)
-
-    field_query = request.GET.get('field', '')
-    if field_query:
-        resume = resume.filter(field=field_query)
-
-    name_query = request.GET.get('q', '')
-    if name_query:
-        resume = resume.filter(name__exact=name_query)
-
-    resume = resume.order_by('update_date')
-    # نا تمام
-    # return render(request, 'main/home.html', {'resume_list': resume})

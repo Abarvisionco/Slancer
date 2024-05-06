@@ -30,4 +30,6 @@ urlpatterns = [
     path('language/add/',lang_views.add_skill,name='resume_lang_add'),
     path('language/<int:id>/', lang_views.update_skill, name='resume_lang_update'),
     path('language/<int:id>/delete/',lang_views.delete_skill,name='resume_lang_delete'),
+
+    path('all/',views.filter_resumes, name='all_resume')
 ]

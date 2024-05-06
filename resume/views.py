@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
-
+from django.core.paginator import Paginator
 from resume import models
-from resume.forms import ResumeForm
+from resume.forms import ResumeForm, ResumeFilterForm
 from django.http import HttpResponseRedirect
 
 @login_required
@@ -67,3 +67,34 @@ def resume(request, id):
         'course':course,
     }
     return render(request, 'resume/resume.html', context)
+
+
+def filter_resumes(request):
+    resume = models.Resume.objects.all()
+    form = ResumeFilterForm(request.GET)
+    state_query = request.GET.get('state', '')
+    if state_query:
+        resume = resume.filter(district__city__state=state_query)
+    district_query = request.GET.get('district', '')
+    if district_query:
+        resume = resume.filter(district=district_query)
+    field_query = request.GET.get('field', '')
+    if field_query:
+        resume = resume.filter(field=field_query)
+    name_query = request.GET.get('name', '')
+    if name_query:
+        resume = resume.filter(school__contains=name_query)
+
+    resume = resume.order_by('update_date')
+
+    # pagination
+    paginator = Paginator(resume, 24)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        'resume': page_obj,
+        'form':form
+    }
+    return render(request, 'resume/all_resume.html', context)
+
