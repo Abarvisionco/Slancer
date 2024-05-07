@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6634a1c9-4654-46f0-94d0-4794f5d4fdb1" name="Changes" comment="`v1.0.1` - make logo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Karamooz/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Karamooz/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/company/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/resume/resume.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume/resume.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,8 +138,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Django Server.Miver" />
       <item itemvalue="Python.main" />
+      <item itemvalue="Django Server.Miver" />
     </list>
   </component>
   <component name="SharedIndexes">
@@ -198,6 +194,7 @@
       <workItem from="1715006206689" duration="309000" />
       <workItem from="1715071747031" duration="1466000" />
       <workItem from="1715074143001" duration="5828000" />
+      <workItem from="1715100917052" duration="61000" />
     </task>
     <task id="LOCAL-00001" summary="change resume model and make `language` model and CRUD">
       <option name="closed" value="true" />
