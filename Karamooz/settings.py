@@ -183,8 +183,8 @@ JALALI_DATE_DEFAULTS = {
 
 # pwa settings
 
-PWA_APP_NAME = 'Karamooz'
-PWA_APP_DESCRIPTION = "Karamooz pwa file"
+PWA_APP_NAME = 'Schoolancer'
+PWA_APP_DESCRIPTION = "Schoolancer pwa Application"
 PWA_APP_THEME_COLOR = '#33FF9C'
 PWA_APP_BACKGROUND_COLOR = '#ffffff'
 PWA_APP_DISPLAY = 'standalone'

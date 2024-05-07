@@ -62,9 +62,13 @@
                             </div>
                             <div class="buttons-wrapper">
 
-                                <div class="btn-lrg-standard btn-white btn-custom-order">{{ resume.user.mobile }}</div>
+                               {% if user.is_authenticated  %}
+                               	 <div class="btn-lrg-standard btn-white btn-custom-order">{{ resume.user.mobile }}</div>
                                 <a href="tel:{{ resume.user.mobile }}"
                                    class="btn-lrg-standard btn-contact-me js-contact-me js-open-popup-join mr-2 ml-1">تماس</a>
+                                   {% else %}
+                                   <div class="btn-lrg-standard btn-white btn-custom-order">برای مشاهده شماره تلفن وارد شوید</div>
+                               {% endif %}
                             </div>
                             <div class="user-stats-desc">
                                 <ul class="user-stats">
