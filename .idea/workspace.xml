@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6634a1c9-4654-46f0-94d0-4794f5d4fdb1" name="Changes" comment="`v1.1.1` - add show mobile number to peoples">
-      <change afterPath="$PROJECT_DIR$/company/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company/migrations/0006_alter_company_company_name.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/company/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Karamooz/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Karamooz/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/company/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/company/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-    </list>
+    <list default="true" id="6634a1c9-4654-46f0-94d0-4794f5d4fdb1" name="Changes" comment="`v1.1.2` - add url company add page" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -204,7 +193,7 @@
       <workItem from="1715071747031" duration="1466000" />
       <workItem from="1715074143001" duration="5828000" />
       <workItem from="1715100917052" duration="61000" />
-      <workItem from="1715166082091" duration="10371000" />
+      <workItem from="1715166082091" duration="11095000" />
     </task>
     <task id="LOCAL-00001" summary="change resume model and make `language` model and CRUD">
       <option name="closed" value="true" />
@@ -334,7 +323,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715311053977</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="`v1.1.2` - add url company add page">
+      <option name="closed" value="true" />
+      <created>1715335956021</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1715335956021</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,7 +365,8 @@
     <MESSAGE value="`v1.0.1` - make logo" />
     <MESSAGE value="`v1.1.0` - initialize company models and fix some bugs for resume" />
     <MESSAGE value="`v1.1.1` - add show mobile number to peoples" />
-    <option name="LAST_COMMIT_MESSAGE" value="`v1.1.1` - add show mobile number to peoples" />
+    <MESSAGE value="`v1.1.2` - add url company add page" />
+    <option name="LAST_COMMIT_MESSAGE" value="`v1.1.2` - add url company add page" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Karamooz$main.coverage" NAME="main Coverage Results" MODIFIED="1710669888165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
