@@ -6,7 +6,7 @@ from resume.models import Field, State, District, Resume
 
 class Company(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='company_user', null=True)
-    company_name = models.CharField(max_length=200, verbose_name="نام شرکت یا سازمان")
+    company_name = models.CharField(null=True, blank=True,max_length=200, verbose_name="نام شرکت یا سازمان")
     image = models.ImageField(upload_to='companies/%Y/%m',verbose_name="عکس")
     company_url = models.URLField(max_length=1000, null=True, blank=True, verbose_name="آدرس اینترنتی")
     field = models.ForeignKey(Field, on_delete=models.CASCADE, verbose_name="حوضه کاری بر اساس رشته های هنرستان")

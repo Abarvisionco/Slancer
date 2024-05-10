@@ -27,4 +27,5 @@ urlpatterns = [
     path('',include('pwa.urls')),
     path('account/',include('users.urls')),
     path('account/resume/',include('resume.urls')),
+    path('company/', include('company.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
