@@ -10,20 +10,25 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                    <div class="bg-white rounded shadow-sm py-3 sidebar-fix mt-2">
+                   {% if id != 0 %}
+                   	 <div class="bg-white rounded shadow-sm py-3 sidebar-fix mt-2">
                         <div class="dropdown-menu-show" style="text-align: right">
                             <a class="dropdown-item py-2" href="{% url 'resume' id %}">نمایش رزومه</a>
 
                         </div>
                     </div>
+
+                   {% endif %}
                     <div class="bg-white rounded shadow-sm py-3 sidebar-fix mt-2">
                         <div class="dropdown-menu-show" style="text-align: right">
                             <a class="dropdown-item py-2 active" href="{% url 'resume_home' %}">رزومه</a>
-                            <a class="dropdown-item py-2" href="{% url 'resume_skills' %}">مهارت ها</a>
-                            <a class="dropdown-item py-2" href="{% url 'exam' %}">نمونه کار ها</a>
-                            <a class="dropdown-item py-2" href="{% url 'work_experience' %}">تجارب کاری</a>
-                            <a class="dropdown-item py-2 " href="{% url 'courses' %}">دوره ها</a>
-                            <a class="dropdown-item py-2 " href="{% url 'resume_lang' %}">زبان ها</a>
+                           {% if id != 0 %}
+                                <a class="dropdown-item py-2" href="{% url 'resume_skills' %}">مهارت ها</a>
+                                <a class="dropdown-item py-2" href="{% url 'exam' %}">نمونه کار ها</a>
+                                <a class="dropdown-item py-2" href="{% url 'work_experience' %}">تجارب کاری</a>
+                                <a class="dropdown-item py-2 " href="{% url 'courses' %}">دوره ها</a>
+                                <a class="dropdown-item py-2 " href="{% url 'resume_lang' %}">زبان ها</a>
+                           {% endif %}
 
                         </div>
                     </div>
@@ -33,8 +38,14 @@
                     <div class="bg-white rounded shadow-sm sidebar-page-right">
                         <div>
                             <div class="p-3 border-bottom text-right">
-                                <h6 class="mb-0">رزومه خودتان را ویرایش کنید
+                               {% if id != 0 %}
+                               	 <h6 class="mb-0">رزومه خودتان را ویرایش کنید
                                 </h6>
+
+                                   {% else %}
+                                    <h6 class="mb-0">رزومه خودتان را ایجاد کنید
+                                </h6>
+                               {% endif %}
                             </div>
                             <form method="post" action="." enctype="multipart/form-data">
                                 {% csrf_token %}
@@ -190,7 +201,11 @@
                                     </div>
 
                                     <div class="text-right">
+                                        {% if id != 0 %}
                                         <button class="btn btn-success">ویرایش رزومه</button>
+                                        {% else %}
+                                        <button class="btn btn-success">ایجاد رزومه</button>
+                                        {% endif %}
                                     </div>
                                     
                                     </div>

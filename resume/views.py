@@ -6,13 +6,17 @@ from resume import models
 from resume.forms import ResumeForm, ResumeFilterForm
 from django.http import HttpResponseRedirect
 
+class ResumeModel:
+    def __init__(self, id):
+        self.id = id
+
 @login_required
 def resume_home(request):
     user_fullname = request.user.get_full_name()
     user_email = request.user.email
-    resume, created = models.Resume.objects.get_or_create(user=request.user)
-
+    form = ResumeForm()
     if request.method == "POST":
+        resume, created = models.Resume.objects.get_or_create(user=request.user)
         form = ResumeForm(request.POST, request.FILES, instance=resume)
         if form.is_valid():
             # بروزرسانی مقادیر فیلدهای مربوط به Resume با داده‌های ورودی فرم
@@ -37,7 +41,11 @@ def resume_home(request):
             resume.save()
             return HttpResponseRedirect(request.path_info)
     else:
-        form = ResumeForm(instance=resume)
+        try:
+            resume = models.Resume.objects.get(user=request.user)
+            form = ResumeForm(instance=resume)
+        except:
+            resume = ResumeModel(0)
 
     context = {
         'fullname': user_fullname,
@@ -85,7 +93,7 @@ def filter_resumes(request):
     if name_query:
         resume = resume.filter(school__contains=name_query)
 
-    resume = resume.order_by('update_date')
+    resume = resume.order_by('-update_date')
 
     # pagination
     paginator = Paginator(resume, 24)
@@ -115,7 +123,7 @@ def filter_all_exams(request):
     if name_query:
         exams = exams.filter(resume__school__contains=name_query)
 
-    exams = exams.order_by('resume__update_date')
+    exams = exams.order_by('-resume__update_date')
 
     # pagination
     paginator = Paginator(exams, 24)
