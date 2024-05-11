@@ -48,35 +48,32 @@
                         </div>
                         <div class="p-3">
                             <form action="{% url 'profile_views' %}" method="get">
-                            <button type="submit" class="btn btn-outline-success pl-4 pr-4">رزومه خود را بسازید</button>
-                                </form>
+                                <button type="submit" class="btn btn-outline-success pl-4 pr-4">رزومه خود را بسازید
+                                </button>
+                            </form>
                         </div>
                     </div>
 
 
                     <div class="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
+                        <aside class="">
 
-                        <div class="p-3 border-bottom" dir="rtl">
-                            <h6 class="font-weight-bold text-dark">هنرجویان مختلف را بر اساس رزومه پیدا کنید.</h6>
-                            <p class="mb-0 text-muted">
-                                همه مدارس عضو در مایور را میتوانید پیدا کنید و هنرجویان خود را پیدا کنید.
-                            </p>
-                        </div>
-                        <div class="p-3">
-                            <form method="get" action="{% url 'all_resume' %}" class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search"
-                                  dir="ltr">
-                                <div class="input-group">
-                                    <input type="text" class="form-control bg-white small" dir="rtl" name="name"
-                                           placeholder="جستجوی مدرسه..."
-                                           aria-label="Search" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-success" type="submit">
-                                            <i class="fa fa-search fa-sm"></i>
-                                        </button>
-                                    </div>
+
+                                <div class="p-3 border-bottom" dir="rtl">
+                                    <h6 class="font-weight-bold text-dark">به دنبال کارآموز هستید؟</h6>
+                                    <p class="mb-0 text-muted">
+                                        اگر صاحب شرکت یا سازمان هستید با ثبت سازمان خود کارآموز خودتان را پیدا کنید.
+                                    </p>
                                 </div>
-                            </form>
-                        </div>
+                                <div class="p-3">
+                                    <form action="{% url 'company' %}" method="get">
+                                        <button type="submit" class="btn btn-outline-success pl-4 pr-4">
+                                            شرکت خود را ثبت کنید
+                                        </button>
+                                    </form>
+                                </div>
+                        </aside>
+
                     </div>
 
                 </aside>
