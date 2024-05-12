@@ -12,11 +12,15 @@ from django.core.paginator import Paginator
 
 @login_required
 def company(request):
+    company = None
     try:
         company = Company.objects.get(user=request.user)
     except Company.DoesNotExist:
         company = None
-
+    if company == None:
+        id = 0
+    else:
+        id = company.user.id
     if request.method == 'POST':
         form = CompanyForm(request.POST, request.FILES, instance=company)
         if form.is_valid():
@@ -30,7 +34,7 @@ def company(request):
 
     context = {
         'form': form,
-        'id': request.user.id if request.user.is_authenticated else 0,
+        'id': id
     }
     return render(request, 'company/add.html', context)
 

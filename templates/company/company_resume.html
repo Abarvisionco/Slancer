@@ -64,7 +64,8 @@
                                 </h6>
 
                                 </div>
-                                <section class="py-2">
+                          {% if resume %}
+                          	      <section class="py-2">
                                     <div class=" recommended">
                                         <div class="container">
 
@@ -113,49 +114,52 @@
                                          class="pb-5 mb-5 border-bottom pagination justify-content-center">
 
                                         <nav aria-label="Page navigation example">
-                                            <div id="Pagination"
-                                                 class="pb-5 mb-2 mt-2 border-bottom pagination justify-content-center">
+                                            <ul class="pagination">
+                                                {% if resume.has_previous %}
+                                                    <li class="page-item">
+                                                        <a class="page-link"
+                                                           href="?page=1{% if request.GET.state %}&state={{ request.GET.state }}{% endif %}{% if request.GET.district %}&district={{ request.GET.district }}{% endif %}{% if request.GET.field %}&field={{ request.GET.field }}{% endif %}{% if request.GET.name %}&name={{ request.GET.name }}{% endif %}"
+                                                           aria-label="First">
+                                                            <span aria-hidden="true">«</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="page-item"><a class="page-link"
+                                                                             href="?page=
+                                                                                     {{ resume.previous_page_number }}{% if request.GET.state %}&state={{ request.GET.state }}{% endif %}{% if request.GET.district %}&district={{ request.GET.district }}{% endif %}{% if request.GET.field %}&field={{ request.GET.field }}{% endif %}{% if request.GET.name %}&name={{ request.GET.name }}{% endif %}">{{ resume.previous_page_number }}</a>
+                                                    </li>
+                                                {% endif %}
 
-                                                <nav aria-label="Page navigation example">
-                                                    <ul class="pagination">
-                                                        {% if resume.has_previous %}
-                                                            <li class="page-item">
-                                                                <a class="page-link"
-                                                                   href="?page=1 "
-                                                                   aria-label="First">
-                                                                    <span aria-hidden="true">«</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="page-item"><a class="page-link"
-                                                                                     href="?page={{ resume.previous_page_number }} ">{{ resume.previous_page_number }}</a>
-                                                            </li>
-                                                        {% endif %}
-
-                                                        <li class="page-item active"><a
-                                                                class="page-link ">{{ resume.number }}</a>
-                                                        </li>
-                                                        {% if resume.has_next %}
-                                                            <li class="page-item "><a class="page-link"
-                                                                                      href="?page={{ resume.next_page_number }} ">{{ resume.next_page_number }}</a>
-                                                            </li>
-                                                            <li class="page-item">
-                                                                <a class="page-link"
-                                                                   href="?page={{ resume.paginator.num_pages }} "
-                                                                   aria-label="last">
-                                                                    <span aria-hidden="true">»</span>
-                                                                </a>
-                                                            </li>
-                                                        {% endif %}
-                                                    </ul>
-                                                </nav>
-
-                                            </div>
+                                                <li class="page-item active"><a
+                                                        class="page-link ">{{ resume.number }}</a></li>
+                                                {% if resume.has_next %}
+                                                    <li class="page-item "><a class="page-link"
+                                                                              href="?page=
+                                                                                      {{ resume.next_page_number }}{% if request.GET.state %}&state={{ request.GET.state }}{% endif %}{% if request.GET.district %}&district={{ request.GET.district }}{% endif %}{% if request.GET.field %}&field={{ request.GET.field }}{% endif %}{% if request.GET.name %}&name={{ request.GET.name }}{% endif %}">{{ resume.next_page_number }}</a>
+                                                    </li>
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="?page=
+                                                                {{ resume.paginator.num_pages }}{% if request.GET.state %}&state={{ request.GET.state }}{% endif %}{% if request.GET.district %}&district={{ request.GET.district }}{% endif %}{% if request.GET.field %}&field={{ request.GET.field }}{% endif %}{% if request.GET.name %}&name={{ request.GET.name }}{% endif %}"
+                                                           aria-label="last">
+                                                            <span aria-hidden="true">»</span>
+                                                        </a>
+                                                    </li>
+                                                {% endif %}
+                                            </ul>
                                         </nav>
 
                                     </div>
 
                             </div>
     </section>
-
+   {% else %}
+                              <h2 class="text-center m-4">هنوز رزومه ای ارسال نشده</h2><br>
+                          {% endif %}
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
 
 {% endblock %}
