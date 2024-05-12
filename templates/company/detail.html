@@ -61,7 +61,7 @@
                                 {% if co.address %}
                                     <tr class="border-bottom">
                                         <td class="p-3">{{ co.address }}</td>
-                                        <th class="p-3">آدرس </th>
+                                        <th class="p-3">آدرس</th>
                                     </tr>
                                 {% endif %}
                                 </tbody>
@@ -92,16 +92,7 @@
                             <p class="mb-0 text-muted">{{ co.field }}
                             </p>
                         </div>
-                        <div class="p-3">
-                            <div class="d-flex align-items-top mb-2">
-                                <p class="mb-0 text-muted">تاریخ بروز رسانی</p>
-                                <p class="font-weight-bold text-dark mb-0 mt-0 ml-auto">{{ co.create_time.date|to_jalali }}</p>
-                            </div>
-                            <div class="d-flex align-items-top">
-                                <p class="mb-0 text-muted">رزومه های ارسال شده</p>
-                                <p class="font-weight-bold text-dark mb-0 mt-0 ml-auto">25</p>
-                            </div>
-                        </div>
+
                     </div>
 
                     <div class="box shadow-sm mb-3 rounded bg-white ads-box text-center">
@@ -115,11 +106,11 @@
                     </div>
                 </aside>
                 <aside class="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">
-                   {% if co.user == request.user %}
-                   	     <a href="{% url 'company' %}" class="btn btn-lg btn-block btn-danger mb-3 text-white">
-                        ویرایش
-                    </a>
-                   {% endif %}
+                    {% if co.user == request.user %}
+                        <a href="{% url 'company' %}" class="btn btn-lg btn-block btn-danger mb-3 text-white">
+                            ویرایش
+                        </a>
+                    {% endif %}
                     <div class="box shadow-sm rounded bg-white mb-3">
                         <div class="box-title border-bottom p-3">
                             <h6 class="m-0">Similar Jobs
@@ -204,79 +195,31 @@
                     </div>
                     <div class="box shadow-sm rounded bg-white mb-3">
                         <div class="box-title border-bottom p-3">
-                            <h6 class="m-0">Who viewed your profile</h6>
+                            <h6 class="m-0 right_text">جدید ترین شرکت ها</h6>
                         </div>
                         <div class="box-body p-3">
-                            <div class="d-flex align-items-center osahan-post-header mb-3 people-list">
-                                <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="images/user/s4.png" alt="">
-                                    <div class="status-indicator bg-success"></div>
-                                </div>
-                                <div class="font-weight-bold mr-2">
-                                    <div class="text-truncate">Sophia Lee</div>
-                                    <div class="small text-gray-500">@Harvard
+                            {% for i in cos %}
+                                <div class="d-flex align-items-center osahan-post-header mb-3 people-list">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="{% if i.image %}
+                                    	{{ i.image.url }}
+                                    	{% else %}
+                                    	{% static 'images/company_vectory.jpg' %}
+                                    {% endif %} " alt="">
+                                        <div class="status-indicator bg-success"></div>
                                     </div>
-                                </div>
-                                <span class="ml-auto"><button type="button"
-                                                              class="btn btn-outline-success btn-sm">Connent</button>
-</span>
-                            </div>
-                            <div class="d-flex align-items-center osahan-post-header mb-3 people-list">
-                                <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="images/user/s3.png" alt="">
-                                    <div class="status-indicator bg-success"></div>
-                                </div>
-                                <div class="font-weight-bold mr-2">
-                                    <div class="text-truncate">John Doe</div>
-                                    <div class="small text-gray-500">Traveler
+                                    <div class="font-weight-bold mr-2">
+                                        <div class="text-truncate">{{ i.company_name }}</div>
+                                        <div class="small text-gray-500">{{ i.field }}
+                                        </div>
                                     </div>
-                                </div>
-                                <span class="ml-auto"><button type="button"
-                                                              class="btn btn-outline-success btn-sm">Connent</button>
+                                    <span class="ml-auto"><form action="{% url 'co_detail' i.user.id %}" method="get"><button
+                                            type="submit" class="btn btn-outline-success btn-sm">نمایش</button></form>
 </span>
-                            </div>
-                            <div class="d-flex align-items-center osahan-post-header mb-3 people-list">
-                                <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="images/user/s6.png" alt="">
-                                    <div class="status-indicator bg-success"></div>
                                 </div>
-                                <div class="font-weight-bold mr-2">
-                                    <div class="text-truncate">Julia Cox</div>
-                                    <div class="small text-gray-500">Art Designer
-                                    </div>
-                                </div>
-                                <span class="ml-auto"><button type="button"
-                                                              class="btn btn-outline-success btn-sm">Connent</button>
-</span>
-                            </div>
-                            <div class="d-flex align-items-center osahan-post-header mb-3 people-list">
-                                <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="images/user/s7.png" alt="">
-                                    <div class="status-indicator bg-success"></div>
-                                </div>
-                                <div class="font-weight-bold mr-2">
-                                    <div class="text-truncate">Robert Cook</div>
-                                    <div class="small text-gray-500">@Photography
-                                    </div>
-                                </div>
-                                <span class="ml-auto"><button type="button"
-                                                              class="btn btn-outline-success btn-sm">Connent</button>
-</span>
-                            </div>
-                            <div class="d-flex align-items-center osahan-post-header people-list">
-                                <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="images/user/s8.png" alt="">
-                                    <div class="status-indicator bg-success"></div>
-                                </div>
-                                <div class="font-weight-bold mr-2">
-                                    <div class="text-truncate">Richard Bell</div>
-                                    <div class="small text-gray-500">@Envato
-                                    </div>
-                                </div>
-                                <span class="ml-auto"><button type="button"
-                                                              class="btn btn-outline-success btn-sm">Connent</button>
-</span>
-                            </div>
+
+                            {% endfor %}
+
                         </div>
                     </div>
                     <div class="box shadow-sm mb-3 rounded bg-white ads-box text-center">

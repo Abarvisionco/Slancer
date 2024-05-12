@@ -31,7 +31,9 @@ def company(request):
 
 def company_detail(request, id):
     company = Company.objects.get(user__id=id)
+    cos = Company.objects.order_by('-create_time')[:5]
     context = {
-        'co':company
+        'co':company,
+        'cos':cos,
     }
     return render(request, 'company/detail.html', context)

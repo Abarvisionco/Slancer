@@ -4,7 +4,7 @@ from company import models
 class CompanyForm(forms.ModelForm):
     class Meta:
         model = models.Company
-        fields = ['company_name', 'image', 'company_url', 'field', 'about', 'state', 'district', 'description', 'show_mobile', 'address']
+        fields = ['company_name', 'image', 'company_url', 'field', 'about', 'state', 'district', 'address', 'description', 'show_mobile']
 
     def __init__(self, *args, **kwargs):
         super(CompanyForm, self).__init__(*args, **kwargs)\
