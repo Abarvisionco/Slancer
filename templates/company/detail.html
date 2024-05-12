@@ -162,94 +162,13 @@
                     </div>
                 </aside>
                 <aside class="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">
+
                     {% if co.user == request.user %}
                         <a href="{% url 'company' %}" class="btn btn-lg btn-block btn-danger mb-3 text-white">
                             ویرایش
                         </a>
                     {% endif %}
-                    <div class="box shadow-sm rounded bg-white mb-3">
-                        <div class="box-title border-bottom p-3">
-                            <h6 class="m-0">Similar Jobs
-                            </h6>
-                        </div>
-                        <div class="box-body p-3">
-                            <a href="https://askbootstrap.com/">
-                                <div class="shadow-sm rounded bg-white job-item mb-3">
-                                    <div class="d-flex align-items-center p-3 job-item-header">
-                                        <div class="overflow-hidden mr-2">
-                                            <h6 class="font-weight-bold text-dark mb-0 text-truncate">Product
-                                                Director</h6>
-                                            <div class="text-truncate text-primary">Spotify Inc.</div>
-                                            <div class="small text-gray-500"><i class="fa fa-map"></i> India, Punjab
-                                            </div>
-                                        </div>
-                                        <img class="img-fluid ml-auto" src="images/l3.png" alt="">
-                                    </div>
-                                    <div class="d-flex align-items-center p-3 border-top border-bottom job-item-body">
-                                        <div class="overlap-rounded-circle">
-                                            <img class="rounded-circle shadow-sm" data-toggle="tooltip"
-                                                 data-placement="top"
-                                                 title="" src="images/user/s4.png" alt=""
-                                                 data-original-title="Sophia Lee">
-                                            <img class="rounded-circle shadow-sm" data-toggle="tooltip"
-                                                 data-placement="top"
-                                                 title="" src="images/user/s5.png" alt=""
-                                                 data-original-title="John Doe">
-                                            <img class="rounded-circle shadow-sm" data-toggle="tooltip"
-                                                 data-placement="top"
-                                                 title="" src="images/user/s6.png" alt=""
-                                                 data-original-title="Julia Cox">
-                                            <img class="rounded-circle shadow-sm" data-toggle="tooltip"
-                                                 data-placement="top"
-                                                 title="" src="images/user/s7.png" alt=""
-                                                 data-original-title="Robert Cook">
-                                        </div>
-                                        <span class="font-weight-bold text-muted">18 connections</span>
-                                    </div>
-                                    <div class="p-3 job-item-footer">
-                                        <small class="text-gray-500"><i class="fa fa-clock-o"></i> Posted 3 Days
-                                            ago</small>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://askbootstrap.com/">
-                                <div class="shadow-sm rounded bg-white job-item">
-                                    <div class="d-flex align-items-center p-3 job-item-header">
-                                        <div class="overflow-hidden mr-2">
-                                            <h6 class="font-weight-bold text-dark mb-0 text-truncate">.NET
-                                                Developer</h6>
-                                            <div class="text-truncate text-primary">Invision</div>
-                                            <div class="small text-gray-500"><i class="fa fa-map"></i> London, UK
-                                            </div>
-                                        </div>
-                                        <img class="img-fluid ml-auto" src="images/l4.png" alt="">
-                                    </div>
-                                    <div class="d-flex align-items-center p-3 border-top border-bottom job-item-body">
-                                        <div class="overlap-rounded-circle">
-                                            <img class="rounded-circle shadow-sm" data-toggle="tooltip"
-                                                 data-placement="top"
-                                                 title="" src="images/user/s8.png" alt=""
-                                                 data-original-title="Sophia Lee">
-                                            <img class="rounded-circle shadow-sm" data-toggle="tooltip"
-                                                 data-placement="top"
-                                                 title="" src="images/user/s9.png" alt=""
-                                                 data-original-title="John Doe">
-                                            <img class="rounded-circle shadow-sm" data-toggle="tooltip"
-                                                 data-placement="top"
-                                                 title="" src="images/user/s10.png" alt=""
-                                                 data-original-title="Robert Cook">
-                                        </div>
-                                        <span class="font-weight-bold text-muted">18 connections</span>
-                                    </div>
-                                    <div class="p-3 job-item-footer">
-                                        <small class="text-gray-500"><i class="fa fa-clock-o"></i> Posted 3 Days
-                                            ago</small>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="box shadow-sm rounded bg-white mb-3">
+                 <div class="box shadow-sm rounded bg-white mb-3">
                         <div class="box-title border-bottom p-3">
                             <h6 class="m-0 right_text">جدید ترین شرکت ها</h6>
                         </div>
@@ -278,16 +197,47 @@
 
                         </div>
                     </div>
-                    <div class="box shadow-sm mb-3 rounded bg-white ads-box text-center">
-                        <img src="images/ads1.png" class="img-fluid" alt="{{ co.company_name }}">
-                        <div class="p-3 border-bottom">
-                            <h6 class="font-weight-bold text-gold">Miver Premium</h6>
-                            <p class="mb-0 text-muted">Grow &amp; nurture your network</p>
+                    <div class="box shadow-sm rounded bg-white mb-3">
+                        <div class="box-title border-bottom p-3">
+                            <h6 class="m-0 right_text">
+                                جدید ترین رزومه ها
+                            </h6>
                         </div>
-                        <div class="p-3">
-                            <button type="button" class="btn btn-outline-gold pl-4 pr-4"> ACTIVATE</button>
+                        <div class="box-body p-3">
+                           {% for j in resume %}
+                           	 <a href="{% url 'resume' j.id %}">
+                                <div class="shadow-sm rounded bg-white job-item mb-3">
+                                    <div class="d-flex align-items-center p-3 job-item-header">
+                                        <div class="overflow-hidden mr-2">
+                                         <h6 class="font-weight-bold text-dark mb-1 text-truncate">
+                                                {{ j.user.get_full_name }}
+                                            </h6>
+                                            <div class="text-truncate text-primary">{% if j.field %}
+                                            	{{ j.field }}
+                                            {% endif %} </div>
+                                            {% if j.district %}
+                                            	<div class="small text-gray-500"><i class="fa fa-map"></i> {{ j.district }}
+                                            </div>
+                                            {% endif %}
+
+                                        </div>
+                                            <img class="img-fluid ml-auto" src="{% if j.image %}
+                                        	{{ j.image.url }}
+                                        	{% else %}
+                                        	{% static 'images/user.jpg' %}
+                                        {% endif %} " alt="">
+
+                                    </div>
+
+                                </div>
+                            </a>
+                           {% endfor %}
+
+
                         </div>
                     </div>
+
+
                 </aside>
             </div>
         </div>

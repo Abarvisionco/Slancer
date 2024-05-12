@@ -41,19 +41,20 @@ def company(request):
 def company_detail(request, id):
     company = Company.objects.get(user__id=id)
     cos = Company.objects.order_by('-create_time')[:5]
+    resume_ = Resume.objects.order_by('-create_time')[:3]
     send_resume = False
     try:
         resume = Resume.objects.get(user=request.user)
         if resume in company.send_resume.all():
             send_resume = True
-        print(send_resume)
     except Resume.DoesNotExist:
         pass
 
     context = {
         'co': company,
         'cos': cos,
-        'sended_resume': send_resume
+        'sended_resume': send_resume,
+        'resume':resume_
     }
     return render(request, 'company/detail.html', context)
 
