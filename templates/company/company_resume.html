@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    رزومه شما
+{% endblock %}
+
+{% block content %}
+    {% include 'django_quill/media.html' %}
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3">
+                    <div class="bg-white rounded shadow-sm py-3 sidebar-fix mt-2">
+                        <div class="dropdown-menu-show" style="text-align: right">
+                            <a class="dropdown-item py-2" href="{% url 'co_detail' id %}">نمایش به عنوان کاربر</a>
+
+                        </div>
+                    </div>
+                    <div class="bg-white rounded shadow-sm py-3 sidebar-fix mt-2">
+                        <div class="dropdown-menu-show" style="text-align: right">
+                            <a class="dropdown-item py-2" href="{% url 'company' %}">تنظیمات شرکت یا سازمان</a>
+                            <a class="dropdown-item py-2 active" href="{% url 'company_resume' %}">رزومه های فرستاده
+                                شده</a>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-9 mt-2" dir="rtl" style="text-align: right">
+                    <div class="bg-white rounded shadow-sm sidebar-page-right">
+                        <div>
+                            <div class="p-3 border-bottom text-right">
+                                {% if messages %}
+                                    <div class="alert alert-danger alert-dismissible" role="alert">
+                                        <div id="form_errors">
+                                            {% for message in messages %}
+                                                <span class="text-right">{{ message }}</span><br>
+                                            {% endfor %}
+
+                                            <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                {% endif %}
+                                {% if form.errors %}
+                                    <div class="alert alert-danger alert-dismissible" role="alert">
+                                    <div id="form_errors">
+                                        {% for key, value in form.errors.items %}
+                                            <span>{{ value }}</span>
+                                        {% endfor %}
+
+                                        <button type="button" class="close" data-dismiss="alert"
+                                                aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                {% endif %}
+                                <h6 class="mb-0">
+                                    مشاهده رزومه های فرستاده شده
+                                </h6>
+
+                                </div>
+                                <section class="py-2">
+                                    <div class=" recommended">
+                                        <div class="container">
+
+                                            <div class="row">
+
+                                                {% for i in resume %}
+                                                    <div class="col-md-4 col-6 col-lg-4">
+                                                        <div class="box mb-3 shadow-sm rounded bg-white profile-box text-center">
+                                                            <div class="py-4 px-3 border-bottom">
+                                                                <img width="100"
+                                                                     src="{% if i.image and i.image.url != '/media/False' %}
+                                	{{ i.image.url }}
+                                	{% else %}
+                                	{% static 'images/user.png' %}
+                                {% endif %} " class="img-fluid mt-2 rounded-circle"
+                                                                     alt="Responsive image">
+                                                                <h5 class="font-weight-bold text-dark mb-1 mt-4">{{ i.user.get_full_name }}</h5>
+                                                                <p class="mb-0 text-muted">{{ i.school }}</p>
+                                                            </div>
+                                                            <div class="d-flex">
+                                                                <div class="col-6 border-right p-3">
+                                                                    <h6 class="font-weight-bold text-dark mb-1">
+                                                                        ناحیه</h6>
+                                                                    <p class="mb-0 text-black-50 small">{{ i.district }}</p>
+                                                                </div>
+                                                                <div class="col-6 p-3">
+                                                                    <h6 class="font-weight-bold text-dark mb-1">
+                                                                        رشته</h6>
+                                                                    <p class="mb-0 text-black-50 small">{{ i.field }}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="overflow-hidden border-top">
+                                                                <a class="font-weight-bold p-3 d-block"
+                                                                   href="{% url 'resume' i.id %}">
+                                                                    نمایش پروفایل </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="Pagination"
+                                         class="pb-5 mb-5 border-bottom pagination justify-content-center">
+
+                                        <nav aria-label="Page navigation example">
+                                            <div id="Pagination"
+                                                 class="pb-5 mb-2 mt-2 border-bottom pagination justify-content-center">
+
+                                                <nav aria-label="Page navigation example">
+                                                    <ul class="pagination">
+                                                        {% if resume.has_previous %}
+                                                            <li class="page-item">
+                                                                <a class="page-link"
+                                                                   href="?page=1 "
+                                                                   aria-label="First">
+                                                                    <span aria-hidden="true">«</span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="page-item"><a class="page-link"
+                                                                                     href="?page={{ resume.previous_page_number }} ">{{ resume.previous_page_number }}</a>
+                                                            </li>
+                                                        {% endif %}
+
+                                                        <li class="page-item active"><a
+                                                                class="page-link ">{{ resume.number }}</a>
+                                                        </li>
+                                                        {% if resume.has_next %}
+                                                            <li class="page-item "><a class="page-link"
+                                                                                      href="?page={{ resume.next_page_number }} ">{{ resume.next_page_number }}</a>
+                                                            </li>
+                                                            <li class="page-item">
+                                                                <a class="page-link"
+                                                                   href="?page={{ resume.paginator.num_pages }} "
+                                                                   aria-label="last">
+                                                                    <span aria-hidden="true">»</span>
+                                                                </a>
+                                                            </li>
+                                                        {% endif %}
+                                                    </ul>
+                                                </nav>
+
+                                            </div>
+                                        </nav>
+
+                                    </div>
+
+                            </div>
+    </section>
+
+
+{% endblock %}

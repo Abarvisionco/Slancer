@@ -6,6 +6,8 @@ from django.shortcuts import HttpResponseRedirect, get_object_or_404
 from django.contrib import messages
 from django.urls import  reverse_lazy, reverse
 from resume.models import Resume
+from django.core.paginator import Paginator
+
 
 
 @login_required
@@ -73,3 +75,14 @@ def add_resume_to_company(request, company_id):
             messages.error(request, "رزومه کاربر یافت نشد.")
 
     return HttpResponseRedirect(reverse('co_detail', args=[company_id]))
+
+def company_resume(request):
+    company = Company.objects.get(user=request.user)
+    paginator = Paginator(company.send_resume.all(), 24)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {
+        'resume':page_obj,
+        'id':company.user.id
+    }
+    return render(request, 'company/company_resume.html', context)
