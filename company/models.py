@@ -17,6 +17,7 @@ class Company(models.Model):
     send_resume = models.ManyToManyField(Resume, verbose_name="رزومه های ارسال شده", null=True, blank=True)
     create_time = models.DateTimeField(auto_now_add=True, verbose_name="تاریخ ایجاد")
     show_mobile = models.BooleanField(default=True, verbose_name="نمایش شماره تلفن همراه به کارآموزان")
+    address = models.TextField(null=True, blank=True, verbose_name="آدرس")
     def __str__(self):
         return self.company_name
     class Meta:
