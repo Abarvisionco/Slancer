@@ -10,6 +10,36 @@
 
 {% block content %}
 
+    <div class="m-2">
+     {% if messages %}
+                                        <div class="alert alert-danger alert-dismissible" role="alert">
+                                            <div id="form_errors">
+                                                {% for message in messages %}
+                                                    <span class="text-right">{{ message }}</span><br>
+                                                {% endfor %}
+
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                    {% endif %}
+                                    {% if form.errors %}
+                                        <div class="alert alert-danger alert-dismissible" role="alert">
+                                        <div id="form_errors">
+                                            {% for key, value in form.errors.items %}
+                                                <span>{{ value }}</span>
+                                            {% endfor %}
+
+                                            <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                    {% endif %}
+    </div>
 
     <div class="py-5">
         <div class="container">
@@ -98,10 +128,36 @@
                     <div class="box shadow-sm mb-3 rounded bg-white ads-box text-center">
 
                         <div class="p-3 border-bottom">
-                            <p class="mb-0 text-muted">اگر به کارآموزی در این شرکت علاقه مندید رزومه ارسال کنید.</p>
+                            <p class="mb-0 text-muted" dir="rtl">اگر به کارآموزی در این شرکت علاقه مندید رزومه خود را
+                                ارسال کنید.</p>
                         </div>
                         <div class="p-3">
-                            <button type="button" class="btn btn-outline-success pl-4 pr-4">درخاست کارآموزی</button>
+                            {% if user.is_authenticated %}
+                                {% if user_has_resume %}
+                                    {% if sended_resume %}
+                                        <form action="{% url 'add_co' co.user.id %}" method="post">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-outline-info pl-4 pr-4">
+                                                حذف درخاست کارآموزی
+                                            </button>
+                                        </form>
+                                        {% else %}
+                                        <form action="{% url 'add_co' co.user.id %}" method="post">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-outline-success pl-4 pr-4">درخاست
+                                                کارآموزی
+                                            </button>
+                                        </form>
+                                    {% endif %}
+                                {% else %}
+                                    <a href="{% url 'resume_home' %}" class="btn btn-outline-info pl-4 pr-4">لطفا اول
+                                        رزومه خود را ایجاد کنید</a>
+
+                                {% endif %}
+                            {% else %}
+                                <a href="{% url 'login' %}" class="btn btn-outline-danger pl-4 pr-4">لطفا اول ثبت نام
+                                    کنید</a>
+                            {% endif %}
                         </div>
                     </div>
                 </aside>

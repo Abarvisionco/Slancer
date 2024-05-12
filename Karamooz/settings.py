@@ -77,6 +77,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'main.context_processor.yes_resume',
                 'main.context_processor.yes_company',
+                'main.context_processor.user_has_resume',
             ],
         },
     },
