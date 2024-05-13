@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-	Schoolancer | خانه
+    Schoolancer | خانه
 {% endblock %}
 
 {% block content %}
@@ -37,7 +37,7 @@
                                     <div class="location-dropdown">
                                         <i class="icofont-location-arrow"></i>
                                         <select class="custom-select form-control border-0 shadow-sm form-control-lg"
-                                        name="field">
+                                                name="field">
                                             <option value=""> رشته</option>
                                             {% for i in field %}
                                                 <option value="{{ i.id }}"> {{ i.name }} </option>
@@ -63,7 +63,8 @@
                         <span class="text-body-2">محبوب</span>
                         <ul>
                             {% for i in field %}
-                                <li><a href="{% url 'all_resume' %}?field={{ i.id }}" class="text-body-2">{{ i.name }}</a></li>
+                                <li><a href="{% url 'all_resume' %}?field={{ i.id }}"
+                                       class="text-body-2">{{ i.name }}</a></li>
                             {% endfor %}
 
                         </ul>
@@ -117,52 +118,43 @@
                     {% endfor %}
 
                     <div class="col-lg-12">
-                        <div class="text-right mb-4"><h3 class="text-white pb-2 mt-4">بروز ترین نمونه کار ها </h3>
-                            <a href="{% url 'all_exams' %}">نمایش همه نمونه کار ها</a>
+                        <div class="text-right mb-4"><h3 class="text-white pb-2 mt-4">جدید ترین شرکت ها و سازمان
+                            ها </h3>
+                            <a href="{% url 'all_exams' %}">نمایش همه </a>
                         </div>
                         <div class="row">
-                            {% for i in exams %}
-                                    <div class="col-lg-3 col-md-4 col-6">
-                                        <div>
-
-                                            <a target="_blank" {% if i.link %} href="{{ i.link }}" {% endif %}>
-                                                {% if i.image %}
-                                                    <img class="img-fluid" src="{{ i.image.url }}"/>
-                                                {% else %}
-                                                    <img class="img-fluid p-2"
-                                                         src="{% static 'images/work-completed.png' %}"/>
-
-                                                {% endif %}                                     </a>
-                                            <div class="inner-slider">
-                                                <div class="inner-wrapper">
-                                                    <div class="d-flex align-items-center">
-                                                <span class="seller-image">
-                                            {% if i.resume.image and i.resume.image.url != '/media/False' %}
-
-                                                <img class="img-fluid" src="{{ i.resume.image.url }}"
-                                                     alt='{{ i.name }}'/>
-                                                {% else %}
-                                                <img class="img-fluid" src="{% static 'images/user.jpg' %}"
-                                                     alt='{{ i.name }}'/>
-
-                                            {% endif %}
-                                                </span>
-                                                        <span class="seller-name">
-                                                <a target="_blank" {% if i.link %} href="{{ i.link }}" {% endif %}>{{ i.name }}</a>
-
-                                                </span>
-                                                    </div>
-                                                    <h3 dir="rtl" class="text-right">{{ i.description|slice:":75" }}...</h3>
-                                                    <hr>
-                                                    <div class="text-center">
-                                                        <a href="{% url 'resume' i.resume.id %}" class=""><b>نمایش پروفایل</b></a>
-                                                    </div>
-
-                                                </div>
-                                            </div>
+                            {% for i in company %}
+                                <aside class="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
+                                    <div class="box mb-3 shadow-sm rounded bg-white profile-box text-center">
+                                        <div class="p-5">
+                                            <img src="{% if i.image %}
+                                        	{{ i.image.url }}
+                                        	{% else %}
+                                        	{% static 'images/company_vectory.jpg' %}
+                                        {% endif %}" class="img-fluid" alt="Responsive image">
                                         </div>
+                                        <div class="p-3 border-top border-bottom">
+                                            <h5 class="font-weight-bold text-dark mb-1 mt-0">{{ i.company_name }}</h5>
+                                            <p class="mb-0 text-muted">{{ i.field }}
+                                            </p>
+                                        </div>
+{#                                        <div class="p-3">#}
+{#                                            <div class="d-flex align-items-to">#}
+{#                                                <p class="font-weight-bold text-dark">{{ i.state }}</p>#}
+{#                                                <p class="mb-0 mt-0 ml-auto text-muted">استان</p>#}
+{#                                            </div>#}
+{##}
+{#                                        </div>#}
+                                     <div class="overflow-hidden border-top">
+                                    <a class="font-weight-bold p-3 d-block"
+                                       href="{% url 'co_detail' i.user.id %}">
+                                        نمایش </a>
+                                </div>
                                     </div>
-                                {% endfor %}
+                                </aside>
+                            {% endfor %}
+
+
                         </div>
                     </div>
                 </div>
@@ -172,257 +164,257 @@
 
 
 
-{#    <div class="container">#}
-{#        <div class="about-section py-5">#}
-{#            <div class="row align-items-center">#}
-{#                <div class="col-md-6">#}
-{#                    <h2>Get Work Done fater On Miver#}
-{#                        , <br>With Confidence#}
-{#                    </h2>#}
-{#                    <ul>#}
-{#                        <li><span><img src="images/checkmark.svg"> Payment Protection, Guaranteed</span>#}
-{#                            Payment is released to the freelancer once you’re pleased and approve the work you get.#}
-{#                        </li>#}
-{#                        <li><span><img src="images/checkmark.svg"> Know The Price Upfront#}
-{#                            </span>Find any service within minutes and know exactly what you’ll pay. No hourly rates,#}
-{#                            just a fixed price.#}
-{#                        </li>#}
-{#                        <li><span><img src="images/checkmark.svg"> We’re Here For You 24/7</span>Miver#}
-{#                            is here for you, anything from answering any questions to resolving any issues, at any time.#}
-{#                        </li>#}
-{#                    </ul>#}
-{#                </div>#}
-{#                <div class="col-md-6">#}
-{#                    <img src="images/video.svg" class="video-img w-100">#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{##}
-{#    <div class="market-wrapper py-5 bg-white">#}
-{#        <div class="container">#}
-{#            <h2 class="text-center">Explore the marketplace</h2>#}
-{#            <ul class="categories-list mb-0">#}
-{#                <li>#}
-{#                    <a href="#">#}
-{#                        <img src="images/graphics.svg" alt="" loading="lazy">Graphics &amp; Design#}
-{#                    </a>#}
-{#                </li>#}
-{#                <li>#}
-{#                    <a href="#">#}
-{#                        <img src="images/online-marketing.svg" alt="Digital Marketing" loading="lazy">Digital Marketing#}
-{#                    </a>#}
-{#                </li>#}
-{#                <li>#}
-{#                    <a href="#">#}
-{#                        <img src="images/writing-translation.svg" alt="Writing &amp; Translation" loading="lazy">Writing#}
-{#                        &amp; Translation#}
-{#                    </a>#}
-{#                </li>#}
-{#                <li>#}
-{#                    <a href="#">#}
-{#                        <img src="images/video-animation.svg" alt="Video &amp; Animation" loading="lazy">Video &amp;#}
-{#                        Animation#}
-{#                    </a>#}
-{#                </li>#}
-{#                <li>#}
-{#                    <a href="#">#}
-{#                        <img src="images/music-audio.svg" alt="Music &amp; Audio" loading="lazy">Music &amp; Audio</a>#}
-{#                </li>#}
-{#                <li>#}
-{#                    <a href="#">#}
-{#                        <img src="images/programming.svg" alt="Programming &amp; Tech" loading="lazy">Programming &amp;#}
-{#                        Tech#}
-{#                    </a>#}
-{#                </li>#}
-{#                <li>#}
-{#                    <a href="#">#}
-{#                        <img src="images/business.svg" alt="Business" loading="lazy">Business</a>#}
-{#                </li>#}
-{#                <li>#}
-{#                    <a href="#">#}
-{#                        <img src="images/lifestyle.svg" alt="Lifestyle" loading="lazy">Lifestyle#}
-{#                    </a>#}
-{#                </li>#}
-{#            </ul>#}
-{#        </div>#}
-{#    </div>#}
-{##}
-{##}
-{#    <div class="freelance-projects py-5">#}
-{#        <div class="container">#}
-{#            <h2>#}
-{#                Get Inspired With Projects Made By Our Freelancers#}
-{#                <a href="#" class="float-right">See More ></a>#}
-{#            </h2>#}
-{#            <div class="row freelance-slider">#}
-{#                <div class="col">#}
-{#                    <div class="freelancer">#}
-{#                        <img src="images/senatopcustudio.jpg">#}
-{#                        <div class="freelancer-footer">#}
-{#                            <img src="images/user/s7.png">#}
-{#                            <h5>Logo Design#}
-{#                                <span>by <i>John</i></span>#}
-{#                            </h5>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="col">#}
-{#                    <div class="freelancer">#}
-{#                        <img src="images/vnuggz.jpg">#}
-{#                        <div class="freelancer-footer">#}
-{#                            <img src="images/user/s8.png">#}
-{#                            <h5>Web &amp; Mobile Design#}
-{#                                <span>by <i>John</i></span>#}
-{#                            </h5>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="col">#}
-{#                    <div class="freelancer">#}
-{#                        <img src="images/digitalgeria.jpg">#}
-{#                        <div class="freelancer-footer">#}
-{#                            <img src="images/user/s1.png">#}
-{#                            <h5>Packaging Design#}
-{#                                <span>by <i>John</i></span>#}
-{#                            </h5>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="col">#}
-{#                    <div class="freelancer">#}
-{#                        <img src="images/artsi3d.jpg">#}
-{#                        <div class="freelancer-footer">#}
-{#                            <img src="images/user/s2.png">#}
-{#                            <h5>Brand Style Guides#}
-{#                                <span>by <i>John</i></span>#}
-{#                            </h5>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="col">#}
-{#                    <div class="freelancer">#}
-{#                        <img src="images/designerheather.jpg">#}
-{#                        <div class="freelancer-footer">#}
-{#                            <img src="images/user/s3.png">#}
-{#                            <h5>Illustration#}
-{#                                <span>by <i>John</i></span>#}
-{#                            </h5>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{##}
-{##}
-{#    <div class="testi-wrap">#}
-{#        <div class="container">#}
-{#            <div class="testimonial">#}
-{#                <div class="video-modal">#}
-{#                    <div class="picture-wrapper">#}
-{#                        <img src="images/1440-haerfest-2x.jpg">#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="text-content">#}
-{#                    <p>"Being a small but growing brand, we have to definitely do a lot more with less. And when you#}
-{#                        want to create a business bigger than yourself, you’re going to need help. And that’s what Miver#}
-{#                        does"#}
-{#                    </p>#}
-{#                    <span>Tim and Dan Joo, Co-founders</span>#}
-{#                    <img alt="Company logo" src="images/haerfest-logo.png" loading="lazy">#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{##}
-{##}
-{#    <div class="container py-5">#}
-{#        <div class="pro-section">#}
-{#            <div class="pro-text">#}
-{#                <span>Try</span>#}
-{#                <h3>Unrivaled experts, trusted by the world's biggest brands</h3>#}
-{#                <a class="fit-btn" href="#">Explore Pro Services</a>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{##}
-{##}
-{#    <section class="bg-white">#}
-{#        <div class="container py-5">#}
-{#            <div class="about-section">#}
-{#                <div class="row align-items-center">#}
-{#                    <div class="col-md-6">#}
-{#                        <h2>Give Your Business The Right Tools</h2>#}
-{#                        <ul>#}
-{#                            <li><span><img src="images/checkmark.svg"> Full Transparency</span> A new shared dashboard#}
-{#                                allows you to track your team's activity, so that everyone is always in sync.#}
-{#                            </li>#}
-{#                            <li><span><img src="images/checkmark.svg"> VIP Customer Support#}
-{#                                </span>Quick response time and upgraded support solutions will help you to get what you#}
-{#                                need, when you need it.#}
-{#                            </li>#}
-{#                            <li><span><img src="images/checkmark.svg"> Improved Billing Options</span>One team - one#}
-{#                                payment method. You can now add a card on file that every team member can use.#}
-{#                            </li>#}
-{#                        </ul>#}
-{#                    </div>#}
-{#                    <div class="col-md-6">#}
-{#                        <img src="images/ipad.svg" class="video-img w-100">#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </section>#}
-{##}
-{##}
-{#    <div class="guide-wrapper py-5">#}
-{#        <div class="container">#}
-{#            <h2>#}
-{#                Miver#}
-{#                Guides#}
-{#                <a href="#" class="float-right">See More guides></a>#}
-{#            </h2>#}
-{#            <div class="row">#}
-{#                <div class="col-md-4">#}
-{#                    <a href="#" class="guide">#}
-{#                        <img src="images/guide-01.jpg">#}
-{#                        <div class="content">#}
-{#                            <h6>Create a Website</h6>#}
-{#                            <p>Building a stunning website from A to Z</p>#}
-{#                        </div>#}
-{#                    </a>#}
-{#                </div>#}
-{#                <div class="col-md-4">#}
-{#                    <a href="#" class="guide">#}
-{#                        <img src="images/guide-02.jpg">#}
-{#                        <div class="content">#}
-{#                            <h6>Grow With Digital Marketing</h6>#}
-{#                            <p>Promoting your business online</p>#}
-{#                        </div>#}
-{#                    </a>#}
-{#                </div>#}
-{#                <div class="col-md-4">#}
-{#                    <a href="#" class="guide">#}
-{#                        <img src="images/guide-03.jpg">#}
-{#                        <div class="content">#}
-{#                            <h6>Build a Strong Brand</h6>#}
-{#                            <p>Differentiating yourself from the competition</p>#}
-{#                        </div>#}
-{#                    </a>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{##}
-{##}
-{#    <div>#}
-{#        <div class="get-started">#}
-{#            <div class="content">#}
-{#                <h2>Find Freelance Services For Your Business Today</h2>#}
-{#                <p>We've got you covered for all your business needs</p>#}
-{#                <a href="#" class="c-btn c-fill-color-btn">Get Started</a>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
+    {#    <div class="container">#}
+    {#        <div class="about-section py-5">#}
+    {#            <div class="row align-items-center">#}
+    {#                <div class="col-md-6">#}
+    {#                    <h2>Get Work Done fater On Miver#}
+    {#                        , <br>With Confidence#}
+    {#                    </h2>#}
+    {#                    <ul>#}
+    {#                        <li><span><img src="images/checkmark.svg"> Payment Protection, Guaranteed</span>#}
+    {#                            Payment is released to the freelancer once you’re pleased and approve the work you get.#}
+    {#                        </li>#}
+    {#                        <li><span><img src="images/checkmark.svg"> Know The Price Upfront#}
+    {#                            </span>Find any service within minutes and know exactly what you’ll pay. No hourly rates,#}
+    {#                            just a fixed price.#}
+    {#                        </li>#}
+    {#                        <li><span><img src="images/checkmark.svg"> We’re Here For You 24/7</span>Miver#}
+    {#                            is here for you, anything from answering any questions to resolving any issues, at any time.#}
+    {#                        </li>#}
+    {#                    </ul>#}
+    {#                </div>#}
+    {#                <div class="col-md-6">#}
+    {#                    <img src="images/video.svg" class="video-img w-100">#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
+    {##}
+    {#    <div class="market-wrapper py-5 bg-white">#}
+    {#        <div class="container">#}
+    {#            <h2 class="text-center">Explore the marketplace</h2>#}
+    {#            <ul class="categories-list mb-0">#}
+    {#                <li>#}
+    {#                    <a href="#">#}
+    {#                        <img src="images/graphics.svg" alt="" loading="lazy">Graphics &amp; Design#}
+    {#                    </a>#}
+    {#                </li>#}
+    {#                <li>#}
+    {#                    <a href="#">#}
+    {#                        <img src="images/online-marketing.svg" alt="Digital Marketing" loading="lazy">Digital Marketing#}
+    {#                    </a>#}
+    {#                </li>#}
+    {#                <li>#}
+    {#                    <a href="#">#}
+    {#                        <img src="images/writing-translation.svg" alt="Writing &amp; Translation" loading="lazy">Writing#}
+    {#                        &amp; Translation#}
+    {#                    </a>#}
+    {#                </li>#}
+    {#                <li>#}
+    {#                    <a href="#">#}
+    {#                        <img src="images/video-animation.svg" alt="Video &amp; Animation" loading="lazy">Video &amp;#}
+    {#                        Animation#}
+    {#                    </a>#}
+    {#                </li>#}
+    {#                <li>#}
+    {#                    <a href="#">#}
+    {#                        <img src="images/music-audio.svg" alt="Music &amp; Audio" loading="lazy">Music &amp; Audio</a>#}
+    {#                </li>#}
+    {#                <li>#}
+    {#                    <a href="#">#}
+    {#                        <img src="images/programming.svg" alt="Programming &amp; Tech" loading="lazy">Programming &amp;#}
+    {#                        Tech#}
+    {#                    </a>#}
+    {#                </li>#}
+    {#                <li>#}
+    {#                    <a href="#">#}
+    {#                        <img src="images/business.svg" alt="Business" loading="lazy">Business</a>#}
+    {#                </li>#}
+    {#                <li>#}
+    {#                    <a href="#">#}
+    {#                        <img src="images/lifestyle.svg" alt="Lifestyle" loading="lazy">Lifestyle#}
+    {#                    </a>#}
+    {#                </li>#}
+    {#            </ul>#}
+    {#        </div>#}
+    {#    </div>#}
+    {##}
+    {##}
+    {#    <div class="freelance-projects py-5">#}
+    {#        <div class="container">#}
+    {#            <h2>#}
+    {#                Get Inspired With Projects Made By Our Freelancers#}
+    {#                <a href="#" class="float-right">See More ></a>#}
+    {#            </h2>#}
+    {#            <div class="row freelance-slider">#}
+    {#                <div class="col">#}
+    {#                    <div class="freelancer">#}
+    {#                        <img src="images/senatopcustudio.jpg">#}
+    {#                        <div class="freelancer-footer">#}
+    {#                            <img src="images/user/s7.png">#}
+    {#                            <h5>Logo Design#}
+    {#                                <span>by <i>John</i></span>#}
+    {#                            </h5>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                <div class="col">#}
+    {#                    <div class="freelancer">#}
+    {#                        <img src="images/vnuggz.jpg">#}
+    {#                        <div class="freelancer-footer">#}
+    {#                            <img src="images/user/s8.png">#}
+    {#                            <h5>Web &amp; Mobile Design#}
+    {#                                <span>by <i>John</i></span>#}
+    {#                            </h5>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                <div class="col">#}
+    {#                    <div class="freelancer">#}
+    {#                        <img src="images/digitalgeria.jpg">#}
+    {#                        <div class="freelancer-footer">#}
+    {#                            <img src="images/user/s1.png">#}
+    {#                            <h5>Packaging Design#}
+    {#                                <span>by <i>John</i></span>#}
+    {#                            </h5>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                <div class="col">#}
+    {#                    <div class="freelancer">#}
+    {#                        <img src="images/artsi3d.jpg">#}
+    {#                        <div class="freelancer-footer">#}
+    {#                            <img src="images/user/s2.png">#}
+    {#                            <h5>Brand Style Guides#}
+    {#                                <span>by <i>John</i></span>#}
+    {#                            </h5>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                <div class="col">#}
+    {#                    <div class="freelancer">#}
+    {#                        <img src="images/designerheather.jpg">#}
+    {#                        <div class="freelancer-footer">#}
+    {#                            <img src="images/user/s3.png">#}
+    {#                            <h5>Illustration#}
+    {#                                <span>by <i>John</i></span>#}
+    {#                            </h5>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
+    {##}
+    {##}
+    {#    <div class="testi-wrap">#}
+    {#        <div class="container">#}
+    {#            <div class="testimonial">#}
+    {#                <div class="video-modal">#}
+    {#                    <div class="picture-wrapper">#}
+    {#                        <img src="images/1440-haerfest-2x.jpg">#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                <div class="text-content">#}
+    {#                    <p>"Being a small but growing brand, we have to definitely do a lot more with less. And when you#}
+    {#                        want to create a business bigger than yourself, you’re going to need help. And that’s what Miver#}
+    {#                        does"#}
+    {#                    </p>#}
+    {#                    <span>Tim and Dan Joo, Co-founders</span>#}
+    {#                    <img alt="Company logo" src="images/haerfest-logo.png" loading="lazy">#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
+    {##}
+    {##}
+    {#    <div class="container py-5">#}
+    {#        <div class="pro-section">#}
+    {#            <div class="pro-text">#}
+    {#                <span>Try</span>#}
+    {#                <h3>Unrivaled experts, trusted by the world's biggest brands</h3>#}
+    {#                <a class="fit-btn" href="#">Explore Pro Services</a>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
+    {##}
+    {##}
+    {#    <section class="bg-white">#}
+    {#        <div class="container py-5">#}
+    {#            <div class="about-section">#}
+    {#                <div class="row align-items-center">#}
+    {#                    <div class="col-md-6">#}
+    {#                        <h2>Give Your Business The Right Tools</h2>#}
+    {#                        <ul>#}
+    {#                            <li><span><img src="images/checkmark.svg"> Full Transparency</span> A new shared dashboard#}
+    {#                                allows you to track your team's activity, so that everyone is always in sync.#}
+    {#                            </li>#}
+    {#                            <li><span><img src="images/checkmark.svg"> VIP Customer Support#}
+    {#                                </span>Quick response time and upgraded support solutions will help you to get what you#}
+    {#                                need, when you need it.#}
+    {#                            </li>#}
+    {#                            <li><span><img src="images/checkmark.svg"> Improved Billing Options</span>One team - one#}
+    {#                                payment method. You can now add a card on file that every team member can use.#}
+    {#                            </li>#}
+    {#                        </ul>#}
+    {#                    </div>#}
+    {#                    <div class="col-md-6">#}
+    {#                        <img src="images/ipad.svg" class="video-img w-100">#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </section>#}
+    {##}
+    {##}
+    {#    <div class="guide-wrapper py-5">#}
+    {#        <div class="container">#}
+    {#            <h2>#}
+    {#                Miver#}
+    {#                Guides#}
+    {#                <a href="#" class="float-right">See More guides></a>#}
+    {#            </h2>#}
+    {#            <div class="row">#}
+    {#                <div class="col-md-4">#}
+    {#                    <a href="#" class="guide">#}
+    {#                        <img src="images/guide-01.jpg">#}
+    {#                        <div class="content">#}
+    {#                            <h6>Create a Website</h6>#}
+    {#                            <p>Building a stunning website from A to Z</p>#}
+    {#                        </div>#}
+    {#                    </a>#}
+    {#                </div>#}
+    {#                <div class="col-md-4">#}
+    {#                    <a href="#" class="guide">#}
+    {#                        <img src="images/guide-02.jpg">#}
+    {#                        <div class="content">#}
+    {#                            <h6>Grow With Digital Marketing</h6>#}
+    {#                            <p>Promoting your business online</p>#}
+    {#                        </div>#}
+    {#                    </a>#}
+    {#                </div>#}
+    {#                <div class="col-md-4">#}
+    {#                    <a href="#" class="guide">#}
+    {#                        <img src="images/guide-03.jpg">#}
+    {#                        <div class="content">#}
+    {#                            <h6>Build a Strong Brand</h6>#}
+    {#                            <p>Differentiating yourself from the competition</p>#}
+    {#                        </div>#}
+    {#                    </a>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
+    {##}
+    {##}
+    {#    <div>#}
+    {#        <div class="get-started">#}
+    {#            <div class="content">#}
+    {#                <h2>Find Freelance Services For Your Business Today</h2>#}
+    {#                <p>We've got you covered for all your business needs</p>#}
+    {#                <a href="#" class="c-btn c-fill-color-btn">Get Started</a>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
 {% endblock %}

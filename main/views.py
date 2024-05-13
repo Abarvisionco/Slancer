@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from resume.models import Field, State, Resume, ExamWorks
-
+from company.models import Company
 
 # default home page
 def home(request):
@@ -8,13 +8,13 @@ def home(request):
     all_field = Field.objects.all()
     state = State.objects.all()
     resume = Resume.objects.order_by("-update_date").filter(active=True)[:12]
-    exams = ExamWorks.objects.order_by("-update_date")[:16]
+    company = Company.objects.order_by("-create_time")[:12]
     context = {
         'field':field,
         'all_field':all_field,
         'stete':state,
         'resume':resume,
-        'exams': exams
+        'company':company
     }
     return render(request,'main/home.html', context)
 

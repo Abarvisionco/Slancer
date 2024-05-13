@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    شرکت و سازمان ها
+{% endblock %}
+
+{% block content %}
+    <section class="py-5 bg-dark inner-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="mt-0 mb-3 text-white">شرکت و سازمان ها</h1>
+                    <div class="breadcrumbs">
+                        <p class="mb-0 text-white"><a class="text-white" href="{% url 'home' %}">خانه</a> / <span
+                                class="text-success">شرکت و سازمان ها</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-2 bg-dark">
+        <div class="view_slider recommended">
+            <div class="container">
+                <div class="bg-white mb-5">
+                    <div class="border">
+
+                        <form class="px-4 py-3 right_text" action="." method="get" dir="rtl">
+                            <div class="row">
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                                    <label for="exampleDropdownFormEmail1">استان</label>
+                                    {{ form.state }}
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                                    <label for="exampleDropdownFormPassword1">ناحیه</label>
+                                    {{ form.district }}
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                                    <label for="exampleDropdownFormPassword1">رشته</label>
+                                    {{ form.field }}
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                                    <label for="exampleDropdownFormPassword1">نام شرکت یا سازمان</label>
+                                    {#                                {{ form.school }}#}
+                                    <input type="text" value="{{ request.GET.name }}" name="name"
+                                           class="form-control form--control pl-3">
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary">فیلتر گذاری</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                <div class="row">
+
+                    {% for i in exams %}
+                        <aside class="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
+                            <div class="box mb-3 shadow-sm rounded bg-white profile-box text-center">
+                                <div class="p-5">
+                                    <img src="{% if i.image %}
+                                        	{{ i.image.url }}
+                                        	{% else %}
+                                        	{% static 'images/company_vectory.jpg' %}
+                                        {% endif %}" class="img-fluid" alt="Responsive image">
+                                </div>
+                                <div class="p-3 border-top border-bottom">
+                                    <h5 class="font-weight-bold text-dark mb-1 mt-0">{{ i.company_name }}</h5>
+                                    <p class="mb-0 text-muted">{{ i.field }}
+                                    </p>
+                                </div>
+                                {#                                        <div class="p-3">#}
+                                {#                                            <div class="d-flex align-items-to">#}
+                                {#                                                <p class="font-weight-bold text-dark">{{ i.state }}</p>#}
+                                {#                                                <p class="mb-0 mt-0 ml-auto text-muted">استان</p>#}
+                                {#                                            </div>#}
+                                {##}
+                                {#                                        </div>#}
+                                <div class="overflow-hidden border-top">
+                                    <a class="font-weight-bold p-3 d-block"
+                                       href="{% url 'co_detail' i.user.id %}">
+                                        نمایش </a>
+                                </div>
+                            </div>
+                        </aside>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </div>
+        <div id="Pagination" class="pb-5 mb-5 border-bottom pagination justify-content-center">
+
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    {% if resume.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link"
+                               href="?page=1{% if request.GET.state %}&state={{ request.GET.state }}{% endif %}{% if request.GET.district %}&district={{ request.GET.district }}{% endif %}{% if request.GET.field %}&field={{ request.GET.field }}{% endif %}{% if request.GET.name %}&name={{ request.GET.name }}{% endif %}"
+                               aria-label="First">
+                                <span aria-hidden="true">«</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link"
+                                                 href="?page=
+                                                         {{ resume.previous_page_number }}{% if request.GET.state %}&state={{ request.GET.state }}{% endif %}{% if request.GET.district %}&district={{ request.GET.district }}{% endif %}{% if request.GET.field %}&field={{ request.GET.field }}{% endif %}{% if request.GET.name %}&name={{ request.GET.name }}{% endif %}">{{ resume.previous_page_number }}</a>
+                        </li>
+                    {% endif %}
+
+                    <li class="page-item active"><a class="page-link ">{{ resume.number }}</a></li>
+                    {% if resume.has_next %}
+                        <li class="page-item "><a class="page-link"
+                                                  href="?page=
+                                                          {{ resume.next_page_number }}{% if request.GET.state %}&state={{ request.GET.state }}{% endif %}{% if request.GET.district %}&district={{ request.GET.district }}{% endif %}{% if request.GET.field %}&field={{ request.GET.field }}{% endif %}{% if request.GET.name %}&name={{ request.GET.name }}{% endif %}">{{ resume.next_page_number }}</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="?page=
+                                    {{ resume.paginator.num_pages }}{% if request.GET.state %}&state={{ request.GET.state }}{% endif %}{% if request.GET.district %}&district={{ request.GET.district }}{% endif %}{% if request.GET.field %}&field={{ request.GET.field }}{% endif %}{% if request.GET.name %}&name={{ request.GET.name }}{% endif %}"
+                               aria-label="last">
+                                <span aria-hidden="true">»</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+
+        </div>
+
+        </div>
+    </section>
+
+{% endblock %}
