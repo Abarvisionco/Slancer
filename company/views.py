@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from company.forms import CompanyForm
+from company.forms import CompanyForm, CompanyFilterForm
 from company.models import Company
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import HttpResponseRedirect, get_object_or_404
@@ -91,3 +91,34 @@ def company_resume(request):
         'id':company.user.id
     }
     return render(request, 'company/company_resume.html', context)
+
+def filter_all_co(request):
+    exams = Company.objects.filter()
+    form = CompanyFilterForm(request.GET)
+
+    state_query = request.GET.get('state', '')
+    if state_query:
+        exams = exams.filter(state=state_query)
+    district_query = request.GET.get('district', '')
+    if district_query:
+        exams = exams.filter(district=district_query)
+    field_query = request.GET.get('field', '')
+    if field_query:
+        exams = exams.filter(field=field_query)
+    name_query = request.GET.get('name', '')
+    if name_query:
+        exams = exams.filter(company_name__contains=name_query)
+
+    exams = exams.order_by('-create_time')
+
+    # pagination
+    paginator = Paginator(exams, 24)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {
+        'exams': page_obj,
+        'form':form,
+        'resume': page_obj,
+
+    }
+    return render(request, 'company/all.html', context)
