@@ -47,7 +47,7 @@ def company_detail(request, id):
         resume = Resume.objects.get(user=request.user)
         if resume in company.send_resume.all():
             send_resume = True
-    except Resume.DoesNotExist:
+    except:
         pass
 
     context = {
