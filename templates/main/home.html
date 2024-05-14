@@ -39,7 +39,7 @@
                                         <select class="custom-select form-control border-0 shadow-sm form-control-lg"
                                                 name="field">
                                             <option value=""> رشته</option>
-                                            {% for i in field %}
+                                            {% for i in all_field %}
                                                 <option value="{{ i.id }}"> {{ i.name }} </option>
 
                                             {% endfor %}
