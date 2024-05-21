@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-
+from resume.models import Resume
+from company.models import Company
 
 # User Authenticated
 User = get_user_model()
@@ -13,7 +14,9 @@ User = get_user_model()
 '''
 class Chat(models.Model):
     roomname = models.CharField(max_length=75,blank=True, verbose_name="نام اتاق")
-    members = models.ManyToManyField(User, null=True,blank=True, verbose_name="کاربران")
+    # members = models.ManyToManyField(User, null=True,blank=True, verbose_name="کاربران")
+    co = models.ForeignKey(Company, verbose_name="شرکت", null=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(Resume, verbose_name="کاربر", null=True,on_delete=models.CASCADE)
     createtime = models.DateTimeField(auto_now_add=True, verbose_name="تاریخ ایجاد")
     def __str__(self):
         return self.roomname

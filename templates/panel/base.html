@@ -1,0 +1,98 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static 'assets/vendor/fontawesome/css/fontawesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/fontawesome/css/solid.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/fontawesome/css/brands.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/master.css'%}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/flagiconcss/css/flag-icon.min.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <nav id="sidebar" class="active">
+            <div class="sidebar-header">
+                <img src="{% static 'images/fav.svg' %}" alt="Profile {{ user.username }}" width="30px" class="app-logo">
+            </div>
+            <ul class="list-unstyled components text-secondary">
+                <li>
+                    <a href="{% url 'home' %}"><i class="fas fa-home"></i> خانه</a>
+                </li>
+
+                    <li>
+                        <a href="{% url 'profile' %}"><i class="fas fa-file-alt"></i>پروفایل</a>
+                    </li>
+    {#                <li>#}
+    {#                    <a href="#uielementsmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down"><i class="fas fa-layer-group"></i> UI Elements</a>#}
+    {#                    <ul class="collapse list-unstyled" id="uielementsmenu">#}
+    {#                        <li>#}
+    {#                            <a href="ui-buttons.html"><i class="fas fa-angle-right"></i> Buttons</a>#}
+    {#                        </li>#}
+    {#                        <li>#}
+    {#                            <a href="ui-badges.html"><i class="fas fa-angle-right"></i> Badges</a>#}
+    {#                        </li>#}
+    {#                        <li>#}
+    {#                            <a href="ui-cards.html"><i class="fas fa-angle-right"></i> Cards</a>#}
+    {#                        </li>#}
+    {#                        <li>#}
+    {#                            <a href="ui-alerts.html"><i class="fas fa-angle-right"></i> Alerts</a>#}
+    {#                        </li>#}
+    {#                        <li>#}
+    {#                            <a href="ui-tabs.html"><i class="fas fa-angle-right"></i> Tabs</a>#}
+    {#                        </li>#}
+    {#                        <li>#}
+    {#                            <a href="ui-date-time-picker.html"><i class="fas fa-angle-right"></i> Date &amp; Time Picker</a>#}
+    {#                        </li>#}
+    {#                    </ul>#}
+    {#                </li>#}
+
+            </ul>
+        </nav>
+        <div id="body" class="active">
+            <!-- navbar navigation component -->
+            <nav class="navbar navbar-expand-lg navbar-white bg-white">
+                <button type="button" id="sidebarCollapse" class="btn btn-light">
+                    <i class="fas fa-bars"></i><span></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ms-auto">
+
+                        <li class="nav-item dropdown">
+                            <div class="nav-dropdown">
+                                <a href="#" id="nav2" class="nav-item nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-user"></i> <span>{{ user.get_full_name }}</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end nav-link-menu">
+                                    <ul class="nav-list">
+
+                                        <li class="right_text"><a href="{% url 'logout' %}" class="dropdown-item">خروج از حساب کاربری  <i class="fas fa-sign-out-alt"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="content">
+                <div class="container">
+                    {% block content %}
+
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/chartsjs/Chart.min.js' %}"></script>
+    <script src="{% static 'assets/js/dashboard-charts.js' %}"></script>
+    <script src="{% static 'assets/js/script.js' %}"></script>
+
+
+
+</body>
+</html>

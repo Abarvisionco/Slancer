@@ -1,0 +1,103 @@
+{% extends 'panel/base.html' %}
+
+{% block title %}
+	Profile
+{% endblock %}
+
+{% block content %}
+
+                    <div class="row" dir="rtl">
+                        <div class="col-md-12 page-header">
+                            <div class="page-pretitle">پنل چت ها</div>
+                            <h2 class="page-title mb-2">نمایش چت های من</h2>
+                        </div>
+                    </div>
+
+
+                    
+
+                   <div class="row">
+                    {% if chat_rooms %}
+                    <div class="col-md-{% if co_rooms %}6{% else %}12{% endif %}">
+                        <div class="card">
+                            <div class="content right_text">
+                                <div class="col-md-12 page-header" dir="rtl">
+                                    <h2 class="page-title">شرکت ها</h2>
+                            <div class="page-pretitle mb-2">با یکی از شرکت ها چت کنید و دلشان را به دست بیاورید.</div>
+
+                                </div>
+                                <div class="canvas-wrapper" dir="rtl">
+                                    <table class="table table-striped">
+                                        <thead class="success">
+                                            <tr>
+                                                <th>نام اتاق</th>
+                                                <th>سازمان های در حال چت</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for i in chat_rooms  %}
+                                                <tr>
+                                                <td>{{ i.roomname }} </td>
+                                                <td>{{ i.co }} </td>
+                                                </tr>
+                                            {% endfor %}
+                                            
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    {% endif %}
+                    {% if co_rooms %}
+                    <div class="col-md-{% if chat_rooms %}6{% else %}12{% endif %}">
+                        <div class="card">
+                            <div class="content">
+                                <div class="col-md-12 page-header" dir="rtl">
+                                    <h2 class="page-title">کارآموزان</h2>
+                            <div class="page-pretitle mb-2">با یکی از کارآموزان چت کنید و از بین آنها انتخاب کنید.</div>
+
+                                </div>
+                                <div class="canvas-wrapper" dir="rtl">
+                                    <table class="table table-striped">
+                                        <thead class="success">
+                                            <tr>
+                                                <th>نام اتاق</th>
+                                                <th>کاربران در حال چت</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            {% for i in co_rooms  %}
+                                                <tr>
+                                                <td>{{ i.roomname }} </td>
+                                                <td>{{ i.user }} </td>
+                                                </tr>
+                                            {% endfor %}
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    {% endif %}
+                    </div>
+     <script>
+                                        document.querySelector('#room-name-input').focus();
+        document.querySelector('#room-name-input').onkeyup = function(e) {
+            if (e.key === 'Enter') {  // enter, return
+                document.querySelector('#room-name-submit').click();
+            }
+        };
+
+        document.querySelector('#room-name-submit').onclick = function(e) {
+            var roomName = document.querySelector('#room-name-input').value;
+            window.location.pathname = '/chat/' + roomName + '/';
+        };
+                                    </script>
+{% endblock %}

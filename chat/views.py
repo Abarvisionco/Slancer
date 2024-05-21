@@ -1,11 +1,13 @@
 # from enum import member
+from users.models import User
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponseForbidden, HttpResponseNotFound
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404
 from chat import models
-
+from resume.models import Resume
+from company.models import Company
 
 '''
     login required
@@ -59,6 +61,23 @@ from chat import models
 #         'usernumber':usernumber
 #     }
 #     return render(request, "chat/room.html", context)
+
+
+@login_required()
+def panel(request):
+
+    co = Company.objects.filter(user=request.user)
+    resume = Resume.objects.filter(user=request.user)
+    context = {
+    }
+    if co.exists():
+        co_chat_rooms = models.Chat.objects.filter(co__in=co)
+        context['co_rooms'] = co_chat_rooms
+    if resume.exists():
+        resume_chat_rooms = models.Chat.objects.filter(user__in=resume)
+        context["chat_rooms"] = resume_chat_rooms
+    
+    return render(request,'panel/panel.html',context)
 
 @login_required()
 def room(request, room_name):
