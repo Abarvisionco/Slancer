@@ -79,45 +79,48 @@ def panel(request):
     
     return render(request,'panel/panel.html',context)
 
-@login_required()
-def room(request, room_name):
-    try:
-        # فرض می‌کنیم که نام اتاق به شکل "employer_id_jobseeker_id" است
-        employer_id, jobseeker_id = room_name.split('_')
 
-        employer = get_object_or_404(models.Employer, id=employer_id)
-        jobseeker = get_object_or_404(models.JobSeeker, id=jobseeker_id)
+
+@login_required()
+def room(request, employer_id, jobseeker_id):
+    room_name = f"{employer_id}_{jobseeker_id}"
+    
+    try:
+        employer = get_object_or_404(Company, id=employer_id)
+        jobseeker = get_object_or_404(Resume, id=jobseeker_id)
 
         # بررسی اینکه آیا کاربر درخواست دهنده یکی از اعضای مجاز است
         if request.user not in [employer.user, jobseeker.user]:
-            try:
-                chat_model_checked_exists = models.Chat.objects.get(room_name=room_name)
+            if models.Chat.objects.filter(roomname=room_name).exists():
                 return HttpResponseForbidden("<center><h2>شما اجازه دسترسی به این اتاق را ندارید.</h2></center>")
-            except:
-                pass
 
         # بررسی اینکه آیا اتاق چت وجود دارد یا خیر
         chat_model, created = models.Chat.objects.get_or_create(roomname=room_name)
 
         # اگر اتاق تازه ایجاد شده، اعضا را اضافه کنید
         if created:
-            chat_model.members.add(employer.user)
-            chat_model.members.add(jobseeker.user)
+            chat_model.user(employer.user)
+            chat_model.co.add(jobseeker.user)
 
         # اضافه کردن کاربر فعلی به اعضای اتاق چت
-        chat_model.members.add(request.user)
-        members_list = chat_model.members.all()
-        usernumber = members_list.count()
+        # chat_model.members.add(request.user)
+        # members_list = chat_model.members.all()
+        # usernumber = members_list.count()
 
         context = {
             "room_name": room_name,
             'chat_model': chat_model,
-            'members_list': members_list,
-            'usernumber': usernumber
+            # 'members_list': members_list,
+            # 'usernumber': usernumber
         }
         return render(request, "chat/room.html", context)
-    except:
-        return HttpResponseNotFound("chatroom not found")
+
+    except models.Company.DoesNotExist:
+        return HttpResponseNotFound("<center><h2>شرکت پیدا نشد.</h2></center>")
+    except models.Resume.DoesNotExist:
+        return HttpResponseNotFound("<center><h2>رزومه پیدا نشد.</h2></center>")
+    # except Exception as e:
+    #     return HttpResponseNotFound(f"<center><h2>خطایی رخ داد: {str(e)}</h2></center>")
 
 
 '''

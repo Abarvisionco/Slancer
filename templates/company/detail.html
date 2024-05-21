@@ -159,7 +159,26 @@
                                     کنید</a>
                             {% endif %}
                         </div>
+
+                        
                     </div>
+                    {% if resume_id_user %}
+                    <div class="box shadow-sm mb-3 rounded bg-white ads-box text-center">
+
+                        <div class="p-3 border-bottom">
+                            <p class="mb-0 text-muted" dir="rtl">
+                                با کارفرما چت کنید و سوالات، نظرات و رزومه خودتان را با اون به اشتراک بگذارید.
+                            </p>
+                        </div>
+                    <div class="p-3">
+                        
+                                        <a href="{% url 'room' resume_id_user.id co.id %}" class="btn btn-outline-success pl-4 pr-4">
+                                            درخاست چت
+                                        </a>
+                                    
+                    </div>
+                    </div>
+                    {% endif %}
                 </aside>
                 <aside class="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">
 

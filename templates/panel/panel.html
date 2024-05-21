@@ -1,19 +1,26 @@
 {% extends 'panel/base.html' %}
 
 {% block title %}
-	Profile
+	چت روم
 {% endblock %}
 
 {% block content %}
 
-                    <div class="row" dir="rtl">
-                        <div class="col-md-12 page-header">
-                            <div class="page-pretitle">پنل چت ها</div>
-                            <h2 class="page-title mb-2">نمایش چت های من</h2>
-                        </div>
+                {% if not chat_rooms and not co_rooms %}
+                <div class="row" dir="rtl">
+                    <div class="col-md-12 page-header">
+                        <div class="page-pretitle">پنل چت ها</div>
+                        <h2 class="page-title mb-2">هیچ چتی برای شما یافت نشد.</h2>
                     </div>
-
-
+                </div>
+                {% else %}
+                <div class="row" dir="rtl">
+                    <div class="col-md-12 page-header">
+                        <div class="page-pretitle">پنل چت ها</div>
+                        <h2 class="page-title mb-2">نمایش چت های من</h2>
+                    </div>
+                </div>
+                {% endif %}
                     
 
                    <div class="row">
@@ -32,6 +39,8 @@
                                             <tr>
                                                 <th>نام اتاق</th>
                                                 <th>سازمان های در حال چت</th>
+                                                <th>عملیات</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -39,6 +48,7 @@
                                                 <tr>
                                                 <td>{{ i.roomname }} </td>
                                                 <td>{{ i.co }} </td>
+                                                <td class="text-end"><a href="/chat/{{ i.roomname }}" class="btn btn-outline-primary">نمایش</a></td>
                                                 </tr>
                                             {% endfor %}
                                             
@@ -66,6 +76,8 @@
                                             <tr>
                                                 <th>نام اتاق</th>
                                                 <th>کاربران در حال چت</th>
+                                                <th>عملیات</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -74,6 +86,8 @@
                                                 <tr>
                                                 <td>{{ i.roomname }} </td>
                                                 <td>{{ i.user }} </td>
+                                                <td class="text-end"><a href="/chat/{{ i.roomname }}" class="btn btn-outline-primary">نمایش</a></td>
+
                                                 </tr>
                                             {% endfor %}
 

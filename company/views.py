@@ -56,6 +56,8 @@ def company_detail(request, id):
         'sended_resume': send_resume,
         'resume':resume_
     }
+    if Resume.objects.filter(user=request.user.id).first():
+        context["resume_id_user"] = Resume.objects.filter(user=request.user.id).first()
     return render(request, 'company/detail.html', context)
 
 def add_resume_to_company(request, company_id):
