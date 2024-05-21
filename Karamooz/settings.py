@@ -31,6 +31,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# For using redis to project with channels_redis
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}
 
 # Application definition
 
@@ -49,6 +58,10 @@ INSTALLED_APPS = [
     'django_quill',
     'pwa',
     'jalali_date',
+    # chat imports
+    'channels',
+    'chat.apps.ChatConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -187,8 +200,8 @@ JALALI_DATE_DEFAULTS = {
 
 # pwa settings
 
-PWA_APP_NAME = 'Schoolancer'
-PWA_APP_DESCRIPTION = "Schoolancer pwa Application"
+PWA_APP_NAME = 'karovar'
+PWA_APP_DESCRIPTION = "karovar pwa Application"
 PWA_APP_THEME_COLOR = '#33FF9C'
 PWA_APP_BACKGROUND_COLOR = '#ffffff'
 PWA_APP_DISPLAY = 'standalone'

@@ -28,4 +28,9 @@ urlpatterns = [
     path('account/',include('users.urls')),
     path('account/resume/',include('resume.urls')),
     path('company/', include('company.urls')),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    # include chat ( chat room, index chat room page )
+    path("chat/", include("chat.urls")),
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
