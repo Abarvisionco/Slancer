@@ -7,8 +7,8 @@
 
 {% block content %}
 <div id="header-right" class="header-right">
-        <div id="header-img" class="profile header-img">
-            {% if user.image == "" %}<img src="{% static 'images/Sample_User_Icon.png' %}" alt="">{% else %}<img src="{{ user.image.url }}" >{% endif %}
+        <div id="header-img" class="header-img">
+            <img src="{% static 'images/fav.svg' %}" width="70px" alt="user">
         </div>
 
         <h4 class="name friend-name">
@@ -51,7 +51,7 @@
         {% endif %}
 
 
-<input id="inp" type='file' accept="image/*" style="display:none" >
+<input id="inp" type='file' accept="image/*" style="display:none; bottom: 0;" >
 <p id="b64"></p>
     {{ room_name|json_script:"room-name" }}
 

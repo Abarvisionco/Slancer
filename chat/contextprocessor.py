@@ -4,7 +4,7 @@ import json
 
 def return_username(request):
     try:
-        username = request.user.username
+        username = request.user.mobile
         """
         this function will return 2 atgs
         username returned 'user.username'

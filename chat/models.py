@@ -19,7 +19,7 @@ class Chat(models.Model):
     user = models.ForeignKey(Resume, verbose_name="کاربر", null=True,on_delete=models.CASCADE)
     createtime = models.DateTimeField(auto_now_add=True, verbose_name="تاریخ ایجاد")
     def __str__(self):
-        return self.roomname
+        return str(self.roomname)
     class Meta:
         verbose_name = "اتاق"
         verbose_name_plural = "اتاق ها"
@@ -45,7 +45,7 @@ class Message(models.Model):
         return Message.objects.filter(related_chat__roomname = roomname).order_by('-timestamp').all()
 
     def __str__(self):
-        return self.author.username
+        return str(self.author)
     
     class Meta:
         verbose_name_plural = "پیام ها"
