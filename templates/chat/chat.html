@@ -124,9 +124,12 @@
                                     
                                     
                                     {% for i in chats %}
+                                    <div class="text-center my-3">
+                                        <span class="px-3 py-2 small bg-white shadow-sm rounded">{{ i.create_time|to_jalali:'%Y/%m/%d' }}</span>
+                                    </div>
                                     <div class="d-flex align-items-center osahan-post-header mb-3">
                                         <span class="mr-auto mb-auto">
-                                            <div class="text-left text-muted pt-1 small">{{ i.create_time|to_jalali:'%Y/%m/%d-%H:%M:%S' }}</div>
+                                            <div class="text-left text-muted pt-1 small">{{ i.create_time|to_jalali:'%H:%M:%S' }}</div>
                                         </span>
                                         <div class="mr-1">
                                             <div class="text-truncate h6 mb-3">{{ i.author.get_full_name }}</div>
@@ -136,11 +139,11 @@
                                         </div>
                                         {% comment %} <div class="dropdown-list-image ml-3 mb-auto"><img class="rounded-circle" src="images/user/s1.png" alt="user"></div> {% endcomment %}
                                     </div>
-                                    <hr>
                                     {% endfor %}
                                 
                                 
                                 </div>
+                                
                                 {% if room_name %}
                                 <form method='post' action="{% url 'send_message' room_name.id %}">
                                     {% csrf_token %}
@@ -163,8 +166,8 @@
                                     </div>
                                 </form>
                                 {% else %}
-                                    <center><br><br>
-                                        <H2 class='p-5' dir='rtl'>لطفا یک چت را انتخاب کنید.</H2>
+                                    <center>
+                                        <H2 class='pt-5' dir='rtl'>لطفا یک چت را انتخاب کنید.</H2>
                                     </center>
                                 {% endif %}
                             </div>
