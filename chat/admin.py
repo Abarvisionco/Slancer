@@ -7,8 +7,9 @@ class MessageAdminView(admin.ModelAdmin):
     search_fields = ['message']
 
 class ChatRoomAdminView(admin.ModelAdmin):
-    list_display = ['company', 'resume', 'create_time']
+    list_display = ['company','resume', 'create_time']
     list_filter = ['create_time']
+    list_display_links = ['company', 'resume']
 
 admin.site.register(Message, MessageAdminView)
 admin.site.register(ChatRoom, ChatRoomAdminView)

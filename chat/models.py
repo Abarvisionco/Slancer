@@ -2,12 +2,11 @@ from django.db import models
 from resume.models import Resume
 from company.models import Company
 from users.models import User
-from django_quill.fields import QuillField
 
 class ChatRoom(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE, verbose_name="کمپانی یا سازمان")
     resume = models.ForeignKey(Resume, on_delete=models.CASCADE, verbose_name="رزومه")
-    create_time = models.DateTimeField(auto_now_add=True)
+    create_time = models.DateTimeField(auto_now=True)
     last_response = models.CharField(max_length=20, blank=True, verbose_name="آخرین پاسخ")
 
     def __str__(self) -> str:
@@ -30,7 +29,7 @@ class ChatRoom(models.Model):
 class Message(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="نویسنده")
     chat_room = models.ForeignKey(ChatRoom, on_delete=models.CASCADE, verbose_name="اتاق")
-    message = QuillField()
+    message = models.TextField(verbose_name="پیغام")
     create_time = models.DateTimeField(auto_now_add=True)
     def __str__(self) -> str:
         return self.message
