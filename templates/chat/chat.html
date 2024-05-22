@@ -12,7 +12,7 @@
 
                 <main class="col col-xl-9 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
                     <div class="box shadow-sm rounded bg-white mb-3 osahan-chat">
-                        <h5 class="pl-3 pt-3 pr-3 border-bottom mb-0 pb-3">Messaging</h5>
+                        <h5 class="pl-3 pt-3 pr-3 border-bottom mb-0 pb-3 text_right right" dir='rtl'>پیام رسانی</h5>
                         <div class="row m-0">
                             <div class="border-right col-lg-5 col-xl-4 px-0">
                                 <div class="osahan-chat-left">
@@ -163,28 +163,26 @@
      </span>
                                     </div>
                                 </div>
-                                <div class="w-100 border-top border-bottom">
-                                    <textarea placeholder="Write a message…"
-                                              class="form-control border-0 p-3 shadow-none" rows="2"></textarea>
-                                </div>
-                                <div class="p-3 d-flex align-items-center">
-                                    <div class="overflow-hidden">
-                                        <button type="button" class="btn btn-light btn-sm rounded">
-                                            <i class="mdi mdi-image"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-light btn-sm rounded">
-                                            <i class="mdi mdi-paperclip"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-light btn-sm rounded">
-                                            <i class="mdi mdi-camera"></i>
-                                        </button>
+                                <form method='post' action="">
+                                    {% csrf_token %}
+                                    <div class="w-100 border-top border-bottom text_right" dir='auto'>
+                                        <!-- <textarea placeholder="Write a message…"
+                                                  class="form-control border-0 p-3 shadow-none" rows="2"></textarea> -->
+                                        {{ form.message }}
                                     </div>
-                                    <span class="ml-auto">
-    <button type="button" class="btn btn-success btn-sm rounded">
-    <i class="mdi mdi-send"></i> Send
-    </button>
-    </span>
-                                </div>
+                                    <div class="p-3 d-flex align-items-center">
+                                        <div class="overflow-hidden">
+                                            <button type="reset" class="btn btn-light btn-sm rounded">
+                                                <i class="mdi mdi-close-circle"></i>
+                                            </button>
+                                        </div>
+                                        <span class="ml-auto">
+                                        <button type="submit" class="btn btn-success btn-sm rounded">
+                                        <i class="mdi mdi-send"></i> ارسال
+                                        </button>
+                                        </span>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -192,54 +190,47 @@
                 <aside class="col col-xl-3 order-xl-2 col-lg-12 order-lg-2 col-12">
                     <div class="box mb-3 shadow-sm rounded bg-white list-sidebar">
                         <div class="box-title p-3">
-                            <h6 class="m-0">Manage my network</h6>
+                            <h6 class="m-0 right_text" dir='rtl'>مدیریت پیام ها</h6>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <a href="#">
+                            {% if resume.count != 0 %}
+                            <a>
                                 <li class="list-group-item pl-3 pr-3 d-flex align-items-center text-dark"><i
-                                        class="mdi mdi-account mr-2 text-dark"></i> Connections <span
-                                        class="ml-auto font-weight-bold">68</span></li>
+                                        class="mdi mdi-send mr-2 text-dark font-weight-bold"></i>{{ resume.count }}<span
+                                        class="ml-auto left"> درخواست های ارسال شده </span></li>
                             </a>
-                            <a href="#">
+                            {% endif %}
+                            {% if resume.count != 0 %}
+                            <a>
                                 <li class="list-group-item pl-3 pr-3 d-flex align-items-center text-dark"><i
-                                        class="mdi mdi-book mr-2 text-dark"></i> Contacts <span
-                                        class="ml-auto font-weight-bold">869</span></li>
+                                        class="mdi mdi-book mr-2 text-dark font-weight-bold"></i>{{ resume.count }}<span
+                                        class="ml-auto left"> درخواست های دریافت شده </span></li>
                             </a>
-                            <a href="#">
+                            {% endif %}
+                            <a>
                                 <li class="list-group-item pl-3 pr-3 d-flex align-items-center text-dark"><i
-                                        class="mdi mdi-account-multiple-plus mr-2 text-dark"></i> People I Follow <span
-                                        class="ml-auto font-weight-bold">156</span></li>
+                                        class="mdi mdi-message mr-2 text-dark font-weight-bold"></i>{{ sended_messages }}<span
+                                        class="ml-auto left"> پیام های ارسال شده </span></li>
                             </a>
-                            <a href="#">
+                            <a>
                                 <li class="list-group-item pl-3 pr-3 d-flex align-items-center text-dark"><i
-                                        class="mdi mdi-account-convert mr-2 text-dark"></i> Groups <span
-                                        class="ml-auto font-weight-bold">15</span></li>
+                                        class="mdi mdi-message mr-2 text-dark font-weight-bold"></i>{{ last_message_send.create_time|to_jalali:'%Y/%m/%d' }}<span
+                                        class="ml-auto left"> تاریخ آخرین پیام </span></li>
                             </a>
-                            <a href="#">
-                                <li class="list-group-item pl-3 pr-3 d-flex align-items-center text-dark"><i
-                                        class="mdi mdi-clipboard mr-2 text-dark"></i> Page <span
-                                        class="ml-auto font-weight-bold">3</span></li>
-                            </a>
-                            <a href="#">
-                                <li class="list-group-item pl-3 pr-3 d-flex align-items-center text-dark"><i
-                                        class="mdi mdi-tag mr-2 text-dark"></i> Hashtag <span
-                                        class="ml-auto font-weight-bold">8</span></li>
-                            </a>
+                            
                         </ul>
                     </div>
                     <div class="box shadow-sm mb-3 rounded bg-white ads-box text-center">
                         <div class="image-overlap-2 pt-4">
-                            <img src="images/l3.png" class="img-fluid rounded-circle shadow-sm" alt="Responsive image">
-                            <img src="images/user/s8.png" class="img-fluid rounded-circle shadow-sm"
-                                 alt="Responsive image">
+                            <img src="{% static 'images/logo.svg' %}" class="img-fluid rounded-circle shadow-sm" alt="logo">
                         </div>
-                        <div class="p-3 border-bottom">
-                            <h6 class="text-dark">Gurdeep, grow your career by following <span class="font-weight-bold"> Askbootsrap</span>
+                        <div class="p-3 border-bottom" dir='rtl'>
+                            <h6 class="text-dark"></span>
                             </h6>
-                            <p class="mb-0 text-muted">Stay up-to industry trends!</p>
+                            <p class="mb-0 text-muted">ما را در شبکه های اجتماعی دنبال کنید و از آخرین تغییرات مطلع شوید.</p>
                         </div>
                         <div class="p-3">
-                            <button type="button" class="btn btn-outline-success btn-sm pl-4 pr-4"> FOLLOW</button>
+                            <a href="https://www.instagram.com/abarvisionco/" target="_blank" class="btn btn-outline-success btn-sm pl-4 pr-4 text-success"> دنبال کردن</a>
                         </div>
                     </div>
                 </aside>

@@ -8,9 +8,14 @@ from django.contrib import messages
 
 @login_required
 def chat(request):
+    form = MessageForm()
     co = ChatRoom.objects.filter(company__user=request.user)
     resume = ChatRoom.objects.filter(resume__user=request.user)
-    
+    message_settings = Message.objects.filter(author=request.user)
+    sended_messages = message_settings.count()
+    last_message_send = message_settings.order_by('-create_time').first()
+
+
     # get chat room for show
     room = request.GET.get('room_id', '')
     if room and type(room) == int:
@@ -24,7 +29,10 @@ def chat(request):
         'company':co,
         'resume':resume,
         'chats': chats,
-        'room_name': room_name
+        'room_name': room_name,
+        'sended_messages': sended_messages,
+        "last_message_send":last_message_send,
+        'form':form
     }
     return render(request, 'chat/chat.html',context)
 
