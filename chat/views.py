@@ -13,8 +13,8 @@ from company.models import Company
 @login_required
 def chat(request):
     form = MessageForm()
-    co = ChatRoom.objects.filter(company__user=request.user)
-    resume = ChatRoom.objects.filter(resume__user=request.user)
+    co = ChatRoom.objects.filter(company__user=request.user).order_by("-create_time")
+    resume = ChatRoom.objects.filter(resume__user=request.user).order_by("-create_time")
     message_settings = Message.objects.filter(author=request.user)
     sended_messages = message_settings.count()
     last_message_send = message_settings.order_by('-create_time').first()
@@ -93,7 +93,6 @@ def send_message(request, chat_room_id):
                     message.chat_room = chat_room
                     message.save()
                     chat_room.update_last_response(request.user)
-                    messages.success(request, "پیغام شما با موفقیت ارسال شد.")
                     return redirect(redirect_url)
                 else:
                     messages.success(request, "ارسال پیام شما با شکست مواجه شد")
@@ -117,6 +116,18 @@ def create_room_for_resume(request, id):
         ChatRoom.objects.create(company=company, resume=resume)
         messages.success(request, f"گفتگو با {company.company_name} ایجاد شد.")
         return redirect(reverse('chat'))
+    else:
+        messages.error(request, "درخواست نامعتبر است.")
+        return redirect(reverse('home'))
+    
+@login_required
+def create_room_for_company(request, id):
+    company = get_object_or_404(Company, user=request.user)
+    resume = get_object_or_404(Resume, id=id)
+    if request.method == "POST":
+        ChatRoom.objects.create(company=company, resume=resume)
+        messages.success(request, f"گفتگو با {resume.user.get_full_name()} ایجاد شد.")
+        return redirect('chat')
     else:
         messages.error(request, "درخواست نامعتبر است.")
         return redirect(reverse('home'))

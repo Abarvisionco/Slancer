@@ -5,6 +5,8 @@ from django.core.paginator import Paginator
 from resume import models
 from resume.forms import ResumeForm, ResumeFilterForm
 from django.http import HttpResponseRedirect
+from chat.models import ChatRoom
+from company.models import Company
 
 class ResumeModel:
     def __init__(self, id):
@@ -74,6 +76,20 @@ def resume(request, id):
         'work':work,
         'course':course,
     }
+    
+    try:
+        company = Company.objects.get(user=request.user)
+        chatroom = ChatRoom.objects.filter(resume=resume, company=company)
+        if chatroom.exists():
+            chat = 'no'
+        else:
+            chat = company
+
+        context['chat'] = chat
+    except Company.DoesNotExist:
+        context['chat'] = None
+        # messages.error(request, "شما هیچ شرکتی ندارید.")
+
     return render(request, 'resume/resume.html', context)
 
 

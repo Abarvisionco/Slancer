@@ -53,15 +53,13 @@ def company_detail(request, id):
 
         resume = Resume.objects.get(user=request.user)
         chatroom = ChatRoom.objects.filter(company=company)
-        print('odk')
         if chatroom.filter(resume=resume):
-            print("OK")
             user_resume= True
         else:
             user_resume = resume
         
     except:
-        print("NOK")
+        pass
 
     context = {
         'co': company,

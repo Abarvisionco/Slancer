@@ -61,13 +61,28 @@
                                 </div>
                             </div>
                             <div class="buttons-wrapper">
-
+                                
                                {% if user.is_authenticated  %}
-                               	 <div class="btn-lrg-standard btn-white btn-custom-order">{{ resume.user.mobile }}</div>
-                                <a href="tel:{{ resume.user.mobile }}"
-                                   class="btn-lrg-standard btn-contact-me js-contact-me js-open-popup-join mr-2 ml-1">تماس</a>
-                                   {% else %}
-                                   <div class="btn-lrg-standard btn-white btn-custom-order">برای مشاهده شماره تلفن وارد شوید</div>
+                                    {% if chat %}
+                                        {% if chat == "no" %}
+                                            <a href="{% url 'chat' %}" class="btn-lrg-standard btn-contact-me js-contact-me js-open-popup-join mr-2 ml-1">گفتگو</a>
+                                        {% else %}
+                                        <form method="post" action="{% url 'create_room_for_company' resume.id %}">
+                                            {% csrf_token %}
+                                            <button type='submit' class="btn btn-lrg-standard btn-success btn-contact-me js-contact-me js-open-popup-join mr-2 ml-1">شروع گفتگو</button>
+                                        </form>
+                                        {% endif %}
+                                    {% else %}
+                                    <div class="p-3 border-bottom">
+                                        <p class="mb-0 text-muted" dir="rtl">
+                                        <p>اگر کسب و کار دارید با معرفی آن کارآموز خود را انتخاب کنید.</p>
+
+                                        </p>
+                                    <a href="{% url 'company' %}" class="btn btn-outline-dark pl-4 pr-4">معرفی کسب وکار</a>
+
+                                    </div>
+
+                                    {% endif %}
                                {% endif %}
                             </div>
                             <div class="user-stats-desc">
