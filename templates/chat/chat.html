@@ -22,29 +22,32 @@
                                     </div>
                                     <div class="osahan-chat-list">
                                         {% for i in resume %}
-                                        <div class="p-3 d-flex align-items-center border-bottom osahan-post-header overflow-hidden">
-                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle"
-                                                                                       src="{% if i.company.image %}{{ i.company.image.url }} {% else %} {% static "images/company_vectory.jpg" %}{% endif %}" alt="">
+                                        <a href="{% url 'chat' %}?room_id={{ i.id }}">
+                                            <div class="p-3 d-flex align-items-center border-bottom osahan-post-header overflow-hidden">
+                                                <div class="dropdown-list-image mr-3"><img class="rounded-circle"
+                                                                                           src="{% if i.company.image %}{{ i.company.image.url }} {% else %} {% static "images/company_vectory.jpg" %}{% endif %}" alt="">
+                                                </div>
+                                                <div class="font-weight-bold mr-1 overflow-hidden">
+                                                    <div class="text-truncate text-dark">{{ i.company.company_name }}</div>
+                                                    {% if i.last_response %}
+                                                    <div class="small text-truncate overflow-hidden text-black-50"><i
+                                                        class="mdi mdi-check text-primary"></i> {{ i.last_response }}
+                                                </div>{% endif %}
+                                                </div>
+                                                <span class="ml-auto mb-auto">
+                                                    <div class="text-right text-muted pt-1 small">{{ i.create_time|to_jalali:'%Y/%m/%d' }}</div>
+                                                </span>
                                             </div>
-                                            <div class="font-weight-bold mr-1 overflow-hidden">
-                                                <div class="text-truncate">{{ i.company.company_name }}</div>
-                                                {% if i.last_response %}
-                                                <div class="small text-truncate overflow-hidden text-black-50"><i
-                                                    class="mdi mdi-check text-primary"></i> {{ i.last_response }}
-                                            </div>{% endif %}
-                                            </div>
-                                            <span class="ml-auto mb-auto">
-                                                <div class="text-right text-muted pt-1 small">{{ i.create_time|to_jalali:'%Y/%m/%d' }}</div>
-                                            </span>
-                                        </div>
+                                        </a>
                                         {% endfor %}
                                         {% for i in company %}
+                                        <a href="{% url 'chat' %}?room_id={{ i.id }}">
                                         <div class="p-3 d-flex align-items-center border-bottom osahan-post-header overflow-hidden">
                                             <div class="dropdown-list-image mr-3"><img class="rounded-circle"
                                                                                        src="{% if i.resume.image %}{{ i.resume.image.url }} {% else %} {% static "images/user.jpg" %}{% endif %}" alt="">
                                             </div>
                                             <div class="font-weight-bold mr-1 overflow-hidden">
-                                                <div class="text-truncate">{{ i.resume.user.get_full_name }}</div>
+                                                <div class="text-truncate text-dark">{{ i.resume.user.get_full_name }}</div>
                                                 {% if i.last_response %}
                                                 <div class="small text-truncate overflow-hidden text-black-50"><i
                                                     class="mdi mdi-check text-primary"></i> {{ i.last_response }}
@@ -54,116 +57,58 @@
                                                 <div class="text-right text-muted pt-1 small">{{ i.create_time|to_jalali:'%Y/%m/%d' }}</div>
                                             </span>
                                         </div>
+                                    </a>
+
                                         {% endfor %}
                                         
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-7 col-xl-8 px-0">
-                                <div class="p-3 d-flex align-items-center  border-bottom osahan-post-header">
+                                {% if room_name %}
+                                <div class="p-3 d-flex align-items-center border-bottom osahan-post-header text-right">
+                                    <span class="mr-auto">
+                                        
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-light btn-sm rounded" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="mdi mdi-dots-vertical"></i>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="{% url 'co_detail' room_name.company.user.id %}" target="_blank"><i class="mdi mdi-trash"></i> نمایش شرکت یا سازمان</a>
+                                                <a class="dropdown-item" href="{% url 'resume' room_name.resume.id %}" target="_blank"><i class="mdi mdi-x-circle"></i> نمایش رزومه کاربر</a>
+                                            </div>
+                                        </div>
+                                    </span>
                                     <div class="font-weight-bold mr-1 overflow-hidden">
-                                        <div class="text-truncate">Carl Jenkins
-                                        </div>
-                                        <div class="small text-truncate overflow-hidden text-black-50">Askbootstap.com -
-                                            Become a Product Manager with super power
-                                        </div>
-                                    </div>
-                                    <span class="ml-auto">
-    <button type="button" class="btn btn-light btn-sm rounded">
-    <i class="mdi mdi-phone"></i>
-    </button>
-    <button type="button" class="btn btn-light btn-sm rounded">
-    <i class="mdi mdi-video"></i>
-    </button>
-    <div class="btn-group">
-    <button type="button" class="btn btn-light btn-sm rounded" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-    <i class="mdi mdi-dots-vertical"></i>
-    </button>
-    <div class="dropdown-menu dropdown-menu-right">
-    <button class="dropdown-item" type="button"><i class="mdi mdi-trash"></i> Delete</button>
-    <button class="dropdown-item" type="button"><i class="mdi mdi-x-circle"></i> Turn Off</button>
-    </div>
-    </div>
-    </span>
-                                </div>
-                                <div class="osahan-chat-box p-3 border-top border-bottom bg-light">
-                                    <div class="text-center my-3">
-                                        <span class="px-3 py-2 small bg-white shadow-sm  rounded">DEC 21, 2020</span>
-                                    </div>
-                                    <div class="d-flex align-items-center osahan-post-header">
-                                        <div class="dropdown-list-image mr-3 mb-auto"><img class="rounded-circle"
-                                                                                           src="images/user/s1.png"
-                                                                                           alt=""></div>
-                                        <div class="mr-1">
-                                            <div class="text-truncate h6 mb-3">Carl Jenkins
-                                            </div>
-                                            <p>Hi Marie</p>
-                                            <p>welcome to Live Chat! My name is Jason. How can I help you today?
-                                                <a href="#">iamosahan@gmail.com</a>
-                                            </p>
-                                        </div>
-                                        <span class="ml-auto mb-auto">
-    <div class="text-right text-muted pt-1 small">00:21PM</div>
-    </span>
-                                    </div>
-                                    <div class="text-center my-3">
-                                        <span class="px-3 py-2 small bg-white shadow-sm rounded">DEC 22, 2020</span>
-                                    </div>
-                                    <div class="d-flex align-items-center osahan-post-header">
-                                        <div class="dropdown-list-image mr-3 mb-auto"><img class="rounded-circle"
-                                                                                           src="images/user/s2.png"
-                                                                                           alt=""></div>
-                                        <div class="mr-1">
-                                            <div class="text-truncate h6 mb-3">Jack P. Angulo
-                                            </div>
-                                            <p>Hi, I wanted to check my order status. My order number is 0009483021
-                                                😀</p>
-                                        </div>
-                                        <span class="ml-auto mb-auto">
-    <div class="text-right text-muted pt-1 small">00:21PM</div>
-    </span>
-                                    </div>
-                                    <div class="text-center my-3">
-                                        <span class="px-3 py-2 small bg-white shadow-sm rounded">DEC 23, 2020</span>
-                                    </div>
-                                    <div class="d-flex align-items-center osahan-post-header">
-                                        <div class="dropdown-list-image mr-3 mb-auto"><img class="rounded-circle"
-                                                                                           src="images/user/s1.png"
-                                                                                           alt=""></div>
-                                        <div class="mr-1">
-                                            <div class="text-truncate h6 mb-3">Carl Jenkins
-                                            </div>
-                                            <p>Is there anything else that I can do for you?</p>
-                                            <p>wI understand your concern… I wouldn’t want my child’s gift to arrive
-                                                late either. It looks like your order is set to arrive in 2 business
-                                                days, so it should arrive by Friday, just in time!</p>
-                                        </div>
-                                        <span class="ml-auto mb-auto">
-    <div class="text-right text-muted pt-1 small">00:21PM</div>
-    </span>
-                                    </div>
-                                    <div class="text-center my-3">
-                                        <span class="px-3 py-2 small bg-white shadow-sm rounded">DEC 24, 2020</span>
-                                    </div>
-                                    <div class="d-flex align-items-center osahan-post-header">
-                                        <div class="dropdown-list-image mr-3 mb-auto"><img class="rounded-circle"
-                                                                                           src="images/user/s2.png"
-                                                                                           alt=""></div>
-                                        <div class="mr-1">
-                                            <div class="text-truncate h6 mb-3">Jack P. Angulo
-                                            </div>
-                                            <p>Great, thank you! Yes, I also wanted to make sure I entered the right
-                                                shipping address. My address is 12390 Mulberry Ln, Coral Springs, FL
-                                                33067. Is that where it’s being shipped to?
-                                            </p>
-                                        </div>
-                                        <span class="ml-auto mb-auto">
-    <div class="text-right text-muted pt-1 small">00:21PM</div>
-     </span>
+                                        <div class="text-truncate" dir='auto'>{{ room_name.company }}</div>
+                                        <div class="small text-truncate overflow-hidden text-black-50" dir='rtl'>چت {{ room_name.resume.user.get_full_name }} با سازمان {{ room_name.company }}</div>
                                     </div>
                                 </div>
-                                <form method='post' action="">
+                                
+                                {% endif %}
+                                <div class="osahan-chat-box p-3 border-top border-bottom bg-light text-right">
+                                    
+                                    
+                                    {% for i in chats %}
+                                    <div class="d-flex align-items-center osahan-post-header mb-3">
+                                        <span class="mr-auto mb-auto">
+                                            <div class="text-left text-muted pt-1 small">{{ i.create_time|to_jalali:'%Y/%m/%d-%H:%M:%S' }}</div>
+                                        </span>
+                                        <div class="mr-1">
+                                            <div class="text-truncate h6 mb-3">{{ i.author.get_full_name }}</div>
+                                            <div dir='auto' class='text_right'>
+                                                {{ i.message }}
+                                            </div>
+                                        </div>
+                                        {% comment %} <div class="dropdown-list-image ml-3 mb-auto"><img class="rounded-circle" src="images/user/s1.png" alt="user"></div> {% endcomment %}
+                                    </div>
+                                    <hr>
+                                    {% endfor %}
+                                
+                                
+                                </div>
+                                {% if room_name %}
+                                <form method='post' action="{% url 'send_message' room_name.id %}">
                                     {% csrf_token %}
                                     <div class="w-100 border-top border-bottom text_right" dir='auto'>
                                         <!-- <textarea placeholder="Write a message…"
@@ -183,6 +128,11 @@
                                         </span>
                                     </div>
                                 </form>
+                                {% else %}
+                                    <center><br><br>
+                                        <H2 class='p-5' dir='rtl'>لطفا یک چت را انتخاب کنید.</H2>
+                                    </center>
+                                {% endif %}
                             </div>
                         </div>
                     </div>

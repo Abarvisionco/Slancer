@@ -14,9 +14,9 @@ class ChatRoom(models.Model):
 
     def update_last_response(self, user):
         if user == self.company.user:
-            self.last_response = "پاسخ داده شده"
+            self.last_response = "شرکت یا سازمان پاسخ داده"
         else:
-            self.last_response = "ارسال شده"
+            self.last_response = "کارآموز پاسخ داده"
         self.save()
 
     class Meta:
