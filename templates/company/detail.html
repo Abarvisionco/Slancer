@@ -138,13 +138,13 @@
                                         <form action="{% url 'add_co' co.user.id %}" method="post">
                                             {% csrf_token %}
                                             <button type="submit" class="btn btn-outline-info pl-4 pr-4">
-                                                حذف درخاست کارآموزی
+                                                حذف درخواست کارآموزی
                                             </button>
                                         </form>
                                         {% else %}
                                         <form action="{% url 'add_co' co.user.id %}" method="post">
                                             {% csrf_token %}
-                                            <button type="submit" class="btn btn-outline-success pl-4 pr-4">درخاست
+                                            <button type="submit" class="btn btn-outline-success pl-4 pr-4">درخواست
                                                 کارآموزی
                                             </button>
                                         </form>
@@ -160,6 +160,32 @@
                             {% endif %}
                         </div>
                     </div>
+
+                    {% if user.is_authenticated %}
+                    <div class="box shadow-sm mb-3 rounded bg-white ads-box text-center">
+
+                        <div class="p-3 border-bottom">
+                            <p class="mb-0 text-muted" dir="rtl">
+                                با این شرکت یا سازمان گفتگو کنید و سوالات خودتان را از آن بپرسید.
+                            </p>
+                        </div>
+                        <div class="p-3">
+                            {% if user_resume %}
+                                {% if user_resume == True %}
+                                    <a href="{% url 'chat' %}" class="btn btn-outline-success pl-4 pr-4">پیام رسانی</a>
+                                {% else %}
+                                    <form method="post" action="{% url 'create_room_for_user' co.user.id %}">
+                                    {% csrf_token %}
+                                        <button type="submit" class="btn btn-outline-warning pl-4 pr-4">ایجاد گفتگو</button>
+                                    </form>
+                                {% endif %}
+                            {% else %}
+                                <a href="{% url 'resume_home' %}" class="btn btn-outline-info pl-4 pr-4">لطفا اول
+                                    رزومه خود را ایجاد کنید</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
                 </aside>
                 <aside class="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">
 

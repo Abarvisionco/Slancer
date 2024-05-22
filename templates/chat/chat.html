@@ -53,7 +53,8 @@
                                         {% endif %}
                                         {% for i in resume %}
                                         <a href="{% url 'chat' %}?room_id={{ i.id }}">
-                                            <div class="p-3 d-flex align-items-center border-bottom osahan-post-header overflow-hidden">
+                                            <div class="p-3 d-flex align-items-center border-bottom osahan-post-header overflow-hidden {% if room %}
+                                            {% if room == i.id %}bg-light{% endif %}{% endif %}">
                                                 <div class="dropdown-list-image mr-3"><img class="rounded-circle"
                                                                                            src="{% if i.company.image %}{{ i.company.image.url }} {% else %} {% static "images/company_vectory.jpg" %}{% endif %}" alt="">
                                                 </div>
@@ -72,7 +73,8 @@
                                         {% endfor %}
                                         {% for i in company %}
                                         <a href="{% url 'chat' %}?room_id={{ i.id }}">
-                                        <div class="p-3 d-flex align-items-center border-bottom osahan-post-header overflow-hidden">
+                                        <div class="p-3 d-flex align-items-center border-bottom osahan-post-header overflow-hidden 
+                                            {% if room %}{% if room == i.id %}bg-light{% endif %}{% endif %}">
                                             <div class="dropdown-list-image mr-3"><img class="rounded-circle"
                                                                                        src="{% if i.resume.image %}{{ i.resume.image.url }} {% else %} {% static "images/user.jpg" %}{% endif %}" alt="">
                                             </div>

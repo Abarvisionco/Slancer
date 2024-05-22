@@ -7,8 +7,7 @@ from django.contrib import messages
 from django.urls import  reverse_lazy, reverse
 from resume.models import Resume
 from django.core.paginator import Paginator
-
-
+from chat.models import ChatRoom
 
 @login_required
 def company(request):
@@ -43,18 +42,33 @@ def company_detail(request, id):
     cos = Company.objects.order_by('-create_time')[:5]
     resume_ = Resume.objects.order_by('-create_time')[:3]
     send_resume = False
+    user_resume = None
     try:
-        resume = Resume.objects.get(user=request.user)
         if resume in company.send_resume.all():
-            send_resume = True
+            send_resume = True  
     except:
         pass
+    try:
+        
+
+        resume = Resume.objects.get(user=request.user)
+        chatroom = ChatRoom.objects.filter(company=company)
+        print('odk')
+        if chatroom.filter(resume=resume):
+            print("OK")
+            user_resume= True
+        else:
+            user_resume = resume
+        
+    except:
+        print("NOK")
 
     context = {
         'co': company,
         'cos': cos,
         'sended_resume': send_resume,
-        'resume':resume_
+        'resume':resume_,
+        'user_resume': user_resume
     }
     return render(request, 'company/detail.html', context)
 

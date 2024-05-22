@@ -5,6 +5,9 @@ from chat.forms import MessageForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.urls import reverse
+from resume.models import Resume
+from company.models import Company
+
 
 
 @login_required
@@ -33,11 +36,6 @@ def chat(request):
         chats = None
         room_name = None
 
-
-
-
-
-
     context = {
         'company':co,
         'resume':resume,
@@ -45,8 +43,10 @@ def chat(request):
         'room_name': room_name,
         'sended_messages': sended_messages,
         "last_message_send":last_message_send,
-        'form':form
+        'form':form,
     }
+    if room:
+        context['room'] = int(room)
     return render(request, 'chat/chat.html',context)
 
 
@@ -108,4 +108,15 @@ def send_message(request, chat_room_id):
         messages.success(request, "ارسال پیام شما با شکست مواجه شد")
         return redirect(redirect_url)
 
-    
+
+@login_required
+def create_room_for_resume(request, id):
+    company = get_object_or_404(Company, user__id=id)
+    resume = get_object_or_404(Resume, user=request.user)
+    if request.method == "POST":
+        ChatRoom.objects.create(company=company, resume=resume)
+        messages.success(request, f"گفتگو با {company.company_name} ایجاد شد.")
+        return redirect(reverse('chat'))
+    else:
+        messages.error(request, "درخواست نامعتبر است.")
+        return redirect(reverse('home'))
