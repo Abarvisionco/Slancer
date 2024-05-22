@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+{% load jalali_tags %}
+{% load static %}
+{% block title %}
+    چت روم
+{% endblock title %}
+
+{% block content %}
+    <div class="py-5">
+        <div class="container">
+            <div class="row">
+
+                <main class="col col-xl-9 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
+                    <div class="box shadow-sm rounded bg-white mb-3 osahan-chat">
+                        <h5 class="pl-3 pt-3 pr-3 border-bottom mb-0 pb-3 text-right" dir='rtl'>پیام رسانی</h5>
+                        {% if messages %}
+                <div class="alert alert-danger alert-dismissible m-3" dir='rtl' role="alert">
+                    <div id="form_errors">
+                        {% for message in messages %}
+                            <span class="text-right">{{ message }}</span><br>
+                        {% endfor %}
+
+                        <button type="button" class="close" data-dismiss="alert"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                </div>
+            {% endif %}
+            {% if form.errors %}
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                <div id="form_errors">
+                    {% for key, value in form.errors.items %}
+                        <span>{{ value }}</span>
+                    {% endfor %}
+
+                    <button type="button" class="close" data-dismiss="alert"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endif %}
+                        <div class="row m-0">
+                            <div class="border-right col-lg-5 col-xl-4 px-0">
+                                <div class="osahan-chat-left">
+                                    
+                                    <div class="osahan-chat-list">
+                                        {% if not resume and not company %}
+                                            <center>
+                                                <h6 class='pt-5'>هنوز پیام رسانی را شروع نکرده اید</h6>
+                                            </center>
+                                        {% endif %}
+                                        {% for i in resume %}
+                                        <a href="{% url 'chat' %}?room_id={{ i.id }}">
+                                            <div class="p-3 d-flex align-items-center border-bottom osahan-post-header overflow-hidden {% if room %}
+                                            {% if room == i.id %}bg-light{% endif %}{% endif %}">
+                                                <div class="dropdown-list-image mr-3"><img class="rounded-circle"
+                                                                                           src="{% if i.company.image %}{{ i.company.image.url }} {% else %} {% static "images/company_vectory.jpg" %}{% endif %}" alt="">
+                                                </div>
+                                                <div class="font-weight-bold mr-1 overflow-hidden">
+                                                    <div class="text-truncate text-dark">{{ i.company.company_name }}</div>
+                                                    {% if i.last_response %}
+                                                    <div class="small text-truncate overflow-hidden text-black-50"><i
+                                                        class="mdi mdi-check text-primary"></i> {{ i.last_response }}
+                                                </div>{% endif %}
+                                                </div>
+                                                <span class="ml-auto mb-auto">
+                                                    <div class="text-right text-muted pt-1 small">{{ i.create_time|to_jalali:'%Y/%m/%d' }}</div>
+                                                </span>
+                                            </div>
+                                        </a>
+                                        {% endfor %}
+                                        {% for i in company %}
+                                        <a href="{% url 'chat' %}?room_id={{ i.id }}">
+                                        <div class="p-3 d-flex align-items-center border-bottom osahan-post-header overflow-hidden 
+                                            {% if room %}{% if room == i.id %}bg-light{% endif %}{% endif %}">
+                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle"
+                                                                                       src="{% if i.resume.image %}{{ i.resume.image.url }} {% else %} {% static "images/user.jpg" %}{% endif %}" alt="">
+                                            </div>
+                                            <div class="font-weight-bold mr-1 overflow-hidden">
+                                                <div class="text-truncate text-dark">{{ i.resume.user.get_full_name }}</div>
+                                                {% if i.last_response %}
+                                                <div class="small text-truncate overflow-hidden text-black-50"><i
+                                                    class="mdi mdi-check text-primary"></i> {{ i.last_response }}
+                                            </div>{% endif %}
+                                            </div>
+                                            <span class="ml-auto mb-auto">
+                                                <div class="text-right text-muted pt-1 small">{{ i.create_time|to_jalali:'%Y/%m/%d' }}</div>
+                                            </span>
+                                        </div>
+                                    </a>
+
+                                        {% endfor %}
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-xl-8 px-0">
+                                {% if room_name %}
+                                <div class="p-3 d-flex align-items-center border-bottom osahan-post-header text-right">
+                                    <span class="mr-auto">
+                                        
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-light btn-sm rounded" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="mdi mdi-dots-vertical"></i>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item right_text" href="{% url 'co_detail' room_name.company.user.id %}" target="_blank"><i class="mdi mdi-trash"></i> نمایش شرکت یا سازمان</a>
+                                                <a class="dropdown-item right_text" href="{% url 'resume' room_name.resume.id %}" target="_blank"><i class="mdi mdi-x-circle"></i> نمایش رزومه کاربر</a>
+                                                <form method="post" action="{% url 'delete_chat' room_name.id %}">
+                                                    {% csrf_token %}
+                                                    <button class="dropdown-item right_text" type="submit" ><i class="mdi mdi-x-circle"></i> حذف این گفتگو</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </span>
+                                    <div class="font-weight-bold mr-1 overflow-hidden">
+                                        <div class="text-truncate" dir='auto'>{{ room_name.company }}</div>
+                                        <div class="small text-truncate overflow-hidden text-black-50" dir='rtl'>چت {{ room_name.resume.user.get_full_name }} با سازمان {{ room_name.company }}</div>
+                                    </div>
+                                </div>
+                                
+                                {% endif %}
+                                <div class="osahan-chat-box p-3 border-top border-bottom bg-light text-right">
+                                    
+                                    
+                                    {% for i in chats %}
+                                    <div class="text-center my-3">
+                                        <span class="px-3 py-2 small bg-white shadow-sm rounded">{{ i.create_time|to_jalali:'%Y/%m/%d' }}</span>
+                                    </div>
+                                    <div class="d-flex align-items-center osahan-post-header mb-3">
+                                        <span class="mr-auto mb-auto">
+                                            <div class="text-left text-muted pt-1 small">{{ i.create_time|to_jalali:'%H:%M:%S' }}</div>
+                                        </span>
+                                        <div class="mr-1">
+                                            <div class="text-truncate h6 mb-3">{{ i.author.get_full_name }}</div>
+                                            <div dir='auto' class='text_right'>
+                                                {{ i.message }}
+                                            </div>
+                                        </div>
+                                        {% comment %} <div class="dropdown-list-image ml-3 mb-auto"><img class="rounded-circle" src="images/user/s1.png" alt="user"></div> {% endcomment %}
+                                    </div>
+                                    {% endfor %}
+                                
+                                
+                                </div>
+                                
+                                {% if room_name %}
+                                <form method='post' action="{% url 'send_message' room_name.id %}">
+                                    {% csrf_token %}
+                                    <div class="w-100 border-top border-bottom text_right" dir='auto'>
+                                        <!-- <textarea placeholder="Write a message…"
+                                                  class="form-control border-0 p-3 shadow-none" rows="2"></textarea> -->
+                                        {{ form.message }}
+                                    </div>
+                                    <div class="p-3 d-flex align-items-center">
+                                        <div class="overflow-hidden">
+                                            <button type="reset" class="btn btn-light btn-sm rounded">
+                                                <i class="mdi mdi-close-circle"></i>
+                                            </button>
+                                        </div>
+                                        <span class="ml-auto">
+                                        <button type="submit" class="btn btn-success btn-sm rounded">
+                                        <i class="mdi mdi-send"></i> ارسال
+                                        </button>
+                                        </span>
+                                    </div>
+                                </form>
+                                {% else %}
+                                    <center>
+                                        <H2 class='pt-5' dir='rtl'>لطفا یک چت را انتخاب کنید.</H2>
+                                    </center>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <aside class="col col-xl-3 order-xl-2 col-lg-12 order-lg-2 col-12">
+                    <div class="box mb-3 shadow-sm rounded bg-white list-sidebar">
+                        <div class="box-title p-3">
+                            <h6 class="m-0 right_text" dir='rtl'>مدیریت پیام ها</h6>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            {% if resume.count != 0 %}
+                            <a>
+                                <li class="list-group-item pl-3 pr-3 d-flex align-items-center text-dark"><i
+                                        class="mdi mdi-send mr-2 text-dark font-weight-bold"></i>{{ resume.count }}<span
+                                        class="ml-auto left"> درخواست های ارسال شده </span></li>
+                            </a>
+                            {% endif %}
+                            {% if resume.count != 0 %}
+                            <a>
+                                <li class="list-group-item pl-3 pr-3 d-flex align-items-center text-dark"><i
+                                        class="mdi mdi-book mr-2 text-dark font-weight-bold"></i>{{ resume.count }}<span
+                                        class="ml-auto left"> درخواست های دریافت شده </span></li>
+                            </a>
+                            {% endif %}
+                            <a>
+                                <li class="list-group-item pl-3 pr-3 d-flex align-items-center text-dark"><i
+                                        class="mdi mdi-message mr-2 text-dark font-weight-bold"></i>{{ sended_messages }}<span
+                                        class="ml-auto left"> پیام های ارسال شده </span></li>
+                            </a>
+                            <a>
+                                <li class="list-group-item pl-3 pr-3 d-flex align-items-center text-dark"><i
+                                        class="mdi mdi-message mr-2 text-dark font-weight-bold"></i>{{ last_message_send.create_time|to_jalali:'%Y/%m/%d' }}<span
+                                        class="ml-auto left"> تاریخ آخرین پیام </span></li>
+                            </a>
+                            
+                        </ul>
+                    </div>
+                    <div class="box shadow-sm mb-3 rounded bg-white ads-box text-center">
+                        <div class="image-overlap-2 pt-4">
+                            <img src="{% static 'images/logo.svg' %}" class="img-fluid rounded-circle shadow-sm" alt="logo">
+                        </div>
+                        <div class="p-3 border-bottom" dir='rtl'>
+                            <h6 class="text-dark"></span>
+                            </h6>
+                            <p class="mb-0 text-muted">ما را در شبکه های اجتماعی دنبال کنید و از آخرین تغییرات مطلع شوید.</p>
+                        </div>
+                        <div class="p-3">
+                            <a href="https://www.instagram.com/abarvisionco/" target="_blank" class="btn btn-outline-success btn-sm pl-4 pr-4 text-success"> دنبال کردن</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

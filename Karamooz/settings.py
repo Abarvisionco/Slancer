@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'resume.apps.ResumeConfig',
     'company.apps.CompanyConfig',
+    'chat.apps.ChatConfig',
     # required lib
     'django_quill',
     'pwa',
