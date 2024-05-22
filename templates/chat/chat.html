@@ -16,11 +16,13 @@
                         <div class="row m-0">
                             <div class="border-right col-lg-5 col-xl-4 px-0">
                                 <div class="osahan-chat-left">
-                                    <div class="position-relative icon-form-control p-3 border-bottom">
-                                        <i class="fa fa-search position-absolute"></i>
-                                        <input placeholder="Search messages" type="text" class="form-control">
-                                    </div>
+                                    
                                     <div class="osahan-chat-list">
+                                        {% if not resume and not company %}
+                                            <center>
+                                                <h6 class='pt-5'>هنوز پیام رسانی را شروع نکرده اید</h6>
+                                            </center>
+                                        {% endif %}
                                         {% for i in resume %}
                                         <a href="{% url 'chat' %}?room_id={{ i.id }}">
                                             <div class="p-3 d-flex align-items-center border-bottom osahan-post-header overflow-hidden">
@@ -74,8 +76,12 @@
                                                 <i class="mdi mdi-dots-vertical"></i>
                                             </button>
                                             <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="{% url 'co_detail' room_name.company.user.id %}" target="_blank"><i class="mdi mdi-trash"></i> نمایش شرکت یا سازمان</a>
-                                                <a class="dropdown-item" href="{% url 'resume' room_name.resume.id %}" target="_blank"><i class="mdi mdi-x-circle"></i> نمایش رزومه کاربر</a>
+                                                <a class="dropdown-item right_text" href="{% url 'co_detail' room_name.company.user.id %}" target="_blank"><i class="mdi mdi-trash"></i> نمایش شرکت یا سازمان</a>
+                                                <a class="dropdown-item right_text" href="{% url 'resume' room_name.resume.id %}" target="_blank"><i class="mdi mdi-x-circle"></i> نمایش رزومه کاربر</a>
+                                                <form method="post" action="{% url 'delete_chat' room_name.id %}">
+                                                    {% csrf_token %}
+                                                    <button class="dropdown-item right_text" type="submit" ><i class="mdi mdi-x-circle"></i> حذف این گفتگو</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </span>
