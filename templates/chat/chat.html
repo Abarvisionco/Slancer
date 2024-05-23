@@ -105,6 +105,14 @@
                                             <button type="button" class="btn btn-light btn-sm rounded" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="mdi mdi-dots-vertical"></i>
                                             </button>
+                                            <a onclick="refresh()" class="btn btn-light btn-sm rounded ml-2 text-success" title="بروز رسانی پیام ها">
+                                                <i class="mdi mdi-refresh"></i>
+                                            </a>
+                                            <script>
+                                                function refresh(){
+                                                    location.reload();
+                                                }
+                                            </script>
                                             <div class="dropdown-menu dropdown-menu-right">
                                                 <a class="dropdown-item right_text" href="{% url 'co_detail' room_name.company.user.id %}" target="_blank"><i class="mdi mdi-trash"></i> نمایش شرکت یا سازمان</a>
                                                 <a class="dropdown-item right_text" href="{% url 'resume' room_name.resume.id %}" target="_blank"><i class="mdi mdi-x-circle"></i> نمایش رزومه کاربر</a>
