@@ -86,7 +86,7 @@ def resume(request, id):
             chat = company
 
         context['chat'] = chat
-    except Company.DoesNotExist:
+    except:
         context['chat'] = None
         # messages.error(request, "شما هیچ شرکتی ندارید.")
 

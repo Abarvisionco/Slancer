@@ -4,6 +4,20 @@
 
 {% load static %}
 
+{% block seo %}
+
+<meta property="og:title" content="{{ co.company_name }} | اس لنسر">
+<meta property="og:description" content="سازمان {{ co.company_name }} به دنبال کارآموز میگردد. با ثبت نام در Slancer پیشنهاد کارآموزی خود را ارسال کنید.">
+<meta property="og:image" content="{% static 'images/logo.svg' %}">
+<meta property="og:url" content="https://slancer.ir/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Slancer | اس لنسر">
+
+<meta name="description" content="سازمان {{ co.company_name }} به دنبال کارآموز میگردد. با ثبت نام در Slancer پیشنهاد کارآموزی خود را ارسال کنید.">
+
+
+{% endblock seo %}
+
 {% block title %}
     {{ co.company_name }}
 {% endblock %}

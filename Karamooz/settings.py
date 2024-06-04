@@ -188,15 +188,15 @@ JALALI_DATE_DEFAULTS = {
 
 # pwa settings
 
-PWA_APP_NAME = 'Schoolancer'
-PWA_APP_DESCRIPTION = "Schoolancer pwa Application"
-PWA_APP_THEME_COLOR = '#33FF9C'
+PWA_APP_NAME = 'Slancer'
+PWA_APP_DESCRIPTION = "Slancer pwa Application"
+PWA_APP_THEME_COLOR = '#23d0b9'
 PWA_APP_BACKGROUND_COLOR = '#ffffff'
 PWA_APP_DISPLAY = 'standalone'
 PWA_APP_SCOPE = '/'
 PWA_APP_ORIENTATION = 'any'
 PWA_APP_START_URL = '/'
-PWA_APP_STATUS_BAR_COLOR = '#33FF9C'
+PWA_APP_STATUS_BAR_COLOR = '#23d0b9'
 PWA_APP_ICONS = [
     {
         'src': 'static/images/pwa.png',

@@ -5,14 +5,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Gurdeep singh osahan">
-    <meta name="author" content="Dokey | Mahdi Ghasemi">
+    {% block seo %}
+
+    {% endblock seo %}
+    <meta name="author" content="AbarVision Company">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="Slancer, اس لنسر, کارآموزی هنرستان, کارآموزی, کارآموز, گرفتن کارآموز, هنرستان">
     <title>{% block title %}
 
     {% endblock %}</title>
     {% progressive_web_app_meta %}
 
-    <link rel="icon" type="image/png" href="{% static 'images/fav.svg' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/fav.png' %}">
 
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
@@ -29,6 +33,7 @@
     <link href="{% static 'vendor/select2/css/select2.min.css' %}" rel="stylesheet">
 
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
 </head>
 
 <body>
@@ -405,7 +410,7 @@
                     <img src="{% static 'images/logo.svg' %}">
                 </a>
             </div>
-            <p dir="rtl">© تمام حقوق محفوض و متعلق به <a href="https://abarvision.ir" class="text-dark">Abar Vision</a> میباشد.
+            <p dir="rtl">© تمام حقوق وبسایت اس لنسر یا Slancer محفوض و متعلق به <a href="https://abarvision.ir" class="text-dark">Abar Vision</a> میباشد.
             </p>
             <ul class="social">
 

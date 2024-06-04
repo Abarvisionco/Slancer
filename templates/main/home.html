@@ -1,9 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block seo %}
+
+<meta property="og:title" content="Slancer | اس لنسر">
+<meta property="og:description" content="رزومه خود را بسازید، کارآموزی خود را از بین شرکت ها رقم بزنید، اینجا شروع آینده شغلی شماست.">
+<meta property="og:image" content="{% static 'images/logo.svg' %}">
+<meta property="og:url" content="https://slancer.ir/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Slancer | اس لنسر">
+
+<meta name="description" content="رزومه خود را بسازید، کارآموزی خود را از بین شرکت ها رقم بزنید، اینجا شروع آینده شغلی شماست.">
+
+
+{% endblock seo %}
+
+
 {% block title %}
-    Schoolancer | خانه
-{% endblock %}
+    Slancer | اس لنسر 
+    {% endblock %}
 
 {% block content %}
     <section class="py-5 homepage-search-block position-relative" dir="rtl">
@@ -11,8 +26,9 @@
             <div class="row py-lg-5">
                 <div class="col-lg-7">
                     <div class="homepage-search-title">
-                        <h1 class="mb-3 text-shadow text-gray-900 font-weight-bold text-right">خدمات</h1>
-                        <p class="text-right h-1">از بین هنرجویان رشته های مختلف هنرستان های سراسر کشور،
+                        <h1 class="mb-3 text-shadow text-gray-900 font-weight-bold text-right">اِس لنسر | Slancer</h1>
+                        <p class="text-right h-1">
+                            از بین هنرجویان رشته های مختلف هنرستان های سراسر کشور،
                             <br> کارآموز خود را انتخاب کنید.
                         </p>
                     </div>

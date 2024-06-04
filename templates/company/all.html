@@ -1,5 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block seo %}
+
+<meta property="og:title" content="شرکت ها و سازمان ها | اس لنسر">
+<meta property="og:description" content="شرکت های موجود در Slancer که به دنبال کارآموز میگردند.">
+<meta property="og:image" content="{% static 'images/logo.svg' %}">
+<meta property="og:url" content="https://slancer.ir/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Slancer | اس لنسر">
+
+<meta name="description" content="شرکت های موجود در Slancer که به دنبال کارآموز میگردند.">
+
+
+{% endblock seo %}
+
 {% block title %}
     شرکت و سازمان ها
 {% endblock %}

@@ -4,8 +4,23 @@
 
 {% load static %}
 
+
+{% block seo %}
+
+<meta property="og:title" content="رزومه {{ resume.user.get_full_name }}">
+<meta property="og:description" content="رزومه خود را بسازید، کارآموزی خود را از بین شرکت ها رقم بزنید، اینجا شروع آینده شغلی شماست.">
+<meta property="og:image" content="{% static 'images/logo.svg' %}">
+<meta property="og:url" content="https://slancer.ir/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Slancer | اس لنسر">
+
+<meta name="description" content="رزومه خود را بسازید، کارآموزی خود را از بین شرکت ها رقم بزنید، اینجا شروع آینده شغلی شماست.">
+
+
+{% endblock seo %}
+
 {% block title %}
-    رزومه شما
+    رزومه {{ resume.user.get_full_name }} | اس لنسر
 {% endblock %}
 
 {% block content %}

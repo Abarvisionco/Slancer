@@ -1,7 +1,22 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block seo %}
+
+<meta property="og:title" content="Slancer | اس لنسر">
+<meta property="og:description" content="Slancer, درباره ما.">
+<meta property="og:image" content="{% static 'images/logo.svg' %}">
+<meta property="og:url" content="https://slancer.ir/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Slancer | اس لنسر">
+
+<meta name="description" content="Slancer, درباره ما.">
+
+
+{% endblock seo %}
+
 {% block title %}
-    About Page
+    اس لنسر | درباره ما
 {% endblock %}
 
 {% block content %}
