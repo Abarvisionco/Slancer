@@ -13,22 +13,22 @@ A website to display the interns and students of the country's conservatories an
 
 ## Structure
 Description of applications and project foldering
-#### Karamooz:
+#### Karamooz
  this is project and including settings and asgi files and main packages and main urls 
 
-#### main:
+#### main
 The main routers of the project include the main pages, the default settings of the project without facilities, etc.
 
-#### resume:
+#### resume
 Users' resume settings, creating, deleting, displaying and updating their information are available in this application.
 
-#### company:
+#### company
 Users' company settings, creating, deleting, displaying and updating their information are available in this application.
 
-#### users:
+#### users
 User section settings and their models, SMS settings, etc.
 
-#### chat:
+#### chat
 Employer and trainee chat room settings and routers
 
 ## Execution 
