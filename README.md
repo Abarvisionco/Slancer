@@ -11,7 +11,25 @@ A website to display the interns and students of the country's conservatories an
 
 <img src="./static/images/fav.svg" width='200px'>
 
+## Structure
+Description of applications and project foldering
+#### Karamooz:
+ this is project and including settings and asgi files and main packages and main urls 
 
+#### main:
+The main routers of the project include the main pages, the default settings of the project without facilities, etc.
+
+#### resume:
+Users' resume settings, creating, deleting, displaying and updating their information are available in this application.
+
+#### company:
+Users' company settings, creating, deleting, displaying and updating their information are available in this application.
+
+#### users:
+User section settings and their models, SMS settings, etc.
+
+#### chat:
+Employer and trainee chat room settings and routers
 
 ## Execution 
 For better project execution, it is recommended to use a virtual environment. To install it: 
