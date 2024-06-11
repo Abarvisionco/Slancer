@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Slancer | اس لنسر 
+    {% endblock %}
+
+{% block content %}
+<section class="py-5 bg-white border-top border-bottom" dir='rtl'>
+    <div class="container">
+    <div class="row py-lg-5">
+    <div class="col-lg-8 col-md-8 mx-auto text-center">
+    <h1><img class="img-fluid" src="{% static 'images/404.png' %}" alt="404"></h1>
+    <h1>متاسفیم.</h1>
+    <p class="land">صفحه ای که به دنبال آن هستید پیدا نشد. لطفا آدرس بار را برسی بکنید.</p>
+    <div class="mt-5">
+    <a href="{% url 'home' %}" class="btn btn-success"><i class="mdi mdi-home"></i> بازگشت به صفحه اصلی</a>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+{% endblock %}
