@@ -384,7 +384,7 @@
                 {#                </li>#}
             </ul>
         </div>
-        <ul class="navbar-nav ml-auto">
+         <ul class="navbar-nav">
             {% if not user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'login' %}">
@@ -410,7 +410,7 @@
                     <img src="{% static 'images/logo.svg' %}">
                 </a>
             </div>
-            <p dir="rtl">© تمام حقوق وبسایت اس لنسر یا Slancer محفوض و متعلق به <a href="https://abarvision.ir" class="text-dark">Abar Vision</a> میباشد.
+            <p dir="rtl" class='text-center'>© تمام حقوق وبسایت اس لنسر یا Slancer محفوض و متعلق به <a href="https://abarvision.ir" class="text-dark">Abarvision</a> میباشد.
             </p>
             <ul class="social">
 
