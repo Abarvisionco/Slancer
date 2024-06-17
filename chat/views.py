@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.urls import reverse
 from resume.models import Resume
 from company.models import Company
-
+from chat.send_message import sent
 
 
 @login_required
@@ -92,6 +92,11 @@ def send_message(request, chat_room_id):
                     message.author = request.user
                     message.chat_room = chat_room
                     message.save()
+                    if chat_room.company.user == request.user:
+                        sent(mobile=chat_room.resume.user.mobile, name=chat_room.company.user.first_name, yaro=chat_room.resume.user.first_name, chat=chat_room_id)
+                    else:
+                        sent(mobile=chat_room.company.user.mobile, name=chat_room.resume.user.first_name, yaro=chat_room.company.user.first_name, chat=chat_room_id)
+                        
                     chat_room.update_last_response(request.user)
                     return redirect(redirect_url)
                 else:

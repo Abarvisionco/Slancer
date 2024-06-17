@@ -9,7 +9,7 @@ def sent_otp(mobile, otp):
         api = KavenegarAPI('57725246434A74555663544635727A44686C4C7442705571693476694B4164584575555A4964723454384D3D')
         params = {
             'receptor': mobile,
-            'template': 'test',
+            'template': 'login-slncer',
             'token': otp,
             'type': 'sms',  # sms vs call
         }
