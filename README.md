@@ -2,7 +2,8 @@
 A website to display the interns and students of the country's conservatories and select them by different companies for internships. This website was established to speed up the time to find a job or intern, It has an advanced chat room panel, and it is an idea by Abarvision.
 
 >[!NOTE]
->The latest version is ready for project deployment
+>The latest version is ready for project deployment.
+>this repo is open source
 
 
 [![Python](https://img.shields.io/badge/python-%2320232a.svg?style=for-the-badge&logo=python)](https://github.com//prodbygodfather)
