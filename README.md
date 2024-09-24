@@ -37,35 +37,39 @@ Description of applications and project foldering
   - Employer and trainee chat room settings and routers
 
 ## Execution 
-For better project execution, it is recommended to use a virtual environment. To install it: 
+1. For better project execution, it is recommended to use a virtual environment. To install it: 
  
 ```
 pip install virtualenv 
 ```
  
  
-- Create a virtual environment: 
+2. Create a virtual environment: 
  
 ```
 virtualenv venv 
  ```
  
  
-- Activate the virtual environment: 
+3. Activate the virtual environment: 
+
+   - on ubuntu:
+   ```
+   source venv/bin/activate 
+   ```
+   - on windows:
+   ```
+   venv/Scripts/activate 
+   ```
  
-```
-source venv/bin/activate 
- ```
- 
- 
-- After activating the virtual environment, there is a `.txt` file containing the required libraries and frameworks embedded. Install it within the virtual environment: 
+4. After activating the virtual environment, there is a `.txt` file containing the required libraries and frameworks embedded. Install it within the virtual environment: 
  
 ```
 pip install -r requirements.txt 
  ```
  
  
-- Once the project dependencies are installed, run the project: 
+5. Once the project dependencies are installed, run the project: 
  
 ```
 python manage.py runserver 
